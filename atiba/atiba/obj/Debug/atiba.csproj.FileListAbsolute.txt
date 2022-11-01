@@ -1,0 +1,14 @@
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\obj\Debug\atiba.csprojAssemblyReference.cache
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\obj\Debug\atiba.Form1.resources
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\obj\Debug\atiba.Properties.Resources.resources
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\obj\Debug\atiba.csproj.GenerateResource.cache
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\obj\Debug\atiba.csproj.CoreCompileInputs.cache
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\atiba.exe.config
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\atiba.exe
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\atiba.pdb
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\obj\Debug\atiba.exe
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\obj\Debug\atiba.pdb
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\WebDriver.dll
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\WebDriver.Support.dll
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\obj\Debug\atiba.csproj.CopyComplete
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\obj\Debug\atiba.csproj.ResolveComReference.cache
