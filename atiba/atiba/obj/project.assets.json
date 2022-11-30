@@ -2,10 +2,10 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.5": {
-      "Selenium.Support/4.5.1": {
+      "Selenium.Support/4.6.0": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.5.1"
+          "Selenium.WebDriver": "4.6.0"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -17,7 +17,7 @@
           "lib/net45/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.5.1": {
+      "Selenium.WebDriver/4.6.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -27,9 +27,12 @@
         },
         "runtime": {
           "lib/net45/WebDriver.dll": {}
+        },
+        "build": {
+          "build/_._": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/107.0.5304.6200": {
+      "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -37,10 +40,10 @@
       }
     },
     ".NETFramework,Version=v4.5/win": {
-      "Selenium.Support/4.5.1": {
+      "Selenium.Support/4.6.0": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.5.1"
+          "Selenium.WebDriver": "4.6.0"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -52,7 +55,7 @@
           "lib/net45/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.5.1": {
+      "Selenium.WebDriver/4.6.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -62,9 +65,12 @@
         },
         "runtime": {
           "lib/net45/WebDriver.dll": {}
+        },
+        "build": {
+          "build/_._": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/107.0.5304.6200": {
+      "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -72,10 +78,10 @@
       }
     },
     ".NETFramework,Version=v4.5/win-x64": {
-      "Selenium.Support/4.5.1": {
+      "Selenium.Support/4.6.0": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.5.1"
+          "Selenium.WebDriver": "4.6.0"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -87,7 +93,7 @@
           "lib/net45/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.5.1": {
+      "Selenium.WebDriver/4.6.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -97,9 +103,12 @@
         },
         "runtime": {
           "lib/net45/WebDriver.dll": {}
+        },
+        "build": {
+          "build/_._": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/107.0.5304.6200": {
+      "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -107,10 +116,10 @@
       }
     },
     ".NETFramework,Version=v4.5/win-x86": {
-      "Selenium.Support/4.5.1": {
+      "Selenium.Support/4.6.0": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.5.1"
+          "Selenium.WebDriver": "4.6.0"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -122,7 +131,7 @@
           "lib/net45/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.5.1": {
+      "Selenium.WebDriver/4.6.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -132,9 +141,12 @@
         },
         "runtime": {
           "lib/net45/WebDriver.dll": {}
+        },
+        "build": {
+          "build/_._": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/107.0.5304.6200": {
+      "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -143,10 +155,10 @@
     }
   },
   "libraries": {
-    "Selenium.Support/4.5.1": {
-      "sha512": "H4PcRAZCORFuQJIiyB/gozGOiQGsPQUq0yWT4t2rmx1N0Hzo7OD9gmmhDTs2xvMMILnRfEmUbvXTStlHdmUDZQ==",
+    "Selenium.Support/4.6.0": {
+      "sha512": "sbZDn0v4fNwhB0vyhWZD+P9Tr3MlPOT5gA+SJTcqDxe0ieS1SOhF0koV2zmh1qwNq8dgR+6YxHhmhh3EntEZ+w==",
       "type": "package",
-      "path": "selenium.support/4.5.1",
+      "path": "selenium.support/4.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -158,17 +170,18 @@
         "lib/net5.0/WebDriver.Support.dll",
         "lib/netstandard2.0/WebDriver.Support.dll",
         "lib/netstandard2.1/WebDriver.Support.dll",
-        "selenium.support.4.5.1.nupkg.sha512",
+        "selenium.support.4.6.0.nupkg.sha512",
         "selenium.support.nuspec"
       ]
     },
-    "Selenium.WebDriver/4.5.1": {
-      "sha512": "ztu9Qv2n5/NkqPs0MQ3nojMJuW2PVHrAKDukmT77HbYAGhZI370Hp0EJNqyucJuud937Lr/qvXsoOtLZ18VFnw==",
+    "Selenium.WebDriver/4.6.0": {
+      "sha512": "wdkzNyVYvdI0YOeScP42ubshPOjY7dj8aXHyetlhVTqKo5gAbYnOJU//W5q0hVSVw4hsisNvgR/UQqPvgM8rew==",
       "type": "package",
-      "path": "selenium.webdriver/4.5.1",
+      "path": "selenium.webdriver/4.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "build/Selenium.WebDriver.targets",
         "images/icon.png",
         "lib/net45/WebDriver.dll",
         "lib/net46/WebDriver.dll",
@@ -177,14 +190,17 @@
         "lib/net5.0/WebDriver.dll",
         "lib/netstandard2.0/WebDriver.dll",
         "lib/netstandard2.1/WebDriver.dll",
-        "selenium.webdriver.4.5.1.nupkg.sha512",
+        "manager/linux/selenium-manager",
+        "manager/macos/selenium-manager",
+        "manager/windows/selenium-manager.exe",
+        "selenium.webdriver.4.6.0.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.ChromeDriver/107.0.5304.6200": {
-      "sha512": "0xkXvzwRXVbduG62Z7+vhM4a85x3mWlfGUSQn+4PdeVJdkkssVe4rV80J+WBEOfUJAjga7L6YydFkbd9ONJqxQ==",
+    "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
+      "sha512": "wrDUVsoQHQct9BodCFgRi1LMKGhwv27ANuS8l7ZXcOn/VS2NqcxxBhSAkcucx4CoZgidny0+ifnFS95nTmnVvg==",
       "type": "package",
-      "path": "selenium.webdriver.chromedriver/107.0.5304.6200",
+      "path": "selenium.webdriver.chromedriver/108.0.5359.7100",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -196,15 +212,15 @@
         "driver/mac64arm/chromedriver",
         "driver/win32/chromedriver.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.chromedriver.107.0.5304.6200.nupkg.sha512",
+        "selenium.webdriver.chromedriver.108.0.5359.7100.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.5": [
-      "Selenium.Support >= 4.5.1",
-      "Selenium.WebDriver.ChromeDriver >= 107.0.5304.6200"
+      "Selenium.Support >= 4.6.0",
+      "Selenium.WebDriver.ChromeDriver >= 108.0.5359.7100"
     ]
   },
   "packageFolders": {
@@ -242,11 +258,11 @@
         "dependencies": {
           "Selenium.Support": {
             "target": "Package",
-            "version": "[4.5.1, )"
+            "version": "[4.6.0, )"
           },
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
-            "version": "[107.0.5304.6200, )"
+            "version": "[108.0.5359.7100, )"
           }
         }
       }
