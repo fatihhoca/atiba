@@ -2,7 +2,7 @@
                        The Work Plan
                        
                           Upgrade                       
-<<<<<<< Updated upstream
+
 *Anne-Baba meslek bilgileri ekleme                                      Completed
 *Manuel olarak öğrenci bilğilerinin gride eklenebilmesi                 Paused
 *Anne-Baba meslek bilgileri ekleme                                     	Completed
