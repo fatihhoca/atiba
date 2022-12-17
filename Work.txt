@@ -2,7 +2,7 @@
                        The Work Plan
                        
                           Upgrade                       
-*Anne-Baba meslike bilgileri ekleme                                     Completed
+*Anne-Baba meslek bilgileri ekleme                                     Completed
 *Manuel olarak öğrenci bilğilerinin gride eklenebilmesi                 Paused
 *Cvs formatında öğrenci yükleme ve bilgileri dışarı aktarma             Paused
 
