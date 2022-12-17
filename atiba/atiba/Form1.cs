@@ -106,7 +106,8 @@ namespace atiba
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
+
             progressBar1.Maximum = dataGridView1.Rows.Count + 1;
             progressBar1.Value = 0;
 
@@ -761,8 +762,12 @@ namespace atiba
 
         private void bekle(int saniye)
         {
+            int speed = 1;
+            if (speed_rb_normal.Checked == true) { speed = 1; }
+            else if (speed_rb_slow.Checked == true) { speed = 2; }
+            else if (speed_rb_slower.Checked == true) { speed = 3; }
             DateTime start = DateTime.Now;
-            while (Convert.ToInt32((DateTime.Now - start).TotalMilliseconds) < saniye)
+            while (Convert.ToInt32((DateTime.Now - start).TotalMilliseconds) < saniye*speed)
             {
 
             }
@@ -870,6 +875,11 @@ namespace atiba
             Application.DoEvents();
             IList<IWebElement> aranan = eokul.FindElements(By.XPath("//i[@class='fas fa-folder']"));
             aranan[0].Click();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
