@@ -2,13 +2,18 @@
                        The Work Plan
                        
                           Upgrade                       
+<<<<<<< Updated upstream
 *Anne-Baba meslek bilgileri ekleme                                     Completed
 *Manuel olarak öğrenci bilğilerinin gride eklenebilmesi                 Paused
+=======
+*Anne-Baba meslek bilgileri ekleme                                     	Completed
+*Manuel olarak öğrenci numaralarını gride eklenebilmesi                 Paused
+>>>>>>> Stashed changes
 *Cvs formatında öğrenci yükleme ve bilgileri dışarı aktarma             Paused
 
                         Bug ve Debug
 *Problem Çözümü(Tarayıcı yakınlaştırma butonu)                          Paused
-*Problem Çözümü(Bekle somutu)                                           Completed
+*Problem Çözümü(Bekle komutu)                                           Completed
 *problem çözümü(Fazla sütunlar)                                         Active
 *Problem çözümü(Veri çekmeye baştan başlama)                            Paused
 *Problem çözümü(Doğum tarihi formatı)                                   Paused
@@ -19,7 +24,7 @@
   Condition of the problem(Tarayıcı boyutu %100 olunca takılmalar yaşanıyor.)
   Way to solve the problem
     -Tarayıcı yakınlaştırma kododu araştır varsa eklenebilir
-    -Kullnıcıya uyarı koyulabilir
+    -Kullanıcıya uyarı koyulabilir
     
    Condition of the problem(İnternet hızı yavaş olunca takılmalar yaşanıyor.) 
    Way to solve the problem
@@ -29,9 +34,15 @@
    Condition of the problem("Bilgi Çek" butonuna 1 den çok basmada fazladan datagridte sütun eklemesi)
    Way to solve the problem
     -İşlem bitene kadar buton pasif hale getirilebilir.
+<<<<<<< Updated upstream
     -Her basışta ilk sütun(öğrenci Noları Sütunu) hariç diğer sütunlar silinebilir.
    
    Condition of the problem(Veri çekmede tekrar tıklama olduğunda tekrar baştan tüm verileri çekiyor.)
+=======
+    -Her basışta ilk sütun(öğrenci Notları Sütunu) hariç diğer sütunlar silinebilir.
+   
+   Condition of the problem(Veri çekmede mükerrer tıklama olduğunda tekrar baştan tüm verileri çekiyor.)
+>>>>>>> Stashed changes
    Way to solve the problem
     -İstenilen satırdan başlayarak veri çekmesinin sağlanabilir.(dr değişkeni) (   foreach (DataGridViewRow dr in dataGridView1.Rows) )
 
