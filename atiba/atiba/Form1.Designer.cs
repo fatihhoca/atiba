@@ -55,9 +55,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(2, 2);
+            this.button1.Location = new System.Drawing.Point(4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 33);
+            this.button1.Size = new System.Drawing.Size(290, 63);
             this.button1.TabIndex = 0;
             this.button1.Text = "Öğrenci Listesi Yükle";
             this.button1.UseVisualStyleBackColor = true;
@@ -65,9 +66,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(2, 41);
+            this.button2.Location = new System.Drawing.Point(4, 79);
+            this.button2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 33);
+            this.button2.Size = new System.Drawing.Size(290, 63);
             this.button2.TabIndex = 2;
             this.button2.Text = "e-Okul Aç";
             this.button2.UseVisualStyleBackColor = true;
@@ -75,9 +77,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(2, 390);
+            this.button3.Location = new System.Drawing.Point(4, 750);
+            this.button3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 49);
+            this.button3.Size = new System.Drawing.Size(290, 94);
             this.button3.TabIndex = 9;
             this.button3.Text = "Bilgileri Çek";
             this.button3.UseVisualStyleBackColor = true;
@@ -88,9 +91,11 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(149, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(298, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1025, 656);
+            this.dataGridView1.RowHeadersWidth = 82;
+            this.dataGridView1.Size = new System.Drawing.Size(2050, 1262);
             this.dataGridView1.TabIndex = 1;
             // 
             // ogrenciListBox
@@ -111,15 +116,17 @@
             "Özürlü Devamsızlık",
             "Özürsüz Devamsızlık"});
             this.ogrenciListBox.Location = new System.Drawing.Point(0, 0);
+            this.ogrenciListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.ogrenciListBox.Name = "ogrenciListBox";
-            this.ogrenciListBox.Size = new System.Drawing.Size(135, 199);
+            this.ogrenciListBox.Size = new System.Drawing.Size(266, 368);
             this.ogrenciListBox.TabIndex = 4;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(2, 612);
+            this.button4.Location = new System.Drawing.Point(4, 1177);
+            this.button4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(145, 23);
+            this.button4.Size = new System.Drawing.Size(290, 44);
             this.button4.TabIndex = 20;
             this.button4.Text = "Excel\'e Aktar";
             this.button4.UseVisualStyleBackColor = true;
@@ -127,16 +134,18 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(2, 440);
+            this.progressBar1.Location = new System.Drawing.Point(4, 846);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(145, 23);
+            this.progressBar1.Size = new System.Drawing.Size(290, 44);
             this.progressBar1.TabIndex = 25;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(2, 636);
+            this.button5.Location = new System.Drawing.Point(4, 1223);
+            this.button5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(145, 23);
+            this.button5.Size = new System.Drawing.Size(290, 44);
             this.button5.TabIndex = 21;
             this.button5.Text = "Verileri Kopyala";
             this.button5.UseVisualStyleBackColor = true;
@@ -146,9 +155,10 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(2, 321);
+            this.radioButton1.Location = new System.Drawing.Point(4, 617);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(107, 17);
+            this.radioButton1.Size = new System.Drawing.Size(203, 29);
             this.radioButton1.TabIndex = 7;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "İlkokul / Ortaokul";
@@ -157,9 +167,10 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(2, 344);
+            this.radioButton2.Location = new System.Drawing.Point(4, 662);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(44, 17);
+            this.radioButton2.Size = new System.Drawing.Size(83, 29);
             this.radioButton2.TabIndex = 8;
             this.radioButton2.Text = "Lise";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -175,10 +186,12 @@
             "Baba Sağ/Ölü",
             "Baba Birlikte/Ayrı",
             "Baba Mezuniyet",
-            "Baba Doğum Tarihi"});
+            "Baba Doğum Tarihi",
+            "Baba Meslek"});
             this.babaListBox.Location = new System.Drawing.Point(0, 0);
+            this.babaListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.babaListBox.Name = "babaListBox";
-            this.babaListBox.Size = new System.Drawing.Size(135, 109);
+            this.babaListBox.Size = new System.Drawing.Size(266, 256);
             this.babaListBox.TabIndex = 5;
             this.babaListBox.SelectedIndexChanged += new System.EventHandler(this.babaListBox_SelectedIndexChanged);
             // 
@@ -192,10 +205,12 @@
             "Anne Sağ/Ölü",
             "Anne Birlikte/Ayrı",
             "Anne Mezuniyet",
-            "Anne Doğum Tarihi"});
+            "Anne Doğum Tarihi",
+            "Anne Meslek"});
             this.anneListBox.Location = new System.Drawing.Point(0, 0);
+            this.anneListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.anneListBox.Name = "anneListBox";
-            this.anneListBox.Size = new System.Drawing.Size(135, 109);
+            this.anneListBox.Size = new System.Drawing.Size(266, 256);
             this.anneListBox.TabIndex = 6;
             // 
             // tabControl1
@@ -203,19 +218,21 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(2, 80);
+            this.tabControl1.Location = new System.Drawing.Point(4, 154);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(145, 235);
+            this.tabControl1.Size = new System.Drawing.Size(290, 452);
             this.tabControl1.TabIndex = 26;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.ogrenciListBox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(8, 39);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(137, 209);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Size = new System.Drawing.Size(274, 405);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Öğrenci";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -223,10 +240,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.babaListBox);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(8, 39);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(137, 209);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage2.Size = new System.Drawing.Size(274, 405);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Baba";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -234,9 +252,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.anneListBox);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(8, 39);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(137, 209);
+            this.tabPage3.Size = new System.Drawing.Size(274, 405);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Anne";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -245,9 +264,10 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(2, 367);
+            this.radioButton3.Location = new System.Drawing.Point(4, 706);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(99, 17);
+            this.radioButton3.Size = new System.Drawing.Size(194, 29);
             this.radioButton3.TabIndex = 27;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "AİHL (Alternatif)";
@@ -255,9 +275,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.ClientSize = new System.Drawing.Size(2368, 1271);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.radioButton2);
@@ -270,6 +290,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";

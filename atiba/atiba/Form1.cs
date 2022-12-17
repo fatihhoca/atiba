@@ -154,6 +154,8 @@ namespace atiba
                 dataGridView1.Columns.Add("babaMezuniyet", "Baba Mezuniyet");
             if (babaListBox.GetItemChecked(6) == true)
                 dataGridView1.Columns.Add("babaDT", "Baba Doğum Tarihi");
+            if (babaListBox.GetItemChecked(7) == true)
+                dataGridView1.Columns.Add("babaMslk", "Baba Mesleği");
 
             if (anneListBox.GetItemChecked(0) == true)
                 dataGridView1.Columns.Add("anneAdSoyad", "Anne");
@@ -169,7 +171,8 @@ namespace atiba
                 dataGridView1.Columns.Add("anneMezuniyet", "Anne Mezuniyet");
             if (anneListBox.GetItemChecked(6) == true)
                 dataGridView1.Columns.Add("anneDT", "Anne Doğum Tarihi");
-
+            if (anneListBox.GetItemChecked(7) == true)
+                dataGridView1.Columns.Add("anneMslk", "Anne Mesleği");
 
             IWebElement veri;
             IList<IWebElement> aranan;
@@ -536,7 +539,27 @@ namespace atiba
                                     }
                                 } while (hataVar == true);
                             }
-                            
+                            if (babaListBox.GetItemChecked(7) == true)
+                            {
+                                bekle(100);
+                                bool hataVar = false;
+                                do
+                                {
+                                    try
+                                    {
+                                        SelectElement se = new SelectElement(eokul.FindElement(By.Id("cmbMeslek")));
+                                        dataGridView1.Rows[satir].Cells["babaMslk"].Value = se.SelectedOption.Text.ToString();
+                                        hataVar = false;
+                                    }
+                                    catch
+                                    {
+                                        dataGridView1.Rows[satir].Cells["babaMslk"].Value = "Hata";
+                                        hataVar = true;
+                                        eokul.Navigate().Refresh();
+                                        bekle(500);
+                                    }
+                                } while (hataVar == true);
+                            }
 
                         }
 
@@ -649,7 +672,27 @@ namespace atiba
                                     }
                                 } while (hataVar == true);
                             }
-                            
+                            if (anneListBox.GetItemChecked(7) == true)
+                            {
+                                bekle(100);
+                                bool hataVar = false;
+                                do
+                                {
+                                    try
+                                    {
+                                        SelectElement se = new SelectElement(eokul.FindElement(By.Id("cmbMeslek")));
+                                        dataGridView1.Rows[satir].Cells["anneMslk"].Value = se.SelectedOption.Text.ToString();
+                                        hataVar = false;
+                                    }
+                                    catch
+                                    {
+                                        dataGridView1.Rows[satir].Cells["anneMslk"].Value = "Hata";
+                                        hataVar = true;
+                                        eokul.Navigate().Refresh();
+                                        bekle(500);
+                                    }
+                                } while (hataVar == true);
+                            }
                         }
                     }
                     else
