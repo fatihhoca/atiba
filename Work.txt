@@ -10,7 +10,7 @@
 *Cvs formatında öğrenci yükleme ve bilgileri dışarı aktarma             Paused
 
                         Bug ve Debug
-*Problem Çözümü(Tarayıcı yakınlaştırma butonu)                          Paused
+*Problem Çözümü(Tarayıcı yakınlaştırma butonu)                          Completed
 *Problem Çözümü(Bekle komutu)                                           Completed
 *problem çözümü(Fazla sütunlar)                                         Active
 *Problem çözümü(Veri çekmeye baştan başlama)                            Paused
