@@ -8,8 +8,8 @@
 
                         Bug ve Debug
 *Problem Çözümü(Tarayıcı yakınlaştırma butonu)                          Paused
-*Problem Çözümü(Bekle somutu)                                           Active
-*problem çözümü(Fazla sütunlar)                                         Paused
+*Problem Çözümü(Bekle somutu)                                           Completed
+*problem çözümü(Fazla sütunlar)                                         Active
 *Problem çözümü(Veri çekmeye baştan başlama)                            Paused
 *Problem çözümü(Doğum tarihi formatı)                                   Paused
 
