@@ -101,7 +101,8 @@ namespace atiba
         {
             eokul = new ChromeDriver();
             eokul.Manage().Window.Maximize();
-            eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/");            
+            eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/");
+            ((IJavaScriptExecutor)eokul).ExecuteScript("document.body.style.zoom = '70%';");
         }
 
         private void button3_Click(object sender, EventArgs e)
