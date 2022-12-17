@@ -11,7 +11,7 @@
 *Problem Çözümü(Bekle somutu)                                           Active
 *problem çözümü(Fazla sütunlar)                                         Paused
 *Problem çözümü(Veri çekmeye baştan başlama)                            Paused
-
+*Problem çözümü(Doğum tarihi formatı)                                   Paused
 
 
 
@@ -34,7 +34,9 @@
    Condition of the problem(Veri çekmede taklıma olduğunda tekrar baştan tüm verileri çekiyor.)
    Way to solve the problem
     -İstenilen satırdan başlayarak veri çekmesinin sağlanlabilir.(dr değişkeni) (   foreach (DataGridViewRow dr in dataGridView1.Rows) )
-    
+
+   Condition of the problem(Doğum tarihlerinde excel hücre yapısı değişikliği  (12.12.2004 or 13/12/2004 )
+    -Excele tüm bilgilerin metin formatında kaydolması sağlanabilir.
     
     
     
