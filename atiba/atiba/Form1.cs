@@ -806,6 +806,7 @@ namespace atiba
                     {
                         try
                         {
+                            worksheet.Cells[i + 2, j + 1].NumberFormat = "@";
                             worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
                         }
                         catch { }

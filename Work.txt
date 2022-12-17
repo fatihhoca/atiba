@@ -14,7 +14,7 @@
 *Problem Çözümü(Bekle komutu)                                           Completed
 *problem çözümü(Fazla sütunlar)                                         Active
 *Problem çözümü(Veri çekmeye baştan başlama)                            Paused
-*Problem çözümü(Doğum tarihi formatı)                                   Paused
+*Problem çözümü(Doğum tarihi formatı)                                   Completed
 
 
 
