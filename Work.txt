@@ -1,4 +1,4 @@
-                       
+->                       
                        The Work Plan
                        
                           Upgrade                       
@@ -26,14 +26,14 @@
     -bekle(100) komutundaki süreyi değiştirilebilir. 
     -Bu süreyi değişke atanabilir.
    
-   Condition of the problem("Bilgi Çek" butonuna 1 den cok basmada fazladan datagridte sütun eklemesi)
+   Condition of the problem("Bilgi Çek" butonuna 1 den çok basmada fazladan datagridte sütun eklemesi)
    Way to solve the problem
     -İşlem bitene kadar buton pasif hale getirilebilir.
-    -Her basışta ilk sutun(öğrenci Noları Sutunu) hariç diğer sutunlar silinebilir.
+    -Her basışta ilk sütun(öğrenci Noları Sütunu) hariç diğer sütunlar silinebilir.
    
-   Condition of the problem(Veri çekmede taklıma olduğunda tekrar baştan tüm verileri çekiyor.)
+   Condition of the problem(Veri çekmede tekrar tıklama olduğunda tekrar baştan tüm verileri çekiyor.)
    Way to solve the problem
-    -İstenilen satırdan başlayarak veri çekmesinin sağlanlabilir.(dr değişkeni) (   foreach (DataGridViewRow dr in dataGridView1.Rows) )
+    -İstenilen satırdan başlayarak veri çekmesinin sağlanabilir.(dr değişkeni) (   foreach (DataGridViewRow dr in dataGridView1.Rows) )
 
    Condition of the problem(Doğum tarihlerinde excel hücre yapısı değişikliği  (12.12.2004 or 13/12/2004 )
     -Excele tüm bilgilerin metin formatında kaydolması sağlanabilir.
