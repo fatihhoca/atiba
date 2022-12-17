@@ -431,7 +431,7 @@ namespace atiba
 
                         //**************BABA BİLGİLERİ
 
-                        if (babaListBox.GetItemChecked(2) == true || babaListBox.GetItemChecked(1) == true || babaListBox.GetItemChecked(2) == true || babaListBox.GetItemChecked(3) == true || babaListBox.GetItemChecked(4) == true || babaListBox.GetItemChecked(5) == true)
+                        if (babaListBox.GetItemChecked(0) == true || babaListBox.GetItemChecked(1) == true || babaListBox.GetItemChecked(2) == true || babaListBox.GetItemChecked(3) == true || babaListBox.GetItemChecked(4) == true || babaListBox.GetItemChecked(5) == true || babaListBox.GetItemChecked(6) == true ||babaListBox.GetItemChecked(7) == true)
                         {
 
                             if (radioButton1.Checked == true)
@@ -566,7 +566,7 @@ namespace atiba
 
                         //**************ANNE BİLGİLERİ
 
-                        if (anneListBox.GetItemChecked(2) == true || anneListBox.GetItemChecked(1) == true || anneListBox.GetItemChecked(2) == true || anneListBox.GetItemChecked(3) == true || anneListBox.GetItemChecked(4) == true || anneListBox.GetItemChecked(5) == true)
+                        if (anneListBox.GetItemChecked(0) == true || anneListBox.GetItemChecked(1) == true || anneListBox.GetItemChecked(2) == true || anneListBox.GetItemChecked(3) == true || anneListBox.GetItemChecked(4) == true || anneListBox.GetItemChecked(5) == true || anneListBox.GetItemChecked(6) == true || anneListBox.GetItemChecked(7) == true)
                         {
                             if (radioButton1.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02006.aspx");
