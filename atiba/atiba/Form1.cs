@@ -102,7 +102,7 @@ namespace atiba
             eokul = new ChromeDriver();
             eokul.Manage().Window.Maximize();
             eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/");
-            ((IJavaScriptExecutor)eokul).ExecuteScript("document.body.style.zoom = '70%';");
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -237,6 +237,17 @@ namespace atiba
                         aranan[0].Click();
                         bekle(50);
                     }
+                    else if (radioButton4.Checked == true)
+                    {
+                        eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG01001.aspx");
+                        bekle(50);
+                        eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
+
+                        veri = eokul.FindElement(By.Id("OGRMenu1_txtTC"));
+                        veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
+                        eokul.FindElement(By.Id("OGRMenu1_btnAra")).Click();
+                        bekle(50);
+                    }
 
 
 
@@ -291,6 +302,9 @@ namespace atiba
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02003.aspx");
                             else if (radioButton2.Checked == true || radioButton3.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02003.aspx");
+                            else if (radioButton4.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02003.aspx");
+
                             bekle(50);
 
                             gozleriAc(2);
@@ -355,6 +369,9 @@ namespace atiba
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/iog02002.aspx");
                             else if (radioButton2.Checked == true || radioButton3.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02002.aspx");
+                            else if (radioButton4.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02002.aspx");
+
                             bekle(50);
                             if (ogrenciListBox.GetItemChecked(8) == true)
                             {
@@ -395,6 +412,9 @@ namespace atiba
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02015.aspx");
                             else if (radioButton2.Checked == true || radioButton3.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02015.aspx");
+                            else if (radioButton4.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02015.aspx");
+
                             bekle(50);
 
                             if (ogrenciListBox.GetItemChecked(11) == true)
@@ -439,7 +459,8 @@ namespace atiba
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02005.aspx");
                             else if (radioButton2.Checked == true || radioButton3.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02005.aspx");
-
+                            else if (radioButton4.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG02005.aspx");
 
 
                             bekle(50);
@@ -573,8 +594,8 @@ namespace atiba
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02006.aspx");
                             else if (radioButton2.Checked == true || radioButton3.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02006.aspx");
-
-
+                            else if (radioButton4.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG02006.aspx");
 
                             bekle(50);
                             gozleriAc(1);
@@ -720,6 +741,8 @@ namespace atiba
 
         private void gozleriAc(byte secim)
         {
+            ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
+
             IList<IWebElement> aranan;
             DateTime start;
 

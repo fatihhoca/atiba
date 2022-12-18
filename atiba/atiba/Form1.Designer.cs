@@ -51,6 +51,7 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -82,7 +83,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(2, 490);
+            this.button3.Location = new System.Drawing.Point(2, 493);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(145, 49);
             this.button3.TabIndex = 9;
@@ -95,10 +96,10 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(153, -30);
+            this.dataGridView1.Location = new System.Drawing.Point(149, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(830, 656);
+            this.dataGridView1.Size = new System.Drawing.Size(830, 624);
             this.dataGridView1.TabIndex = 1;
             // 
             // ogrenciListBox
@@ -135,7 +136,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(2, 541);
+            this.progressBar1.Location = new System.Drawing.Point(2, 544);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(145, 23);
             this.progressBar1.TabIndex = 25;
@@ -190,7 +191,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(2, 80);
+            this.tabControl1.Location = new System.Drawing.Point(2, 76);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(145, 235);
@@ -201,7 +202,7 @@
             this.tabPage1.Controls.Add(this.ogrenciListBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(137, 209);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Öğrenci";
@@ -212,7 +213,7 @@
             this.tabPage2.Controls.Add(this.babaListBox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(137, 209);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Baba";
@@ -234,11 +235,11 @@
             this.groupBox1.Controls.Add(this.speed_rb_slower);
             this.groupBox1.Controls.Add(this.speed_rb_slow);
             this.groupBox1.Controls.Add(this.speed_rb_normal);
-            this.groupBox1.Location = new System.Drawing.Point(6, 411);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(6, 413);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(135, 77);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(141, 77);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Veri Çekme Hızı";
@@ -247,7 +248,7 @@
             // 
             this.speed_rb_slower.AutoSize = true;
             this.speed_rb_slower.Location = new System.Drawing.Point(6, 53);
-            this.speed_rb_slower.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.speed_rb_slower.Margin = new System.Windows.Forms.Padding(2);
             this.speed_rb_slower.Name = "speed_rb_slower";
             this.speed_rb_slower.Size = new System.Drawing.Size(77, 17);
             this.speed_rb_slower.TabIndex = 2;
@@ -258,7 +259,7 @@
             // 
             this.speed_rb_slow.AutoSize = true;
             this.speed_rb_slow.Location = new System.Drawing.Point(6, 35);
-            this.speed_rb_slow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.speed_rb_slow.Margin = new System.Windows.Forms.Padding(2);
             this.speed_rb_slow.Name = "speed_rb_slow";
             this.speed_rb_slow.Size = new System.Drawing.Size(55, 17);
             this.speed_rb_slow.TabIndex = 1;
@@ -270,7 +271,7 @@
             this.speed_rb_normal.AutoSize = true;
             this.speed_rb_normal.Checked = true;
             this.speed_rb_normal.Location = new System.Drawing.Point(6, 17);
-            this.speed_rb_normal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.speed_rb_normal.Margin = new System.Windows.Forms.Padding(2);
             this.speed_rb_normal.Name = "speed_rb_normal";
             this.speed_rb_normal.Size = new System.Drawing.Size(58, 17);
             this.speed_rb_normal.TabIndex = 0;
@@ -280,12 +281,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.radioButton4);
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Location = new System.Drawing.Point(6, 317);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(137, 89);
+            this.groupBox2.Size = new System.Drawing.Size(141, 91);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Okul Türü";
@@ -293,7 +295,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 65);
+            this.radioButton3.Location = new System.Drawing.Point(6, 53);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(99, 17);
             this.radioButton3.TabIndex = 30;
@@ -304,7 +306,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 42);
+            this.radioButton2.Location = new System.Drawing.Point(6, 36);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(44, 17);
             this.radioButton2.TabIndex = 29;
@@ -323,11 +325,22 @@
             this.radioButton1.Text = "İlkokul / Ortaokul";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(6, 70);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(136, 17);
+            this.radioButton4.TabIndex = 31;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "*Okul Öncesi (Deneme)";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 629);
+            this.ClientSize = new System.Drawing.Size(981, 628);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
@@ -343,7 +356,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Atiba - eOkul Scrapper 2.7";
+            this.Text = "Atiba - eOkul Scrapper 2.8";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -383,6 +396,7 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }
 
