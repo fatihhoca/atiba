@@ -805,6 +805,7 @@ namespace atiba
                 babaListBox.SetItemChecked(i, true);
                 anneListBox.SetItemChecked(i, true);
             }
+            seting_Load();
 
         }
 
@@ -851,6 +852,7 @@ namespace atiba
         {
             try
             {
+                seting_Save();
                 eokul.Close();
                 eokul.Dispose();
 
@@ -906,5 +908,92 @@ namespace atiba
         {
 
         }
+
+        private void seting_Save()
+        {
+
+
+
+
+            for (int i = 0; i < ogrenciListBox.Items.Count; i++)
+            {
+
+                IniIslemleri.VeriYaz("Listbox", "ogr_list" + i, ogrenciListBox.GetItemChecked(i).ToString());
+            }
+            for (int i = 0; i < babaListBox.Items.Count; i++)
+            {
+
+                IniIslemleri.VeriYaz("Listbox", "baba_list" + i, babaListBox.GetItemChecked(i).ToString());
+            }
+            for (int i = 0; i < anneListBox.Items.Count; i++)
+            {
+
+                IniIslemleri.VeriYaz("Listbox", "anne_list" + i, anneListBox.GetItemChecked(i).ToString());
+            }
+
+            string radioButtonName_Hiz = "";
+            foreach (Control control in groupBox1.Controls)
+            {
+                if (control is RadioButton && ((RadioButton)control).Checked)
+                {
+                    radioButtonName_Hiz = control.Name;
+                    IniIslemleri.VeriYaz("radioButton", "Hiz", radioButtonName_Hiz);
+                    break;
+                }
+            }
+
+            string radioButtonName_Okul = "";
+            foreach (Control control in groupBox2.Controls)
+            {
+                if (control is RadioButton && ((RadioButton)control).Checked)
+                {
+                    radioButtonName_Okul = control.Name;
+                    IniIslemleri.VeriYaz("radioButton", "Okul", radioButtonName_Okul);
+                    break;
+                }
+            }
+
+
+        }
+
+        private void seting_Load()
+        {
+
+
+
+            for (int i = 0; i < ogrenciListBox.Items.Count; i++)
+            {
+                ogrenciListBox.SetItemChecked(i, Convert.ToBoolean(IniIslemleri.VeriOku("Listbox", "ogr_list" + i)));
+            }
+
+            for (int i = 0; i < anneListBox.Items.Count; i++)
+            {
+                anneListBox.SetItemChecked(i, Convert.ToBoolean(IniIslemleri.VeriOku("Listbox", "anne_list" + i)));
+            }
+
+            for (int i = 0; i < babaListBox.Items.Count; i++)
+            {
+                babaListBox.SetItemChecked(i, Convert.ToBoolean(IniIslemleri.VeriOku("Listbox", "baba_list" + i)));
+            }
+
+            String Hiz = IniIslemleri.VeriOku("radioButton", "Hiz");
+            RadioButton button_hiz = this.Controls.Find(Hiz, true).FirstOrDefault() as RadioButton;
+            button_hiz.Checked = true;
+
+            String Okul = IniIslemleri.VeriOku("radioButton", "Okul");
+            RadioButton button_okul = this.Controls.Find(Okul, true).FirstOrDefault() as RadioButton;
+            button_okul.Checked = true;
+
+
+
+
+
+
+
+        }
+
+
+
+
     }
 }

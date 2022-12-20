@@ -226,20 +226,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fkbos\\.nuget\\packages\\": {}
+    "C:\\Users\\egiti\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\atiba.csproj",
+      "projectUniqueName": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\atiba.csproj",
       "projectName": "atiba",
-      "projectPath": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\atiba.csproj",
-      "packagesPath": "C:\\Users\\fkbos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\obj\\",
+      "projectPath": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\atiba.csproj",
+      "packagesPath": "C:\\Users\\egiti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\fkbos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\egiti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
