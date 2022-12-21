@@ -798,18 +798,24 @@ namespace atiba
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {            
-            for (int i=0;i<3;i++)
+        {
+            for (int i = 0; i < 3; i++)
             {
                 ogrenciListBox.SetItemChecked(i, true);
                 babaListBox.SetItemChecked(i, true);
                 anneListBox.SetItemChecked(i, true);
             }
-            seting_Load();
+            try
+            {
+                seting_Load();
+            }
+            catch
+            {
+                seting_Save();
 
+            }
         }
-
-        private void button4_Click(object sender, EventArgs e)
+            private void button4_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Veri büyüklüğüne göre Excel'e aktarım zaman alabilir lütfen Bitti uyarısı gelene kadar başka işlem yapmayınız.", "Excel'e Aktarım", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             try
