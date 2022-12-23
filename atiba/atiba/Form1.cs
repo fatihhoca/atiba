@@ -105,6 +105,25 @@ namespace atiba
             
         }
 
+        private void AddColumnToDataGridView(string columnName, string columnHeader)
+        {
+            bool hasColumn = false;
+
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                if (column.Name == columnName)
+                {
+                    hasColumn = true;
+                    break;
+                }
+            }
+
+            if (!hasColumn)
+            {
+                dataGridView1.Columns.Add(columnName, columnHeader);
+            }
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -114,67 +133,69 @@ namespace atiba
 
             if (ogrenciListBox.GetItemChecked(0) == true)
             {
-                dataGridView1.Columns.Add("ad", "Ad");
-                dataGridView1.Columns.Add("soyad", "Soyad");
+                //dataGridView1.Columns.Add("ad", "Ad");
+                AddColumnToDataGridView("ad", "Ad");
+                AddColumnToDataGridView("soyad", "Soyad");
+
             }
             if (ogrenciListBox.GetItemChecked(1) == true)
-                dataGridView1.Columns.Add("tcNo", "TC");
+                AddColumnToDataGridView("tcNo", "TC");
             if (ogrenciListBox.GetItemChecked(2) == true)
-                dataGridView1.Columns.Add("sinif", "Sınıf");
+                AddColumnToDataGridView("sinif", "Sınıf");
             if (ogrenciListBox.GetItemChecked(3) == true)
-                dataGridView1.Columns.Add("veli", "Veli");
+                AddColumnToDataGridView("veli", "Veli");
             if (ogrenciListBox.GetItemChecked(4) == true)
-                dataGridView1.Columns.Add("dogumTarihi", "Doğum Tarihi");
+                AddColumnToDataGridView("dogumTarihi", "Doğum Tarihi");
             if (ogrenciListBox.GetItemChecked(5) == true)
-                dataGridView1.Columns.Add("dogumYeri", "Doğum Yeri");
+                AddColumnToDataGridView("dogumYeri", "Doğum Yeri");
             if (ogrenciListBox.GetItemChecked(6) == true)
-                dataGridView1.Columns.Add("ciltNo", "Cilt No");
+                AddColumnToDataGridView("ciltNo", "Cilt No");
             if (ogrenciListBox.GetItemChecked(7) == true)
-                dataGridView1.Columns.Add("mahalleKoy", "Mahalle Köy");
+                AddColumnToDataGridView("mahalleKoy", "Mahalle Köy");
             if (ogrenciListBox.GetItemChecked(8) == true)
-                dataGridView1.Columns.Add("boy", "Boy");
+                AddColumnToDataGridView("boy", "Boy");
             if (ogrenciListBox.GetItemChecked(9) == true)
-                dataGridView1.Columns.Add("kilo", "Kilo");
+                AddColumnToDataGridView("kilo", "Kilo");
             if (ogrenciListBox.GetItemChecked(10) == true)
-                dataGridView1.Columns.Add("tasima", "Taşıma");            
+                AddColumnToDataGridView("tasima", "Taşıma");
             if (ogrenciListBox.GetItemChecked(11) == true)
-                dataGridView1.Columns.Add("ozurluDev", "Özürlü Dev.");
+                AddColumnToDataGridView("ozurluDev", "Özürlü Dev.");
             if (ogrenciListBox.GetItemChecked(12) == true)
-                dataGridView1.Columns.Add("ozursuzDev", "Özürsüz Dev.");
+                AddColumnToDataGridView("ozursuzDev", "Özürsüz Dev.");
 
             if (babaListBox.GetItemChecked(0) == true)
-                dataGridView1.Columns.Add("babaAdSoyad", "Baba");
+                AddColumnToDataGridView("babaAdSoyad", "Baba");
             if (babaListBox.GetItemChecked(1) == true)
-                dataGridView1.Columns.Add("babaTcNo", "Baba TC");
+                AddColumnToDataGridView("babaTcNo", "Baba TC");
             if (babaListBox.GetItemChecked(2) == true)
-                dataGridView1.Columns.Add("babaTel", "Baba Tel");
+                AddColumnToDataGridView("babaTel", "Baba Tel");
             if (babaListBox.GetItemChecked(3) == true)
-                dataGridView1.Columns.Add("babaSO", "Baba Sağ/Ölü");
+                AddColumnToDataGridView("babaSO", "Baba Sağ/Ölü");
             if (babaListBox.GetItemChecked(4) == true)
-                dataGridView1.Columns.Add("babaBA", "Baba Birlikte/Ayrı");
+                AddColumnToDataGridView("babaBA", "Baba Birlikte/Ayrı");
             if (babaListBox.GetItemChecked(5) == true)
-                dataGridView1.Columns.Add("babaMezuniyet", "Baba Mezuniyet");
+                AddColumnToDataGridView("babaMezuniyet", "Baba Mezuniyet");
             if (babaListBox.GetItemChecked(6) == true)
-                dataGridView1.Columns.Add("babaDT", "Baba Doğum Tarihi");
+                AddColumnToDataGridView("babaDT", "Baba Doğum Tarihi");
             if (babaListBox.GetItemChecked(7) == true)
-                dataGridView1.Columns.Add("babaMslk", "Baba Mesleği");
+                AddColumnToDataGridView("babaMslk", "Baba Mesleği");
 
             if (anneListBox.GetItemChecked(0) == true)
-                dataGridView1.Columns.Add("anneAdSoyad", "Anne");
+                AddColumnToDataGridView("anneAdSoyad", "Anne");
             if (anneListBox.GetItemChecked(1) == true)
-                dataGridView1.Columns.Add("anneTcNo", "Anne TC");
+                AddColumnToDataGridView("anneTcNo", "Anne TC");
             if (anneListBox.GetItemChecked(2) == true)
-                dataGridView1.Columns.Add("anneTel", "Anne Tel");
+                AddColumnToDataGridView("anneTel", "Anne Tel");
             if (anneListBox.GetItemChecked(3) == true)
-                dataGridView1.Columns.Add("anneSO", "Anne Sağ/Ölü");
+                AddColumnToDataGridView("anneSO", "Anne Sağ/Ölü");
             if (anneListBox.GetItemChecked(4) == true)
-                dataGridView1.Columns.Add("anneBA", "Anne Birlikte/Ayrı");
+                AddColumnToDataGridView("anneBA", "Anne Birlikte/Ayrı");
             if (anneListBox.GetItemChecked(5) == true)
-                dataGridView1.Columns.Add("anneMezuniyet", "Anne Mezuniyet");
+                AddColumnToDataGridView("anneMezuniyet", "Anne Mezuniyet");
             if (anneListBox.GetItemChecked(6) == true)
-                dataGridView1.Columns.Add("anneDT", "Anne Doğum Tarihi");
+                AddColumnToDataGridView("anneDT", "Anne Doğum Tarihi");
             if (anneListBox.GetItemChecked(7) == true)
-                dataGridView1.Columns.Add("anneMslk", "Anne Mesleği");
+                AddColumnToDataGridView("anneMslk", "Anne Mesleği");
 
             IWebElement veri;
             IList<IWebElement> aranan;
