@@ -24,7 +24,7 @@ namespace atiba
         {
             InitializeComponent();
         }
-
+        private static int endingRow;
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -203,8 +203,24 @@ namespace atiba
             string adSoyad, geciciVeri;
             DateTime start;
             //if (radioButton3.Checked == true) aihlGiris();
-            foreach (DataGridViewRow dr in dataGridView1.Rows)
+
+            if (satir != endingRow)
             {
+                DialogResult result = MessageBox.Show("İşlem Kaldığı Yerden Devam Etsin Mi?", "Uyarı", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    satir = endingRow;
+                }
+                else if (result == DialogResult.No)
+                {
+                    satir = 0;
+                }
+            }
+
+            while (satir < dataGridView1.Rows.Count)
+            {
+                DataGridViewRow dr = dataGridView1.Rows[satir];
                 progressBar1.Value++;
                 try
                 {                    
@@ -752,6 +768,7 @@ namespace atiba
                 finally
                 {
                     satir++;
+                    endingRow = satir;
                     Application.DoEvents();
                     bekle(10);
                 }
@@ -835,6 +852,7 @@ namespace atiba
                 seting_Save();
 
             }
+            endingRow = 0;
         }
             private void button4_Click(object sender, EventArgs e)
         {
