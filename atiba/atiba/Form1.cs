@@ -128,8 +128,7 @@ namespace atiba
         {
 
 
-            progressBar1.Maximum = dataGridView1.Rows.Count + 1;
-            progressBar1.Value = 0;
+
 
             if (ogrenciListBox.GetItemChecked(0) == true)
             {
@@ -217,6 +216,8 @@ namespace atiba
                     satir = 0;
                 }
             }
+            progressBar1.Maximum = dataGridView1.Rows.Count + 1;
+            progressBar1.Value = satir;
 
             while (satir < dataGridView1.Rows.Count)
             {
@@ -760,6 +761,8 @@ namespace atiba
                         dataGridView1.Rows[satir].Cells["adSoyad"].Value = "Öğrenci bulunamadı";
                         dataGridView1.Rows[satir].Cells["adSoyad"].Style.BackColor = Color.PaleVioletRed;
                     }
+                    
+                    endingRow = satir;
                 }
                 catch
                 {
@@ -768,7 +771,6 @@ namespace atiba
                 finally
                 {
                     satir++;
-                    endingRow = satir;
                     Application.DoEvents();
                     bekle(10);
                 }
