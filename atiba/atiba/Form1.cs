@@ -23,6 +23,7 @@ namespace atiba
         public Form1()
         {
             InitializeComponent();
+            //deneme
         }
         private static int endingRow;
         private void button1_Click(object sender, EventArgs e)
