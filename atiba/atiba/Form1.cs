@@ -177,38 +177,38 @@ namespace atiba
             if (Checked(ogrenciListBox,ogr_list_Row,"ozursuzDev"))
                 AddColumnToDataGridView("ozursuzDev", "Özürsüz Dev.");
 
-            if (babaListBox.GetItemChecked(0) == true)
+            if (Checked(babaListBox, baba_list_Row, "babaAdSoyad"))
                 AddColumnToDataGridView("babaAdSoyad", "Baba");
-            if (babaListBox.GetItemChecked(1) == true)
+            if (Checked(babaListBox, baba_list_Row, "babaTcNo"))
                 AddColumnToDataGridView("babaTcNo", "Baba TC");
-            if (babaListBox.GetItemChecked(2) == true)
+            if (Checked(babaListBox, baba_list_Row, "babaTel"))
                 AddColumnToDataGridView("babaTel", "Baba Tel");
-            if (babaListBox.GetItemChecked(3) == true)
+            if (Checked(babaListBox, baba_list_Row, "babaSO"))
                 AddColumnToDataGridView("babaSO", "Baba Sağ/Ölü");
-            if (babaListBox.GetItemChecked(4) == true)
+            if (Checked(babaListBox, baba_list_Row, "babaBA"))
                 AddColumnToDataGridView("babaBA", "Baba Birlikte/Ayrı");
-            if (babaListBox.GetItemChecked(5) == true)
+            if (Checked(babaListBox, baba_list_Row, "babaMezuniyet"))
                 AddColumnToDataGridView("babaMezuniyet", "Baba Mezuniyet");
-            if (babaListBox.GetItemChecked(6) == true)
+            if (Checked(babaListBox, baba_list_Row, "babaDT"))
                 AddColumnToDataGridView("babaDT", "Baba Doğum Tarihi");
-            if (babaListBox.GetItemChecked(7) == true)
+            if (Checked(babaListBox, baba_list_Row, "babaMslk"))
                 AddColumnToDataGridView("babaMslk", "Baba Mesleği");
 
-            if (anneListBox.GetItemChecked(0) == true)
+            if (Checked(anneListBox, anne_list_Row, "anneAdSoyad"))
                 AddColumnToDataGridView("anneAdSoyad", "Anne");
-            if (anneListBox.GetItemChecked(1) == true)
+            if (Checked(anneListBox, anne_list_Row, "anneTcNo"))
                 AddColumnToDataGridView("anneTcNo", "Anne TC");
-            if (anneListBox.GetItemChecked(2) == true)
+            if (Checked(anneListBox, anne_list_Row, "anneTel"))
                 AddColumnToDataGridView("anneTel", "Anne Tel");
-            if (anneListBox.GetItemChecked(3) == true)
+            if (Checked(anneListBox, anne_list_Row, "anneSO"))
                 AddColumnToDataGridView("anneSO", "Anne Sağ/Ölü");
-            if (anneListBox.GetItemChecked(4) == true)
+            if (Checked(anneListBox, anne_list_Row, "anneBA"))
                 AddColumnToDataGridView("anneBA", "Anne Birlikte/Ayrı");
-            if (anneListBox.GetItemChecked(5) == true)
+            if (Checked(anneListBox, anne_list_Row, "anneMezuniyet"))
                 AddColumnToDataGridView("anneMezuniyet", "Anne Mezuniyet");
-            if (anneListBox.GetItemChecked(6) == true)
+            if (Checked(anneListBox, anne_list_Row, "anneDT"))
                 AddColumnToDataGridView("anneDT", "Anne Doğum Tarihi");
-            if (anneListBox.GetItemChecked(7) == true)
+            if (Checked(anneListBox, anne_list_Row, "anneMslk"))
                 AddColumnToDataGridView("anneMslk", "Anne Mesleği");
 
             IWebElement veri;
@@ -505,7 +505,7 @@ namespace atiba
 
                         //**************BABA BİLGİLERİ
 
-                        if (babaListBox.GetItemChecked(0) == true || babaListBox.GetItemChecked(1) == true || babaListBox.GetItemChecked(2) == true || babaListBox.GetItemChecked(3) == true || babaListBox.GetItemChecked(4) == true || babaListBox.GetItemChecked(5) == true || babaListBox.GetItemChecked(6) == true ||babaListBox.GetItemChecked(7) == true)
+                        if (Checked(babaListBox, baba_list_Row, "babaAdSoyad") || Checked(babaListBox, baba_list_Row, "babaTcNo") || Checked(babaListBox, baba_list_Row, "babaTel") || Checked(babaListBox, baba_list_Row, "babaSO") || Checked(babaListBox, baba_list_Row, "babaBA") || Checked(babaListBox, baba_list_Row, "babaMezuniyet") || Checked(babaListBox, baba_list_Row, "babaDT") || Checked(babaListBox, baba_list_Row, "babaMslk"))
                         {
 
                             if (radioButton1.Checked == true)
@@ -521,7 +521,7 @@ namespace atiba
 
 
                             aranan = eokul.FindElements(By.ClassName("col-sm-4"));
-                            if (babaListBox.GetItemChecked(0) == true)
+                            if (Checked(babaListBox, baba_list_Row, "babaAdSoyad"))
                             {
                                 try
                                 {
@@ -538,7 +538,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["babaAdSoyad"].Value = "Hata"; }
                             }
-                            if (babaListBox.GetItemChecked(2) == true)
+                            if (Checked(babaListBox, baba_list_Row, "babaTel"))
                             {
                                 try
                                 {
@@ -549,7 +549,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["babaTel"].Value = "Hata"; }
                             }
-                            if (babaListBox.GetItemChecked(1) == true)
+                            if (Checked(babaListBox, baba_list_Row, "babaTcNo"))
                             {
                                 try
                                 {
@@ -560,7 +560,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["babaTcNo"].Value = "Hata"; }
                             }
-                            if (babaListBox.GetItemChecked(3) == true)
+                            if (Checked(babaListBox, baba_list_Row, "babaSO"))
                             {
                                 try
                                 {
@@ -571,7 +571,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["babaSO"].Value = "Hata"; }
                             }
-                            if (babaListBox.GetItemChecked(4) == true)
+                            if (Checked(babaListBox, baba_list_Row, "babaBA"))
                             {
                                 try
                                 {
@@ -582,7 +582,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["babaBA"].Value = "Hata"; }
                             }
-                            if (babaListBox.GetItemChecked(6) == true)
+                            if (Checked(babaListBox, baba_list_Row, "babaDT"))
                             {
                                 try
                                 {
@@ -594,7 +594,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["babaDT"].Value = "Hata"; }
                             }
-                            if (babaListBox.GetItemChecked(5) == true)
+                            if (Checked(babaListBox, baba_list_Row, "babaMezuniyet"))
                             {
                                 bekle(100);
                                 bool hataVar = false;
@@ -615,7 +615,7 @@ namespace atiba
                                     }
                                 } while (hataVar == true);
                             }
-                            if (babaListBox.GetItemChecked(7) == true)
+                            if (Checked(babaListBox, baba_list_Row, "babaMslk"))
                             {
                                 bekle(100);
                                 bool hataVar = false;
@@ -641,7 +641,7 @@ namespace atiba
 
                         //**************ANNE BİLGİLERİ
 
-                        if (anneListBox.GetItemChecked(0) == true || anneListBox.GetItemChecked(1) == true || anneListBox.GetItemChecked(2) == true || anneListBox.GetItemChecked(3) == true || anneListBox.GetItemChecked(4) == true || anneListBox.GetItemChecked(5) == true || anneListBox.GetItemChecked(6) == true || anneListBox.GetItemChecked(7) == true)
+                        if (Checked(anneListBox, anne_list_Row, "anneAdSoyad") || Checked(anneListBox, anne_list_Row, "anneTcNo") || Checked(anneListBox, anne_list_Row, "anneTel") || Checked(anneListBox, anne_list_Row, "anneSO") || Checked(anneListBox, anne_list_Row, "anneBA") || Checked(anneListBox, anne_list_Row, "anneMezuniyet") || Checked(anneListBox, anne_list_Row, "anneDT") || Checked(anneListBox, anne_list_Row, "anneMslk"))
                         {
                             if (radioButton1.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02006.aspx");
@@ -654,7 +654,7 @@ namespace atiba
                             gozleriAc(1);
 
                             aranan = eokul.FindElements(By.ClassName("col-sm-4"));
-                            if (anneListBox.GetItemChecked(0) == true)
+                            if (Checked(anneListBox, anne_list_Row, "anneAdSoyad"))
                             {
                                 try
                                 {
@@ -671,7 +671,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["anneAdSoyad"].Value = "Hata"; }
                             }
-                            if (anneListBox.GetItemChecked(2) == true)
+                            if (Checked(anneListBox, anne_list_Row, "anneTel"))
                             {
                                 try
                                 {
@@ -682,7 +682,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["anneTel"].Value = "Hata"; }
                             }
-                            if (anneListBox.GetItemChecked(1) == true)
+                            if (Checked(anneListBox, anne_list_Row, "anneTcNo"))
                             {
                                 try
                                 {
@@ -693,7 +693,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["anneTcNo"].Value = "Hata"; }
                             }
-                            if (anneListBox.GetItemChecked(3) == true)
+                            if (Checked(anneListBox, anne_list_Row, "anneSO"))
                             {
                                 try
                                 {
@@ -704,7 +704,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["anneSO"].Value = "Hata"; }
                             }
-                            if (anneListBox.GetItemChecked(4) == true)
+                            if (Checked(anneListBox, anne_list_Row, "anneBA"))
                             {
                                 try
                                 {
@@ -715,7 +715,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["anneBA"].Value = "Hata"; }
                             }
-                            if (anneListBox.GetItemChecked(6) == true)
+                            if (Checked(anneListBox, anne_list_Row, "anneDT"))
                             {
                                 try
                                 {
@@ -727,7 +727,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["anneDT"].Value = "Hata"; }
                             }
-                            if (anneListBox.GetItemChecked(5) == true)
+                            if (Checked(anneListBox, anne_list_Row, "anneMezuniyet"))
                             {
                                 bekle(100);
                                 bool hataVar = false;
@@ -748,7 +748,7 @@ namespace atiba
                                     }
                                 } while (hataVar == true);
                             }
-                            if (anneListBox.GetItemChecked(7) == true)
+                            if (Checked(anneListBox, anne_list_Row, "anneMslk"))
                             {
                                 bekle(100);
                                 bool hataVar = false;
