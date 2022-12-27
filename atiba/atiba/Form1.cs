@@ -28,10 +28,11 @@ namespace atiba
         private static int endingRow;
 
         private static string[] ogr_list_Row = { "ad_soyad", "tcNo", "sinif", "veli", "dogumTarihi", "dogumYeri", "ciltNo", "mahalleKoy", "boy", "kilo", "tasima", "ozurluDev", "ozursuzDev" };
-
-        public bool Checked(CheckedListBox myListBox,string value )
+        private static string[] baba_list_Row = { "babaAdSoyad", "babaTcNo", "babaTel", "babaSO", "babaBA", "babaMezuniyet", "babaDT", "babaMslk" };
+        private static string[] anne_list_Row = { "anneAdSoyad", "anneTcNo", "anneTel", "anneSO", "anneBA", "anneMezuniyet", "anneDT", "anneMslk" };
+        public bool Checked(CheckedListBox myListBox,string[] list,string value )
         {
-            int index = Array.IndexOf(ogr_list_Row, value);
+            int index = Array.IndexOf(list, value);
             
 
             return myListBox.GetItemChecked(index);
@@ -144,36 +145,36 @@ namespace atiba
 
 
 
-            if (Checked(ogrenciListBox,"ad_soyad"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"ad_soyad"))
             {
                 //dataGridView1.Columns.Add("ad", "Ad");
                 AddColumnToDataGridView("ad", "Ad");
                 AddColumnToDataGridView("soyad", "Soyad");
 
             }
-            if (Checked(ogrenciListBox, "tcNo"))
+            if (Checked(ogrenciListBox,ogr_list_Row, "tcNo"))
                 AddColumnToDataGridView("tcNo", "TC");
-            if (Checked(ogrenciListBox, "sinif"))
+            if (Checked(ogrenciListBox,ogr_list_Row, "sinif"))
                 AddColumnToDataGridView("sinif", "Sınıf");
-            if (Checked(ogrenciListBox,"veli"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"veli"))
                 AddColumnToDataGridView("veli", "Veli");
-            if (Checked(ogrenciListBox,"dogumTarihi"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"dogumTarihi"))
                 AddColumnToDataGridView("dogumTarihi", "Doğum Tarihi");
-            if (Checked(ogrenciListBox,"dogumYeri"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"dogumYeri"))
                 AddColumnToDataGridView("dogumYeri", "Doğum Yeri");
-            if (Checked(ogrenciListBox,"ciltNo"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"ciltNo"))
                 AddColumnToDataGridView("ciltNo", "Cilt No");
-            if (Checked(ogrenciListBox,"mahalleKoy"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"mahalleKoy"))
                 AddColumnToDataGridView("mahalleKoy", "Mahalle Köy");
-            if (Checked(ogrenciListBox,"boy"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"boy"))
                 AddColumnToDataGridView("boy", "Boy");
-            if (Checked(ogrenciListBox,"kilo"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"kilo"))
                 AddColumnToDataGridView("kilo", "Kilo");
-            if (Checked(ogrenciListBox,"tasima"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"tasima"))
                 AddColumnToDataGridView("tasima", "Taşıma");
-            if (Checked(ogrenciListBox,"ozurluDev"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"ozurluDev"))
                 AddColumnToDataGridView("ozurluDev", "Özürlü Dev.");
-            if (Checked(ogrenciListBox,"ozursuzDev"))
+            if (Checked(ogrenciListBox,ogr_list_Row,"ozursuzDev"))
                 AddColumnToDataGridView("ozursuzDev", "Özürsüz Dev.");
 
             if (babaListBox.GetItemChecked(0) == true)
@@ -308,14 +309,14 @@ namespace atiba
                     
                     if (adSoyad.Trim() != "")
                     {
-                        if (Checked(ogrenciListBox,"ad_soyad"))
+                        if (Checked(ogrenciListBox,ogr_list_Row,"ad_soyad"))
                             {
                             dataGridView1.Rows[satir].Cells["ad"].Value = adSoyad;
                             veri = eokul.FindElement(By.Id("txtSoyadi"));
                             adSoyad = veri.GetAttribute("value").ToString();
                             dataGridView1.Rows[satir].Cells["soyad"].Value = adSoyad;
                         }
-                        if (Checked(ogrenciListBox,"tcNo"))
+                        if (Checked(ogrenciListBox,ogr_list_Row,"tcNo"))
                         {
                             try
                             {
@@ -324,7 +325,7 @@ namespace atiba
                             }
                             catch { dataGridView1.Rows[satir].Cells["tcNo"].Value = "Hata"; }
                         }
-                        if (Checked(ogrenciListBox,"sinif"))
+                        if (Checked(ogrenciListBox,ogr_list_Row,"sinif"))
                         {
                             try
                             {
@@ -337,7 +338,7 @@ namespace atiba
                             }
                             catch { dataGridView1.Rows[satir].Cells["sinif"].Value = "Hata"; }
                         }
-                        if (Checked(ogrenciListBox,"veli"))
+                        if (Checked(ogrenciListBox,ogr_list_Row,"veli"))
                         {
                             try
                             {
@@ -348,7 +349,7 @@ namespace atiba
                             catch { dataGridView1.Rows[satir].Cells["veli"].Value = "Hata"; }
                         }
 
-                        if (Checked(ogrenciListBox,"dogumTarihi") || Checked(ogrenciListBox, "dogumYeri") || Checked(ogrenciListBox, "ciltNo"))
+                        if (Checked(ogrenciListBox,ogr_list_Row,"dogumTarihi") || Checked(ogrenciListBox,ogr_list_Row, "dogumYeri") || Checked(ogrenciListBox,ogr_list_Row, "ciltNo"))
                         {
                             if (radioButton1.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02003.aspx");
@@ -361,7 +362,7 @@ namespace atiba
 
                             gozleriAc(2);
 
-                            if (Checked(ogrenciListBox,"dogumTarihi"))
+                            if (Checked(ogrenciListBox,ogr_list_Row,"dogumTarihi"))
                             {
                                 try
                                 {
@@ -374,7 +375,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["dogumTarihi"].Value = "Hata"; }
                             }
-                            if (Checked(ogrenciListBox,"dogumYeri"))
+                            if (Checked(ogrenciListBox,ogr_list_Row,"dogumYeri"))
                             {
                                 try
                                 {
@@ -387,7 +388,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["dogumYeri"].Value = "Hata"; }
                             }
-                            if (Checked(ogrenciListBox,"ciltNo"))
+                            if (Checked(ogrenciListBox,ogr_list_Row,"ciltNo"))
                             {
                                 try
                                 {
@@ -400,7 +401,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["ciltNo"].Value = "Hata"; }
                             }
-                            if (Checked(ogrenciListBox,"mahalleKoy"))
+                            if (Checked(ogrenciListBox,ogr_list_Row,"mahalleKoy"))
                             {
                                 try
                                 {
@@ -415,7 +416,7 @@ namespace atiba
                             }
                         }
 
-                        if (Checked(ogrenciListBox,"boy") || Checked(ogrenciListBox, "kilo") || Checked(ogrenciListBox, "tasima"))
+                        if (Checked(ogrenciListBox,ogr_list_Row,"boy") || Checked(ogrenciListBox,ogr_list_Row, "kilo") || Checked(ogrenciListBox,ogr_list_Row, "tasima"))
                         {
                             if (radioButton1.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/iog02002.aspx");
@@ -425,7 +426,7 @@ namespace atiba
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02002.aspx");
 
                             bekle(50);
-                            if (Checked(ogrenciListBox,"boy"))
+                            if (Checked(ogrenciListBox,ogr_list_Row,"boy"))
                             {
                                 try
                                 {
@@ -434,7 +435,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["boy"].Value = "Hata"; }
                             }
-                            if (Checked(ogrenciListBox,"kilo"))
+                            if (Checked(ogrenciListBox,ogr_list_Row,"kilo"))
                             {
                                 try
                                 {
@@ -443,7 +444,7 @@ namespace atiba
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["kilo"].Value = "Hata"; }
                             }
-                            if (Checked(ogrenciListBox,"tasima"))
+                            if (Checked(ogrenciListBox,ogr_list_Row,"tasima"))
                             {
                                 try
                                 {
@@ -458,7 +459,7 @@ namespace atiba
                             }
                         }
 
-                        if (Checked(ogrenciListBox,"ozurluDev") || Checked(ogrenciListBox, "ozursuzDev"))
+                        if (Checked(ogrenciListBox,ogr_list_Row,"ozurluDev") || Checked(ogrenciListBox,ogr_list_Row, "ozursuzDev"))
                         {
                             if (radioButton1.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02015.aspx");
@@ -469,7 +470,7 @@ namespace atiba
 
                             bekle(50);
 
-                            if (Checked(ogrenciListBox,"ozurluDev"))
+                            if (Checked(ogrenciListBox,ogr_list_Row,"ozurluDev"))
                             {
                                 try
                                 {
@@ -484,7 +485,7 @@ namespace atiba
                                     dataGridView1.Rows[satir].Cells["ozurluDev"].Value = "0";
                                 }
                             }
-                            if (Checked(ogrenciListBox,"ozursuzDev"))
+                            if (Checked(ogrenciListBox,ogr_list_Row,"ozursuzDev"))
                             {
                                 try
                                 {
