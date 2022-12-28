@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace atiba
         }
         private static int endingRow;
 
-        private static string[] ogr_list_Row = { "ad_soyad", "tcNo", "sinif", "veli", "uyruk", "cinsiyet", "dogumTarihi", "dogumYeri", "ciltNo", "mahalleKoy", "boy", "kilo", "tasima", "ozurluDev", "ozursuzDev" };
+        private static string[] ogr_list_Row = { "ad_soyad", "tcNo", "sinif", "foto", "veli", "uyruk", "cinsiyet", "dogumTarihi", "dogumYeri", "ciltNo", "mahalleKoy", "boy", "kilo", "tasima", "ozurluDev", "ozursuzDev" };
         private static string[] baba_list_Row = { "babaAdSoyad", "babaTcNo", "babaTel", "babaSO", "babaBA", "babaMezuniyet", "babaDT", "babaMslk" };
         private static string[] anne_list_Row = { "anneAdSoyad", "anneTcNo", "anneTel", "anneSO", "anneBA", "anneMezuniyet", "anneDT", "anneMslk" };
         public bool Checked(CheckedListBox myListBox,string[] list,string value )
@@ -216,6 +217,7 @@ namespace atiba
                 AddColumnToDataGridView("anneMslk", "Anne Mesleği");
 
             IWebElement veri;
+            Screenshot foto;
             IList<IWebElement> aranan;
             int satir = 0;
             string adSoyad, geciciVeri;
@@ -341,6 +343,35 @@ namespace atiba
                                 dataGridView1.Rows[satir].Cells["sinif"].Value = veri.Text.ToString();
                             }
                             catch { dataGridView1.Rows[satir].Cells["sinif"].Value = "Hata"; }
+                        }
+                        if (Checked(ogrenciListBox, ogr_list_Row, "foto"))
+                        {
+                            string sinifi;
+                            string nosu;
+                            try
+                            {
+                                sinifi = dataGridView1.Rows[satir].Cells["sinif"].Value.ToString().Replace("/", "-");
+                                nosu = dataGridView1.Rows[satir].Cells["ogrNo"].Value.ToString();
+
+                                if (radioButton1.Checked == true)
+                                {
+                                    veri = eokul.FindElement(By.Id("IOMPageHeader1_imgOgrenciResim"));
+                                }
+                                else
+                                {
+                                    veri = eokul.FindElement(By.Id("OOMPageHeader1_imgOgrenciResim"));
+                                }
+                                foto = ((ITakesScreenshot)veri).GetScreenshot();
+                                string yol = Application.StartupPath;
+                                Directory.CreateDirectory(yol + "\\" + sinifi);
+                                foto.SaveAsFile(yol + "\\" + sinifi + "\\" + nosu + ".jpg", ScreenshotImageFormat.Jpeg);
+
+
+                            }
+                            catch { sinifi = "Hata"; }
+
+
+
                         }
                         if (Checked(ogrenciListBox,ogr_list_Row,"veli"))
                         {
