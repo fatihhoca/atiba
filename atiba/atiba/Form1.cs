@@ -603,14 +603,26 @@ namespace atiba
                             }
                             if (Checked(babaListBox, baba_list_Row, "babaTcNo"))
                             {
-                                try
+                                if (Checked(babaListBox, baba_list_Row, "babaTcNo"))
                                 {
-                                    aranan = eokul.FindElements(By.ClassName("col-6"));
-                                    veri = aranan[0].FindElement(By.TagName("h4"));
-
-                                    dataGridView1.Rows[satir].Cells["babaTcNo"].Value = veri.Text.ToString();
+                                    try
+                                    {
+                                        aranan = eokul.FindElements(By.Id("yeniBabaTc"));
+                                        if (aranan.Count == 0)
+                                        {
+                                            aranan = eokul.FindElements(By.ClassName("col-6"));
+                                            veri = aranan[0].FindElement(By.TagName("h4"));
+                                            dataGridView1.Rows[satir].Cells["babaTcNo"].Value = veri.Text.ToString();
+                                        }
+                                        else
+                                        {
+                                            veri = eokul.FindElement(By.Id("yeniBabaTc"));
+                                            dataGridView1.Rows[satir].Cells["babaTcNo"].Value = veri.GetAttribute("value");
+                                        }
+                                    }
+                                    catch { dataGridView1.Rows[satir].Cells["babaTcNo"].Value = "Hata"; }
                                 }
-                                catch { dataGridView1.Rows[satir].Cells["babaTcNo"].Value = "Hata"; }
+
                             }
                             if (Checked(babaListBox, baba_list_Row, "babaSO"))
                             {
