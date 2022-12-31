@@ -750,10 +750,18 @@ namespace atiba
                             {
                                 try
                                 {
-                                    aranan = eokul.FindElements(By.ClassName("col-6"));
-                                    veri = aranan[0].FindElement(By.TagName("h4"));
-
-                                    dataGridView1.Rows[satir].Cells["anneTcNo"].Value = veri.Text.ToString();
+                                    aranan = eokul.FindElements(By.XPath("//*[@id='chartdiv']/div/div[3]/div/div/div/div/div[2]/div/div[2]/div/div[1]/input"));
+                                    if (aranan.Count == 0)
+                                    {
+                                        aranan = eokul.FindElements(By.ClassName("col-6"));
+                                        veri = aranan[0].FindElement(By.TagName("h4"));
+                                        dataGridView1.Rows[satir].Cells["anneTcNo"].Value = veri.Text.ToString();
+                                    }
+                                    else
+                                    {
+                                        veri = eokul.FindElement(By.XPath("//*[@id='chartdiv']/div/div[3]/div/div/div/div/div[2]/div/div[2]/div/div[1]/input"));
+                                        dataGridView1.Rows[satir].Cells["anneTcNo"].Value = veri.GetAttribute("value");
+                                    }
                                 }
                                 catch { dataGridView1.Rows[satir].Cells["anneTcNo"].Value = "Hata"; }
                             }
