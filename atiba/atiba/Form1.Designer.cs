@@ -52,6 +52,7 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -66,7 +67,7 @@
             this.button1.Location = new System.Drawing.Point(4, 4);
             this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(290, 63);
+            this.button1.Size = new System.Drawing.Size(151, 77);
             this.button1.TabIndex = 0;
             this.button1.Text = "Öğrenci Listesi Yükle";
             this.button1.UseVisualStyleBackColor = true;
@@ -359,11 +360,22 @@
             this.radioButton1.Text = "İlkokul / Ortaokul";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(154, 4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(139, 77);
+            this.button6.TabIndex = 30;
+            this.button6.Text = "Öğrenci Elle Ekleme";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1962, 1208);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
@@ -421,6 +433,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.Button button6;
     }
 }
 

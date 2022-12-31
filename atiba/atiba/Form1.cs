@@ -1126,8 +1126,10 @@ namespace atiba
 
         }
 
-
-
-
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AddColumnToDataGridView("ogrNo", "Öğrenci No");
+            dataGridView1.Rows.Add("No Yaz");
+        }
     }
 }
