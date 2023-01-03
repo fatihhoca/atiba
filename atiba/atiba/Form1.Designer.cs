@@ -64,9 +64,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(2, 2);
+            this.button1.Location = new System.Drawing.Point(4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 40);
+            this.button1.Size = new System.Drawing.Size(152, 77);
             this.button1.TabIndex = 0;
             this.button1.Text = "Öğrenci Listesi Yükle";
             this.button1.UseVisualStyleBackColor = true;
@@ -74,9 +75,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(2, 41);
+            this.button2.Location = new System.Drawing.Point(4, 79);
+            this.button2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 33);
+            this.button2.Size = new System.Drawing.Size(290, 63);
             this.button2.TabIndex = 2;
             this.button2.Text = "e-Okul Aç";
             this.button2.UseVisualStyleBackColor = true;
@@ -84,9 +86,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(2, 493);
+            this.button3.Location = new System.Drawing.Point(4, 948);
+            this.button3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 49);
+            this.button3.Size = new System.Drawing.Size(290, 94);
             this.button3.TabIndex = 9;
             this.button3.Text = "Bilgileri Çek";
             this.button3.UseVisualStyleBackColor = true;
@@ -97,10 +100,11 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(149, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(298, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(830, 624);
+            this.dataGridView1.Size = new System.Drawing.Size(1660, 1200);
             this.dataGridView1.TabIndex = 1;
             // 
             // ogrenciListBox
@@ -117,6 +121,8 @@
             "Doğum Tarihi",
             "Doğum Yeri",
             "Cilt No",
+            "Aile Sıra No",
+            "Sıra No",
             "Mahalle-Köy",
             "Boy",
             "Kilo",
@@ -124,15 +130,17 @@
             "Özürlü Devamsızlık",
             "Özürsüz Devamsızlık"});
             this.ogrenciListBox.Location = new System.Drawing.Point(0, 0);
+            this.ogrenciListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.ogrenciListBox.Name = "ogrenciListBox";
-            this.ogrenciListBox.Size = new System.Drawing.Size(135, 214);
+            this.ogrenciListBox.Size = new System.Drawing.Size(266, 396);
             this.ogrenciListBox.TabIndex = 4;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(2, 579);
+            this.button4.Location = new System.Drawing.Point(4, 1113);
+            this.button4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(145, 23);
+            this.button4.Size = new System.Drawing.Size(290, 44);
             this.button4.TabIndex = 20;
             this.button4.Text = "Excel\'e Aktar";
             this.button4.UseVisualStyleBackColor = true;
@@ -140,16 +148,18 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(2, 544);
+            this.progressBar1.Location = new System.Drawing.Point(4, 1046);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(145, 23);
+            this.progressBar1.Size = new System.Drawing.Size(290, 44);
             this.progressBar1.TabIndex = 25;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(2, 603);
+            this.button5.Location = new System.Drawing.Point(4, 1160);
+            this.button5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(145, 23);
+            this.button5.Size = new System.Drawing.Size(290, 44);
             this.button5.TabIndex = 21;
             this.button5.Text = "Verileri Kopyala";
             this.button5.UseVisualStyleBackColor = true;
@@ -168,8 +178,9 @@
             "Baba Doğum Tarihi",
             "Baba Meslek"});
             this.babaListBox.Location = new System.Drawing.Point(0, 0);
+            this.babaListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.babaListBox.Name = "babaListBox";
-            this.babaListBox.Size = new System.Drawing.Size(135, 109);
+            this.babaListBox.Size = new System.Drawing.Size(266, 200);
             this.babaListBox.TabIndex = 5;
             this.babaListBox.SelectedIndexChanged += new System.EventHandler(this.babaListBox_SelectedIndexChanged);
             // 
@@ -186,8 +197,9 @@
             "Anne Doğum Tarihi",
             "Anne Meslek"});
             this.anneListBox.Location = new System.Drawing.Point(0, 0);
+            this.anneListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.anneListBox.Name = "anneListBox";
-            this.anneListBox.Size = new System.Drawing.Size(135, 109);
+            this.anneListBox.Size = new System.Drawing.Size(266, 200);
             this.anneListBox.TabIndex = 6;
             // 
             // tabControl1
@@ -195,19 +207,21 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(2, 74);
+            this.tabControl1.Location = new System.Drawing.Point(4, 142);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(145, 240);
+            this.tabControl1.Size = new System.Drawing.Size(290, 462);
             this.tabControl1.TabIndex = 26;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.ogrenciListBox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(8, 39);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(137, 214);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Size = new System.Drawing.Size(274, 415);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Öğrenci";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -215,10 +229,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.babaListBox);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(8, 39);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(137, 228);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage2.Size = new System.Drawing.Size(274, 415);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Baba";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -226,9 +241,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.anneListBox);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(8, 39);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(137, 228);
+            this.tabPage3.Size = new System.Drawing.Size(274, 415);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Anne";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -239,11 +255,11 @@
             this.groupBox1.Controls.Add(this.speed_rb_slower);
             this.groupBox1.Controls.Add(this.speed_rb_slow);
             this.groupBox1.Controls.Add(this.speed_rb_normal);
-            this.groupBox1.Location = new System.Drawing.Point(6, 413);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 794);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(141, 77);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(282, 148);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Veri Çekme Hızı";
@@ -251,10 +267,10 @@
             // speed_rb_slower
             // 
             this.speed_rb_slower.AutoSize = true;
-            this.speed_rb_slower.Location = new System.Drawing.Point(6, 53);
-            this.speed_rb_slower.Margin = new System.Windows.Forms.Padding(2);
+            this.speed_rb_slower.Location = new System.Drawing.Point(12, 102);
+            this.speed_rb_slower.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.speed_rb_slower.Name = "speed_rb_slower";
-            this.speed_rb_slower.Size = new System.Drawing.Size(77, 17);
+            this.speed_rb_slower.Size = new System.Drawing.Size(148, 29);
             this.speed_rb_slower.TabIndex = 2;
             this.speed_rb_slower.Text = "Çok Yavaş";
             this.speed_rb_slower.UseVisualStyleBackColor = true;
@@ -262,10 +278,10 @@
             // speed_rb_slow
             // 
             this.speed_rb_slow.AutoSize = true;
-            this.speed_rb_slow.Location = new System.Drawing.Point(6, 35);
-            this.speed_rb_slow.Margin = new System.Windows.Forms.Padding(2);
+            this.speed_rb_slow.Location = new System.Drawing.Point(12, 67);
+            this.speed_rb_slow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.speed_rb_slow.Name = "speed_rb_slow";
-            this.speed_rb_slow.Size = new System.Drawing.Size(55, 17);
+            this.speed_rb_slow.Size = new System.Drawing.Size(104, 29);
             this.speed_rb_slow.TabIndex = 1;
             this.speed_rb_slow.Text = "Yavaş";
             this.speed_rb_slow.UseVisualStyleBackColor = true;
@@ -274,10 +290,10 @@
             // 
             this.speed_rb_normal.AutoSize = true;
             this.speed_rb_normal.Checked = true;
-            this.speed_rb_normal.Location = new System.Drawing.Point(6, 17);
-            this.speed_rb_normal.Margin = new System.Windows.Forms.Padding(2);
+            this.speed_rb_normal.Location = new System.Drawing.Point(12, 33);
+            this.speed_rb_normal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.speed_rb_normal.Name = "speed_rb_normal";
-            this.speed_rb_normal.Size = new System.Drawing.Size(58, 17);
+            this.speed_rb_normal.Size = new System.Drawing.Size(111, 29);
             this.speed_rb_normal.TabIndex = 0;
             this.speed_rb_normal.TabStop = true;
             this.speed_rb_normal.Text = "Normal";
@@ -289,9 +305,11 @@
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 317);
+            this.groupBox2.Location = new System.Drawing.Point(12, 610);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(141, 91);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Size = new System.Drawing.Size(282, 175);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Okul Türü";
@@ -299,9 +317,10 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(6, 70);
+            this.radioButton4.Location = new System.Drawing.Point(12, 135);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(136, 17);
+            this.radioButton4.Size = new System.Drawing.Size(268, 29);
             this.radioButton4.TabIndex = 31;
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "*Okul Öncesi (Deneme)";
@@ -310,9 +329,10 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 53);
+            this.radioButton3.Location = new System.Drawing.Point(12, 102);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(99, 17);
+            this.radioButton3.Size = new System.Drawing.Size(194, 29);
             this.radioButton3.TabIndex = 30;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "AİHL (Alternatif)";
@@ -321,9 +341,10 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 36);
+            this.radioButton2.Location = new System.Drawing.Point(12, 69);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(44, 17);
+            this.radioButton2.Size = new System.Drawing.Size(83, 29);
             this.radioButton2.TabIndex = 29;
             this.radioButton2.Text = "Lise";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -332,9 +353,10 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
+            this.radioButton1.Location = new System.Drawing.Point(12, 37);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(107, 17);
+            this.radioButton1.Size = new System.Drawing.Size(203, 29);
             this.radioButton1.TabIndex = 28;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "İlkokul / Ortaokul";
@@ -342,10 +364,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(77, 2);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Location = new System.Drawing.Point(154, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(70, 40);
+            this.button6.Size = new System.Drawing.Size(140, 77);
             this.button6.TabIndex = 30;
             this.button6.Text = "Öğrenci Elle Ekleme";
             this.button6.UseVisualStyleBackColor = true;
@@ -353,9 +375,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(981, 629);
+            this.ClientSize = new System.Drawing.Size(1962, 1210);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -368,6 +390,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
