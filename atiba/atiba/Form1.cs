@@ -14,34 +14,65 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
 
-
 namespace atiba
 {
     public partial class Form1 : Form
     {
-        IWebDriver eokul;
+        
 
         public Form1()
         {
             InitializeComponent();
-            //deneme
         }
-        private static int endingRow;
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                ogrenciListBox.SetItemChecked(i, true);
+                babaListBox.SetItemChecked(i, true);
+                anneListBox.SetItemChecked(i, true);
+            }
+            try
+            {
+                seting_Load();
+            }
+            catch
+            {
+                seting_Save();
+
+            }
+            endingRow = 0;
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                seting_Save();
+                eokul.Close();
+                eokul.Dispose();
+            }
+            catch
+            { }
+        }
+
+
+        private static int endingRow;
         private static string[] ogr_list_Row = { "ad_soyad", "tcNo", "sinif", "foto", "veli", "uyruk", "cinsiyet", "dogumTarihi", "dogumYeri", "ciltNo", "mahalleKoy", "boy", "kilo", "tasima", "ozurluDev", "ozursuzDev" };
         private static string[] baba_list_Row = { "babaAdSoyad", "babaTcNo", "babaTel", "babaSO", "babaBA", "babaMezuniyet", "babaDT", "babaMslk" };
         private static string[] anne_list_Row = { "anneAdSoyad", "anneTcNo", "anneTel", "anneSO", "anneBA", "anneMezuniyet", "anneDT", "anneMslk" };
-        public bool Checked(CheckedListBox myListBox,string[] list,string value )
-        {
-            int index = Array.IndexOf(list, value);
-            
 
-            return myListBox.GetItemChecked(index);
+        private static IWebDriver eokul;
+        private static IWebElement veri;
+        private static Screenshot foto;
+        private static IList<IWebElement> aranan;
+        private static int satir = 0;
+        private static string adSoyad, geciciVeri;
+        private static DateTime start;
 
-        }
 
 
-            private void button1_Click(object sender, EventArgs e)
+        private void get_students_List_Click(object sender, EventArgs e)
         {
             try
             {
@@ -61,17 +92,11 @@ namespace atiba
                     // seçilen dosyanın tüm yolunu verir
                     string DosyaAdi = ofd.SafeFileName;
                     // sçeilen dosyanın adını verir.
-
                     //pictureBox1.ImageLocation = DosyaYolu;
-
-
                     dataGridView1.Rows.Clear();
-
 
                     string name = "Sheet1";
                     string constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + DosyaYolu + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
-
-                    
                     OleDbConnection Con = new OleDbConnection(constr);
                     OleDbCommand OleConnection = new OleDbCommand("SELECT * FROM [Sheet1$]", Con);
                     Con.Open();
@@ -82,7 +107,6 @@ namespace atiba
                     if (data.Columns.IndexOf("Öğrenci No") != -1)
                     {
                         dataGridView1.Columns.Add("ogrNo", "Öğrenci No");
-
                         foreach (DataRow drx in data.Rows)
                         {
                             if (drx["Öğrenci No"].ToString() != "")
@@ -107,51 +131,19 @@ namespace atiba
             }
             
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
+        private void open_Eokul_Click(object sender, EventArgs e)
         {
             eokul = new ChromeDriver();
             eokul.Manage().Window.Maximize();
             eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/");
-            
         }
-
-        private void AddColumnToDataGridView(string columnName, string columnHeader)
+        private void get_Data_Click(object sender, EventArgs e)
         {
-            bool hasColumn = false;
-
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
-            {
-                if (column.Name == columnName)
-                {
-                    hasColumn = true;
-                    break;
-                }
-            }
-
-            if (!hasColumn)
-            {
-                dataGridView1.Columns.Add(columnName, columnHeader);
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-
-
-
             if (Checked(ogrenciListBox,ogr_list_Row,"ad_soyad"))
             {
                 //dataGridView1.Columns.Add("ad", "Ad");
                 AddColumnToDataGridView("ad", "Ad");
                 AddColumnToDataGridView("soyad", "Soyad");
-
             }
             if (Checked(ogrenciListBox,ogr_list_Row, "tcNo"))
                 AddColumnToDataGridView("tcNo", "TC");
@@ -216,12 +208,7 @@ namespace atiba
             if (Checked(anneListBox, anne_list_Row, "anneMslk"))
                 AddColumnToDataGridView("anneMslk", "Anne Mesleği");
 
-            IWebElement veri;
-            Screenshot foto;
-            IList<IWebElement> aranan;
-            int satir = 0;
-            string adSoyad, geciciVeri;
-            DateTime start;
+
             //if (radioButton3.Checked == true) aihlGiris();
 
             if (satir != endingRow)
@@ -247,28 +234,27 @@ namespace atiba
                 try
                 {                    
                     //**************ÖĞRENCİ BİLGİLERİ
-
                     if (radioButton1.Checked == true)
                     {
                         eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG01001.aspx");
-                        bekle(50);
+                        next_Wait(50);
                         eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
 
                         veri = eokul.FindElement(By.Id("OGRMenu1_txtTC"));
                         veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
                         eokul.FindElement(By.Id("OGRMenu1_btnAra")).Click();
-                        bekle(50);
+                        next_Wait(50);
                     }
                     else if (radioButton2.Checked == true)
                     {
                         eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG00001.aspx");
-                        bekle(50);
+                        next_Wait(50);
                         //eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
 
                         veri = eokul.FindElement(By.Id("OGRMenu1_txtTCYeni"));
                         veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
                         eokul.FindElement(By.Id("btnOgrenciAra")).Click();
-                        bekle(50);
+                        next_Wait(50);
                     }
                     else if (radioButton3.Checked == true)
                     {
@@ -286,26 +272,26 @@ namespace atiba
                         veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
                         veri = eokul.FindElement(By.Id("btnListele"));
                         veri.Click();
-                        bekle(150);
+                        next_Wait(150);
                         eokul.FindElement(By.TagName("body")).SendKeys(OpenQA.Selenium.Keys.End);
-                        bekle(500);
+                        next_Wait(500);
                         eokul.FindElement(By.TagName("body")).SendKeys(OpenQA.Selenium.Keys.End);
-                        bekle(500);
+                        next_Wait(500);
                         Application.DoEvents();
                         aranan = eokul.FindElements(By.XPath("//i[@class='fas fa-folder']"));
                         aranan[0].Click();
-                        bekle(50);
+                        next_Wait(50);
                     }
                     else if (radioButton4.Checked == true)
                     {
                         eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG01001.aspx");
-                        bekle(50);
+                        next_Wait(50);
                         eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
 
                         veri = eokul.FindElement(By.Id("OGRMenu1_txtTC"));
                         veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
                         eokul.FindElement(By.Id("OGRMenu1_btnAra")).Click();
-                        bekle(50);
+                        next_Wait(50);
                     }
 
 
@@ -352,7 +338,7 @@ namespace atiba
                             {
                                 sinifi = dataGridView1.Rows[satir].Cells["sinif"].Value.ToString().Replace("/", "-");
                                 nosu = dataGridView1.Rows[satir].Cells["ogrNo"].Value.ToString();
-
+                                ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByTagName('img')[0].setAttribute('style', 'height:171px;width:133px;')");
                                 if (radioButton1.Checked == true)
                                 {
                                     veri = eokul.FindElement(By.Id("IOMPageHeader1_imgOgrenciResim"));
@@ -361,12 +347,14 @@ namespace atiba
                                 {
                                     veri = eokul.FindElement(By.Id("OOMPageHeader1_imgOgrenciResim"));
                                 }
+
+
+                                
+
                                 foto = ((ITakesScreenshot)veri).GetScreenshot();
                                 string yol = Application.StartupPath;
                                 Directory.CreateDirectory(yol + "\\" + sinifi);
                                 foto.SaveAsFile(yol + "\\" + sinifi + "\\" + nosu + ".jpg", ScreenshotImageFormat.Jpeg);
-
-
                             }
                             catch { sinifi = "Hata"; }
 
@@ -393,9 +381,9 @@ namespace atiba
                             else if (radioButton4.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02003.aspx");
 
-                            bekle(50);
+                            next_Wait(50);
 
-                            gozleriAc(2);
+                            open_Eyes(2);
                             if (Checked(ogrenciListBox, ogr_list_Row, "uyruk"))
                             {
                                 try
@@ -477,7 +465,7 @@ namespace atiba
                             else if (radioButton4.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02002.aspx");
 
-                            bekle(50);
+                            next_Wait(50);
                             if (Checked(ogrenciListBox,ogr_list_Row,"boy"))
                             {
                                 try
@@ -520,7 +508,7 @@ namespace atiba
                             else if (radioButton4.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02015.aspx");
 
-                            bekle(50);
+                            next_Wait(50);
 
                             if (Checked(ogrenciListBox,ogr_list_Row,"ozurluDev"))
                             {
@@ -568,8 +556,8 @@ namespace atiba
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG02005.aspx");
 
 
-                            bekle(50);
-                            gozleriAc(1);
+                            next_Wait(50);
+                            open_Eyes(1);
 
 
                             aranan = eokul.FindElements(By.ClassName("col-sm-4"));
@@ -660,7 +648,7 @@ namespace atiba
                             }
                             if (Checked(babaListBox, baba_list_Row, "babaMezuniyet"))
                             {
-                                bekle(100);
+                                next_Wait(100);
                                 bool hataVar = false;
                                 do
                                 {
@@ -675,13 +663,13 @@ namespace atiba
                                         dataGridView1.Rows[satir].Cells["babaMezuniyet"].Value = "Hata";
                                         hataVar = true;
                                         eokul.Navigate().Refresh();
-                                        bekle(500);
+                                        next_Wait(500);
                                     }
                                 } while (hataVar == true);
                             }
                             if (Checked(babaListBox, baba_list_Row, "babaMslk"))
                             {
-                                bekle(100);
+                                next_Wait(100);
                                 bool hataVar = false;
                                 do
                                 {
@@ -696,7 +684,7 @@ namespace atiba
                                         dataGridView1.Rows[satir].Cells["babaMslk"].Value = "Hata";
                                         hataVar = true;
                                         eokul.Navigate().Refresh();
-                                        bekle(500);
+                                        next_Wait(500);
                                     }
                                 } while (hataVar == true);
                             }
@@ -714,8 +702,8 @@ namespace atiba
                             else if (radioButton4.Checked == true)
                                 eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG02006.aspx");
 
-                            bekle(50);
-                            gozleriAc(1);
+                            next_Wait(50);
+                            open_Eyes(1);
 
                             aranan = eokul.FindElements(By.ClassName("col-sm-4"));
                             if (Checked(anneListBox, anne_list_Row, "anneAdSoyad"))
@@ -801,7 +789,7 @@ namespace atiba
                             }
                             if (Checked(anneListBox, anne_list_Row, "anneMezuniyet"))
                             {
-                                bekle(100);
+                                next_Wait(100);
                                 bool hataVar = false;
                                 do
                                 {
@@ -816,13 +804,13 @@ namespace atiba
                                         dataGridView1.Rows[satir].Cells["anneMezuniyet"].Value = "Hata";
                                         hataVar = true;
                                         eokul.Navigate().Refresh();
-                                        bekle(500);
+                                        next_Wait(500);
                                     }
                                 } while (hataVar == true);
                             }
                             if (Checked(anneListBox, anne_list_Row, "anneMslk"))
                             {
-                                bekle(100);
+                                next_Wait(100);
                                 bool hataVar = false;
                                 do
                                 {
@@ -837,7 +825,7 @@ namespace atiba
                                         dataGridView1.Rows[satir].Cells["anneMslk"].Value = "Hata";
                                         hataVar = true;
                                         eokul.Navigate().Refresh();
-                                        bekle(500);
+                                        next_Wait(500);
                                     }
                                 } while (hataVar == true);
                             }
@@ -859,91 +847,13 @@ namespace atiba
                 {
                     satir++;
                     Application.DoEvents();
-                    bekle(10);
+                    next_Wait(10);
                 }
             }
             progressBar1.Value = progressBar1.Maximum;
 
         }        
-
-        private void gozleriAc(byte secim)
-        {
-            ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
-
-            IList<IWebElement> aranan;
-            DateTime start;
-
-            start = DateTime.Now;
-            do
-            {
-                if (secim == 1)
-                    aranan = eokul.FindElements(By.XPath("//i[@class='feather icon-eye f-20']"));
-                else
-                    aranan = eokul.FindElements(By.XPath("//i[@class='feather icon-eye f-20 bak']"));
-
-                if (Convert.ToInt32((DateTime.Now - start).TotalSeconds) > 5)
-                {
-                    eokul.Navigate().Refresh();
-                    bekle(100);
-                }
-
-            } while (aranan.Count == 0);
-
-            bekle(50);
-            eokul.FindElement(By.TagName("body")).SendKeys(OpenQA.Selenium.Keys.End);
-            do
-            {
-                foreach (IWebElement deger in aranan)
-                {
-                    try
-                    {
-                        deger.Click();
-                        bekle(10);
-                    }
-                    catch { }
-                    finally { Application.DoEvents(); }
-                }
-                if (secim == 1)
-                    aranan = eokul.FindElements(By.XPath("//i[@class='feather icon-eye f-20']"));
-                else
-                    aranan = eokul.FindElements(By.XPath("//i[@class='feather icon-eye f-20 bak']"));
-            } while (aranan.Count > 0);
-            Application.DoEvents();
-        }
-
-        private void bekle(int saniye)
-        {
-            int speed = 1;
-            if (speed_rb_normal.Checked == true) { speed = 1; }
-            else if (speed_rb_slow.Checked == true) { speed = 2; }
-            else if (speed_rb_slower.Checked == true) { speed = 3; }
-            DateTime start = DateTime.Now;
-            while (Convert.ToInt32((DateTime.Now - start).TotalMilliseconds) < saniye*speed)
-            {
-
-            }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                ogrenciListBox.SetItemChecked(i, true);
-                babaListBox.SetItemChecked(i, true);
-                anneListBox.SetItemChecked(i, true);
-            }
-            try
-            {
-                seting_Load();
-            }
-            catch
-            {
-                seting_Save();
-
-            }
-            endingRow = 0;
-        }
-            private void button4_Click(object sender, EventArgs e)
+        private void set_Data_Excel_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Veri büyüklüğüne göre Excel'e aktarım zaman alabilir lütfen Bitti uyarısı gelene kadar başka işlem yapmayınız.", "Excel'e Aktarım", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             try
@@ -981,74 +891,47 @@ namespace atiba
             }
 
         }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            try
-            {
-                seting_Save();
-                eokul.Close();
-                eokul.Dispose();
-
-            }
-            catch
-            {
-
-            }
-           
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void coyp_Data_Click(object sender, EventArgs e)
         {
 
             dataGridView1.SelectAll();
             Clipboard.SetDataObject(dataGridView1.GetClipboardContent());
         }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void get_student_Click(object sender, EventArgs e)
         {
-
+            AddColumnToDataGridView("ogrNo", "Öğrenci No");
+            dataGridView1.Rows.Add("No Yaz");
         }
 
-        private void babaListBox_SelectedIndexChanged(object sender, EventArgs e)
+
+
+
+
+        private void seting_Load()
         {
+            for (int i = 0; i < ogrenciListBox.Items.Count; i++)
+            {
+                ogrenciListBox.SetItemChecked(i, Convert.ToBoolean(IniIslemleri.VeriOku("Listbox", "ogr_list" + i)));
+            }
+            for (int i = 0; i < anneListBox.Items.Count; i++)
+            {
+                anneListBox.SetItemChecked(i, Convert.ToBoolean(IniIslemleri.VeriOku("Listbox", "anne_list" + i)));
+            }
+            for (int i = 0; i < babaListBox.Items.Count; i++)
+            {
+                babaListBox.SetItemChecked(i, Convert.ToBoolean(IniIslemleri.VeriOku("Listbox", "baba_list" + i)));
+            }
 
+            String Hiz = IniIslemleri.VeriOku("radioButton", "Hiz");
+            RadioButton button_hiz = this.Controls.Find(Hiz, true).FirstOrDefault() as RadioButton;
+            button_hiz.Checked = true;
+
+            String Okul = IniIslemleri.VeriOku("radioButton", "Okul");
+            RadioButton button_okul = this.Controls.Find(Okul, true).FirstOrDefault() as RadioButton;
+            button_okul.Checked = true;
         }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void aihlGiris()
-        {
-            IWebElement veri;
-            veri = eokul.FindElement(By.Id("mdlOOO"));
-            veri.Click();
-            bekle(50);
-            veri = eokul.FindElement(By.Id("btnListele"));
-            veri.Click();
-            bekle(150);
-            eokul.FindElement(By.TagName("body")).SendKeys(OpenQA.Selenium.Keys.End);
-            bekle(500);
-            eokul.FindElement(By.TagName("body")).SendKeys(OpenQA.Selenium.Keys.End);
-            bekle(500);
-            Application.DoEvents();
-            IList<IWebElement> aranan = eokul.FindElements(By.XPath("//i[@class='fas fa-folder']"));
-            aranan[0].Click();
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void seting_Save()
         {
-
-
-
-
             for (int i = 0; i < ogrenciListBox.Items.Count; i++)
             {
 
@@ -1086,50 +969,90 @@ namespace atiba
                     break;
                 }
             }
-
-
         }
-
-        private void seting_Load()
+        private void AddColumnToDataGridView(string columnName, string columnHeader)
         {
-
-
-
-            for (int i = 0; i < ogrenciListBox.Items.Count; i++)
+            bool hasColumn = false;
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
             {
-                ogrenciListBox.SetItemChecked(i, Convert.ToBoolean(IniIslemleri.VeriOku("Listbox", "ogr_list" + i)));
+                if (column.Name == columnName)
+                {
+                    hasColumn = true;
+                    break;
+                }
             }
 
-            for (int i = 0; i < anneListBox.Items.Count; i++)
+            if (!hasColumn)
             {
-                anneListBox.SetItemChecked(i, Convert.ToBoolean(IniIslemleri.VeriOku("Listbox", "anne_list" + i)));
+                dataGridView1.Columns.Add(columnName, columnHeader);
             }
-
-            for (int i = 0; i < babaListBox.Items.Count; i++)
-            {
-                babaListBox.SetItemChecked(i, Convert.ToBoolean(IniIslemleri.VeriOku("Listbox", "baba_list" + i)));
-            }
-
-            String Hiz = IniIslemleri.VeriOku("radioButton", "Hiz");
-            RadioButton button_hiz = this.Controls.Find(Hiz, true).FirstOrDefault() as RadioButton;
-            button_hiz.Checked = true;
-
-            String Okul = IniIslemleri.VeriOku("radioButton", "Okul");
-            RadioButton button_okul = this.Controls.Find(Okul, true).FirstOrDefault() as RadioButton;
-            button_okul.Checked = true;
-
-
-
-
-
-
-
         }
-
-        private void button6_Click(object sender, EventArgs e)
+        public bool Checked(CheckedListBox myListBox, string[] list, string value)
         {
-            AddColumnToDataGridView("ogrNo", "Öğrenci No");
-            dataGridView1.Rows.Add("No Yaz");
+            int index = Array.IndexOf(list, value);
+            return myListBox.GetItemChecked(index);
         }
+        private void open_Eyes(byte secim)
+        {
+            ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
+            
+            IList<IWebElement> aranan;
+            DateTime start;
+
+            start = DateTime.Now;
+            do
+            {
+                if (secim == 1)
+                    aranan = eokul.FindElements(By.XPath("//i[@class='feather icon-eye f-20']"));
+                else
+                    aranan = eokul.FindElements(By.XPath("//i[@class='feather icon-eye f-20 bak']"));
+
+                if (Convert.ToInt32((DateTime.Now - start).TotalSeconds) > 5)
+                {
+                    eokul.Navigate().Refresh();
+                    next_Wait(100);
+                }
+
+            } while (aranan.Count == 0);
+
+            next_Wait(50);
+            eokul.FindElement(By.TagName("body")).SendKeys(OpenQA.Selenium.Keys.End);
+            do
+            {
+                foreach (IWebElement deger in aranan)
+                {
+                    try
+                    {
+                        deger.Click();
+                        next_Wait(10);
+                    }
+                    catch { }
+                    finally { Application.DoEvents(); }
+                }
+                if (secim == 1)
+                    aranan = eokul.FindElements(By.XPath("//i[@class='feather icon-eye f-20']"));
+                else
+                    aranan = eokul.FindElements(By.XPath("//i[@class='feather icon-eye f-20 bak']"));
+            } while (aranan.Count > 0);
+            Application.DoEvents();
+        }
+        private void next_Wait(int saniye)
+        {
+            int speed = 1;
+            if (speed_rb_normal.Checked == true) { speed = 1; }
+            else if (speed_rb_slow.Checked == true) { speed = 2; }
+            else if (speed_rb_slower.Checked == true) { speed = 3; }
+            DateTime start = DateTime.Now;
+            while (Convert.ToInt32((DateTime.Now - start).TotalMilliseconds) < saniye * speed)
+            {
+
+            }
+        }
+
+
+
+
+
+
     }
 }
