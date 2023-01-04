@@ -139,7 +139,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Atiba Logo.ico" />
-    <Content Include="Atiba.ico" />
     <Content Include="atibaLogo.ico" />
     <Content Include="number.ico" />
   </ItemGroup>
