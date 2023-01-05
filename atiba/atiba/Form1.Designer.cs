@@ -53,6 +53,7 @@
             this.babaListBox = new System.Windows.Forms.CheckedListBox();
             this.ogrenciListBox = new System.Windows.Forms.CheckedListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.sub_School = new System.Windows.Forms.ComboBox();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,6 +89,7 @@
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Veri Sayfası";
             this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
             // coyp_Data
             // 
@@ -200,7 +202,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(282, 175);
+            this.groupBox1.Size = new System.Drawing.Size(282, 195);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Veri Çekme Hızı";
@@ -242,6 +244,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.sub_School);
             this.groupBox2.Controls.Add(this.radioButton4);
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.radioButton2);
@@ -250,7 +253,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox2.Size = new System.Drawing.Size(282, 175);
+            this.groupBox2.Size = new System.Drawing.Size(282, 195);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Okul Türü";
@@ -258,7 +261,7 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(12, 135);
+            this.radioButton4.Location = new System.Drawing.Point(12, 154);
             this.radioButton4.Margin = new System.Windows.Forms.Padding(6);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(268, 29);
@@ -270,7 +273,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(12, 102);
+            this.radioButton3.Location = new System.Drawing.Point(12, 113);
             this.radioButton3.Margin = new System.Windows.Forms.Padding(6);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(194, 29);
@@ -282,7 +285,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(12, 69);
+            this.radioButton2.Location = new System.Drawing.Point(12, 78);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(6);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(83, 29);
@@ -369,6 +372,18 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
+            // sub_School
+            // 
+            this.sub_School.FormattingEnabled = true;
+            this.sub_School.Items.AddRange(new object[] {
+            "Anadolu Meslek Programı",
+            "Anadolu Teknik Programı"});
+            this.sub_School.Location = new System.Drawing.Point(94, 75);
+            this.sub_School.Name = "sub_School";
+            this.sub_School.Size = new System.Drawing.Size(179, 33);
+            this.sub_School.TabIndex = 32;
+            this.sub_School.Text = "Anadolu Meslek Programı";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -423,6 +438,7 @@
         private System.Windows.Forms.CheckedListBox babaListBox;
         private System.Windows.Forms.CheckedListBox ogrenciListBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ComboBox sub_School;
     }
 }
 

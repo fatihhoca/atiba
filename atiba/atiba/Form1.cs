@@ -461,6 +461,17 @@ namespace atiba
                             next_Wait(50);
                             //eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
 
+                            aranan = eokul.FindElements(By.Id("OGRMenu1_ddlOkulAltTurYeni"));
+                            if (aranan.Count > 0)
+                            {
+
+                                aranan[0].SendKeys(sub_School.Text);
+                                next_Wait(100);
+                            }
+                            
+                           
+                            
+
                             veri = eokul.FindElement(By.Id("OGRMenu1_txtTCYeni"));
                             veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
                             eokul.FindElement(By.Id("btnOgrenciAra")).Click();
@@ -1068,7 +1079,10 @@ namespace atiba
 
         }
 
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
 
+        }
 
         private void next_Wait(int saniye)
         {
