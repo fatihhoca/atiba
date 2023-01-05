@@ -52,6 +52,7 @@
             this.anneListBox = new System.Windows.Forms.CheckedListBox();
             this.babaListBox = new System.Windows.Forms.CheckedListBox();
             this.ogrenciListBox = new System.Windows.Forms.CheckedListBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -364,6 +365,10 @@
             this.ogrenciListBox.Size = new System.Drawing.Size(280, 536);
             this.ogrenciListBox.TabIndex = 5;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -377,6 +382,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Atiba - eOkul Scrapper 3.0";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl2.ResumeLayout(false);
@@ -416,6 +422,7 @@
         private System.Windows.Forms.CheckedListBox anneListBox;
         private System.Windows.Forms.CheckedListBox babaListBox;
         private System.Windows.Forms.CheckedListBox ogrenciListBox;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
