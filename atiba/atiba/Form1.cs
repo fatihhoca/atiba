@@ -61,7 +61,7 @@ namespace atiba
 
 
         private static int endingRow;
-        private static string[] ogr_list_Row = { "ad_soyad", "tcNo", "sinif", "foto", "veli", "uyruk", "cinsiyet", "dogumTarihi", "dogumYeri", "ciltNo", "mahalleKoy", "boy", "kilo", "tasima", "ozurluDev", "ozursuzDev" };
+        private static string[] ogr_list_Row = { "ad_soyad", "tcNo", "sinif", "foto", "veli", "uyruk", "cinsiyet", "dogumTarihi", "dogumYeri", "ciltNo", "aileSiraNo", "siraNo", "mahalleKoy", "boy", "kilo", "tasima", "ozurluDev", "ozursuzDev" };
         private static string[] baba_list_Row = { "babaAdSoyad", "babaTcNo", "babaTel", "babaSO", "babaBA", "babaMezuniyet", "babaDT", "babaMslk" };
         private static string[] anne_list_Row = { "anneAdSoyad", "anneTcNo", "anneTel", "anneSO", "anneBA", "anneMezuniyet", "anneDT", "anneMslk" };
 
@@ -363,6 +363,10 @@ namespace atiba
                 AddColumnToDataGridView("dogumYeri", "Doğum Yeri");
             if (Checked(ogrenciListBox, ogr_list_Row, "ciltNo"))
                 AddColumnToDataGridView("ciltNo", "Cilt No");
+            if (Checked(ogrenciListBox, ogr_list_Row, "aileSiraNo"))
+                AddColumnToDataGridView("aileSiraNo", "Aile Sıra No");
+            if (Checked(ogrenciListBox, ogr_list_Row, "siraNo"))
+                AddColumnToDataGridView("siraNo", "Sıra No");
             if (Checked(ogrenciListBox, ogr_list_Row, "mahalleKoy"))
                 AddColumnToDataGridView("mahalleKoy", "Mahalle Köy");
             if (Checked(ogrenciListBox, ogr_list_Row, "boy"))
@@ -593,7 +597,7 @@ namespace atiba
                                 catch { dataGridView1.Rows[satir].Cells["veli"].Value = "Hata"; }
                             }
 
-                            if (Checked(ogrenciListBox, ogr_list_Row, "uyruk") || Checked(ogrenciListBox, ogr_list_Row, "cinsiyet") || Checked(ogrenciListBox, ogr_list_Row, "dogumTarihi") || Checked(ogrenciListBox, ogr_list_Row, "dogumYeri") || Checked(ogrenciListBox, ogr_list_Row, "ciltNo"))
+                            if (Checked(ogrenciListBox, ogr_list_Row, "uyruk") || Checked(ogrenciListBox, ogr_list_Row, "cinsiyet") || Checked(ogrenciListBox, ogr_list_Row, "dogumTarihi") || Checked(ogrenciListBox, ogr_list_Row, "dogumYeri") || Checked(ogrenciListBox, ogr_list_Row, "ciltNo") || Checked(ogrenciListBox, ogr_list_Row, "aileSiraNo") || Checked(ogrenciListBox, ogr_list_Row, "siraNo"))
                             {
                                 if (radioButton1.Checked == true)
                                     eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02003.aspx");
@@ -662,6 +666,38 @@ namespace atiba
                                     }
                                     catch { dataGridView1.Rows[satir].Cells["ciltNo"].Value = "Hata"; }
                                 }
+                                if (Checked(ogrenciListBox, ogr_list_Row, "aileSiraNo"))
+                                {
+                                    try
+                                    {
+                                        veri = eokul.FindElement(By.Id("aileSiraNo"));
+                                        veri = veri.FindElement(By.TagName("img"));
+                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
+                                        geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                                        dataGridView1.Rows[satir].Cells["aileSiraNo"].Value = geciciVeri;
+                                    }
+                                    catch { dataGridView1.Rows[satir].Cells["aileSiraNo"].Value = "Hata"; }
+                                }
+
+
+                                if (Checked(ogrenciListBox, ogr_list_Row, "siraNo"))
+                                {
+                                    try
+                                    {
+                                        veri = eokul.FindElement(By.Id("siraNo"));
+                                        veri = veri.FindElement(By.TagName("img"));
+                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
+                                        geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                                        dataGridView1.Rows[satir].Cells["siraNo"].Value = geciciVeri;
+                                    }
+                                    catch { dataGridView1.Rows[satir].Cells["siraNo"].Value = "Hata"; }
+                                }
+
+
+
+
                                 if (Checked(ogrenciListBox, ogr_list_Row, "mahalleKoy"))
                                 {
                                     try

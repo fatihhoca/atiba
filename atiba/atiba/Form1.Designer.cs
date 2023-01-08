@@ -45,6 +45,7 @@
             this.speed_rb_slow = new System.Windows.Forms.RadioButton();
             this.speed_rb_normal = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.sub_School = new System.Windows.Forms.ComboBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -53,7 +54,6 @@
             this.babaListBox = new System.Windows.Forms.CheckedListBox();
             this.ogrenciListBox = new System.Windows.Forms.CheckedListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.sub_School = new System.Windows.Forms.ComboBox();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -258,6 +258,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Okul Türü";
             // 
+            // sub_School
+            // 
+            this.sub_School.FormattingEnabled = true;
+            this.sub_School.Items.AddRange(new object[] {
+            "Anadolu Meslek Programı",
+            "Anadolu Teknik Programı"});
+            this.sub_School.Location = new System.Drawing.Point(94, 75);
+            this.sub_School.Name = "sub_School";
+            this.sub_School.Size = new System.Drawing.Size(179, 33);
+            this.sub_School.TabIndex = 32;
+            this.sub_School.Text = "Anadolu Meslek Programı";
+            // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
@@ -356,6 +368,8 @@
             "Doğum Tarihi",
             "Doğum Yeri",
             "Cilt No",
+            "Aile Sıra No",
+            "Sıra No",
             "Mahalle-Köy",
             "Boy",
             "Kilo",
@@ -371,18 +385,6 @@
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
-            // sub_School
-            // 
-            this.sub_School.FormattingEnabled = true;
-            this.sub_School.Items.AddRange(new object[] {
-            "Anadolu Meslek Programı",
-            "Anadolu Teknik Programı"});
-            this.sub_School.Location = new System.Drawing.Point(94, 75);
-            this.sub_School.Name = "sub_School";
-            this.sub_School.Size = new System.Drawing.Size(179, 33);
-            this.sub_School.TabIndex = 32;
-            this.sub_School.Text = "Anadolu Meslek Programı";
             // 
             // Form1
             // 
