@@ -22,10 +22,11 @@ namespace atiba
 
         public Form1()
         {
+            CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
             backgroundWorker1.WorkerReportsProgress = true; //backgroundWorker1 için işlemin ilerlemesini raporlama aktif edildi
             backgroundWorker1.WorkerSupportsCancellation = true; //backgroundWorker1 için işlemin durdurulabilme aktif edildi
-            CheckForIllegalCrossThreadCalls = false;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -140,20 +141,7 @@ namespace atiba
             eokul.Manage().Window.Maximize();
             eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/");
         }
-        private void get_Data_Click(object sender, EventArgs e)
-        {
-            if (backgroundWorker1.IsBusy != true)
-            {
-                backgroundWorker1.RunWorkerAsync();
-                get_Data.Text= "Durdur";
-            }
-            else
-            {
-                backgroundWorker1.CancelAsync();
-                get_Data.Text = "Durduruluyor";
-            }
-
-        }        
+      
         private void set_Data_Excel_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Veri büyüklüğüne göre Excel'e aktarım zaman alabilir lütfen Bitti uyarısı gelene kadar başka işlem yapmayınız.", "Excel'e Aktarım", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -338,9 +326,13 @@ namespace atiba
             Application.DoEvents();
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void get_Data_Click(object sender, EventArgs e)
         {
-            BackgroundWorker worker = sender as BackgroundWorker;
+            
+
+
+           
+
             if (Checked(ogrenciListBox, ogr_list_Row, "ad_soyad"))
             {
                 //dataGridView1.Columns.Add("ad", "Ad");
@@ -433,16 +425,11 @@ namespace atiba
             progressBar1.Maximum = dataGridView1.Rows.Count + 1;
             progressBar1.Value = satir;
 
-            while (satir < dataGridView1.Rows.Count)
-            {
-                if (worker.CancellationPending == true)
-                {
-                    // Eğer yapılan işlemi durdumak için istek gönderildiyse, DoWork olayını durdur ve döngüden çık.
-                    e.Cancel = true;
-                    break;
-                }
-                else
-                {
+            while (satir < dataGridView1.Rows.Count-1)
+          
+            { 
+                
+
                     DataGridViewRow dr = dataGridView1.Rows[satir];
                     progressBar1.Value++;
                     try
@@ -1103,21 +1090,35 @@ namespace atiba
                     finally
                     {
                         satir++;
-                        Application.DoEvents();
+                       Application.DoEvents();
                         next_Wait(10);
+ 
                     }
-                }
+                
 
 
             }
             progressBar1.Value = progressBar1.Maximum;
             get_Data.Text = "Bilgileri Çek";
 
+
+
+
         }
 
         private void tabPage4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void next_Wait(int saniye)
