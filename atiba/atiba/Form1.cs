@@ -22,11 +22,9 @@ namespace atiba
 
         public Form1()
         {
-            CheckForIllegalCrossThreadCalls = false;
+
             InitializeComponent();
-            backgroundWorker1.WorkerReportsProgress = true; //backgroundWorker1 için işlemin ilerlemesini raporlama aktif edildi
-            backgroundWorker1.WorkerSupportsCancellation = true; //backgroundWorker1 için işlemin durdurulabilme aktif edildi
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
