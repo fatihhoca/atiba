@@ -29,6 +29,7 @@ namespace atiba
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            sub_School.SelectedIndex = 0;
             for (int i = 0; i < 3; i++)
             {
                 ogrenciListBox.SetItemChecked(i, true);
@@ -327,10 +328,6 @@ namespace atiba
         private void get_Data_Click(object sender, EventArgs e)
         {
             
-
-
-           
-
             if (Checked(ogrenciListBox, ogr_list_Row, "ad_soyad"))
             {
                 //dataGridView1.Columns.Add("ad", "Ad");
@@ -425,9 +422,7 @@ namespace atiba
 
             while (satir < dataGridView1.Rows.Count-1)
           
-            { 
-                
-
+            {                 
                     DataGridViewRow dr = dataGridView1.Rows[satir];
                     progressBar1.Value++;
                     try
@@ -453,13 +448,9 @@ namespace atiba
                             aranan = eokul.FindElements(By.Id("OGRMenu1_ddlOkulAltTurYeni"));
                             if (aranan.Count > 0)
                             {
-
                                 aranan[0].SendKeys(sub_School.Text);
                                 next_Wait(100);
-                            }
-                            
-                           
-                            
+                            }                                                                                   
 
                             veri = eokul.FindElement(By.Id("OGRMenu1_txtTCYeni"));
                             veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
@@ -1117,6 +1108,35 @@ namespace atiba
         private void button1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TopMost = checkBox1.Checked;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            sub_School.Enabled = false;
+            label1.Enabled = false;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            sub_School.Enabled = false;
+            label1.Enabled = false;
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            sub_School.Enabled = false;
+            label1.Enabled = false;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            sub_School.Enabled = true;
+            label1.Enabled = true;
         }
 
         private void next_Wait(int saniye)

@@ -30,3 +30,6 @@ C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.pdb
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\bin\Debug\selenium-manager\linux\selenium-manager
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\bin\Debug\selenium-manager\macos\selenium-manager
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\bin\Debug\selenium-manager\windows\selenium-manager.exe
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\selenium-manager\linux\selenium-manager
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\selenium-manager\macos\selenium-manager
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\selenium-manager\windows\selenium-manager.exe
