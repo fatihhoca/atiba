@@ -30,12 +30,16 @@ namespace atiba
         private void Form1_Load(object sender, EventArgs e)
         {
             sub_School.SelectedIndex = 0;
+            ogrenciListBox.Items.AddRange(ogr_list_Row);
+            babaListBox.Items.AddRange(baba_list_Row);
+            anneListBox.Items.AddRange(anne_list_Row);
             for (int i = 0; i < 3; i++)
             {
                 ogrenciListBox.SetItemChecked(i, true);
                 babaListBox.SetItemChecked(i, true);
                 anneListBox.SetItemChecked(i, true);
             }
+
             try
             {
                 seting_Load();
@@ -46,6 +50,7 @@ namespace atiba
 
             }
             endingRow = 0;
+
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
