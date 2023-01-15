@@ -12,6 +12,7 @@ using System.Data.OleDb;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using System.Runtime.ConstrainedExecution;
 
 
 namespace atiba
@@ -84,8 +85,8 @@ namespace atiba
         {
             try
             {
-                dataGridView1.Rows.Clear();
-                dataGridView1.Columns.Clear();
+                //dataGridView1.Rows.Clear();
+                //dataGridView1.Columns.Clear();
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Title = "Öğrenci Listesini Aç";
                 //Açılan Dialog Penceresine verilen isim.
@@ -101,7 +102,7 @@ namespace atiba
                     string DosyaAdi = ofd.SafeFileName;
                     // sçeilen dosyanın adını verir.
                     //pictureBox1.ImageLocation = DosyaYolu;
-                    dataGridView1.Rows.Clear();
+                   // dataGridView1.Rows.Clear();
 
                     string name = "Sheet1";
                     string constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + DosyaYolu + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
@@ -112,22 +113,37 @@ namespace atiba
                     OleDbDataAdapter sda = new OleDbDataAdapter(OleConnection);
                     DataTable data = new DataTable();
                     sda.Fill(data);
+                    int ay = -1;
                     if (data.Columns.IndexOf("Öğrenci No") != -1)
                     {
-                        //dataGridView1.DataSource = data;
-
-                        dataGridView1.Columns.Add("No", "No");
+                        AddColumn("No");
 
                         foreach (DataRow drx in data.Rows)
                         {
                             if (drx["Öğrenci No"].ToString() != "")
-                                dataGridView1.Rows.Add(drx["Öğrenci No"]);
 
-                            //dataGridView1.Rows[satir].Cells["Tc_No"].Value
+                             
+                            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+                            {
+                                    ay = -1;
+                                    if (dataGridView1.Rows[i].Cells["No"].Value.ToString() == drx["Öğrenci No"].ToString() )
+                                {
+                                        ay = i;
+                                    break;
+                                }
+                            };
+
+
+                            if (ay == -1 && drx["Öğrenci No"].ToString() != "")
+                            { dataGridView1.Rows.Add(drx["Öğrenci No"]); }
+
+
 
 
 
                         }
+
+
                         dataGridView1.ReadOnly = false;
                         dataGridView1.Columns[0].Width = 100;
                         dataGridView1.ClearSelection();
@@ -136,7 +152,8 @@ namespace atiba
                     {
                         foreach (DataColumn column in data.Columns)
                         {
-                            dataGridView1.Columns.Add(column.ColumnName, column.ColumnName);
+                            AddColumn(column.ColumnName);
+                            
                         }
 
                         foreach (DataRow row in data.Rows)
@@ -147,7 +164,7 @@ namespace atiba
                                 dataGridView1.Rows[index].Cells[i].Value = row[i];
                             }
                         }
-                        endingRow = data.Columns.Count;
+                        endingRow = dataGridView1.Rows.Count-1;
 
 
                     }
@@ -660,7 +677,7 @@ namespace atiba
                             {
                                 try
                                 {
-                                    veri = eokul.FindElement(By.Id("Cilt_No"));
+                                    veri = eokul.FindElement(By.Id("ciltNo"));
                                     veri = veri.FindElement(By.TagName("img"));
                                     geciciVeri = veri.GetAttribute("outerHTML").ToString();
                                     geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
