@@ -32,7 +32,7 @@
           "build/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
+      "Selenium.WebDriver.ChromeDriver/109.0.5414.7400": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -70,7 +70,7 @@
           "build/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
+      "Selenium.WebDriver.ChromeDriver/109.0.5414.7400": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -108,7 +108,7 @@
           "build/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
+      "Selenium.WebDriver.ChromeDriver/109.0.5414.7400": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -146,7 +146,7 @@
           "build/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
+      "Selenium.WebDriver.ChromeDriver/109.0.5414.7400": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -199,10 +199,10 @@
         "selenium.webdriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
-      "sha512": "wrDUVsoQHQct9BodCFgRi1LMKGhwv27ANuS8l7ZXcOn/VS2NqcxxBhSAkcucx4CoZgidny0+ifnFS95nTmnVvg==",
+    "Selenium.WebDriver.ChromeDriver/109.0.5414.7400": {
+      "sha512": "eTclb0YvUFujj9MCe3RfQvZA9LRcazmqoYzqmrOdW/FMhossjXOpbiaLsUsI84EDNFZQlkRMq4S61XmUtzZOaw==",
       "type": "package",
-      "path": "selenium.webdriver.chromedriver/108.0.5359.7100",
+      "path": "selenium.webdriver.chromedriver/109.0.5414.7400",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -214,7 +214,7 @@
         "driver/mac64arm/chromedriver",
         "driver/win32/chromedriver.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.chromedriver.108.0.5359.7100.nupkg.sha512",
+        "selenium.webdriver.chromedriver.109.0.5414.7400.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
       ]
     }
@@ -223,24 +223,29 @@
     ".NETFramework,Version=v4.8": [
       "Selenium.Support >= 4.7.0",
       "Selenium.WebDriver >= 4.7.0",
-      "Selenium.WebDriver.ChromeDriver >= 108.0.5359.7100"
+      "Selenium.WebDriver.ChromeDriver >= 109.0.5414.7400"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fkbos\\.nuget\\packages\\": {}
+    "C:\\Users\\egiti\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\atiba.csproj",
+      "projectUniqueName": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\atiba.csproj",
       "projectName": "atiba",
-      "projectPath": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\atiba.csproj",
-      "packagesPath": "C:\\Users\\fkbos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\obj\\",
+      "projectPath": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\atiba.csproj",
+      "packagesPath": "C:\\Users\\egiti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\fkbos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\egiti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -269,7 +274,7 @@
           },
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
-            "version": "[108.0.5359.7100, )"
+            "version": "[109.0.5414.7400, )"
           }
         }
       }

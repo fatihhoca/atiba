@@ -18,7 +18,7 @@ namespace atiba
 {
     public partial class Form1 : Form
     {
-        
+
 
         public Form1()
         {
@@ -61,9 +61,9 @@ namespace atiba
 
 
         private static int endingRow;
-        private static string[] ogr_list_Row = { "ad_soyad", "tcNo", "sinif", "foto", "veli", "uyruk", "cinsiyet", "dogumTarihi", "dogumYeri", "ciltNo", "aileSiraNo", "siraNo", "mahalleKoy", "boy", "kilo", "tasima", "ozurluDev", "ozursuzDev" };
-        private static string[] baba_list_Row = { "babaAdSoyad", "babaTcNo", "babaTel", "babaSO", "babaBA", "babaMezuniyet", "babaDT", "babaMslk" };
-        private static string[] anne_list_Row = { "anneAdSoyad", "anneTcNo", "anneTel", "anneSO", "anneBA", "anneMezuniyet", "anneDT", "anneMslk" };
+        private static string[] ogr_list_Row = { "Adi", "Soyadi", "Tc_No", "Sinif", "foto", "Veli", "Uyruk", "Cinsiyet", "Dogum_Tarihi", "Dogum_Yeri", "Cilt_No", "Aile_Sira_No", "Sira_No", "Mahalle_Koy", "Boy", "Kilo", "Tasima", "Ozurlu_Dev", "Ozursuz_Dev" };
+        private static string[] baba_list_Row = { "Baba_Adi_Soyadi", "Baba_Tc_No", "Baba_Tel", "Baba_Sag_Olu", "Baba_Birlikte", "Baba_Mezuniyet", "Baba_Doğum_Tarihi", "Baba_Mslk" };
+        private static string[] anne_list_Row = { "Anne_Adi_Soyadi", "Anne_Tc_No", "Anne_Tel", "Anne_Sağ_Olu", "Anne_Birlikte", "Anne_Mezuniyet", "Anne_Dogum_Tarihi", "Anne_Mslk" };
 
         private static IWebDriver eokul;
         private static IWebElement veri;
@@ -109,18 +109,18 @@ namespace atiba
                     sda.Fill(data);
                     if (data.Columns.IndexOf("Öğrenci No") != -1)
                     {
-                        dataGridView1.Columns.Add("ogrNo", "Öğrenci No");
+                        dataGridView1.Columns.Add("No", "No");
                         foreach (DataRow drx in data.Rows)
                         {
                             if (drx["Öğrenci No"].ToString() != "")
-                            dataGridView1.Rows.Add(drx["Öğrenci No"].ToString());
+                                dataGridView1.Rows.Add(drx["Öğrenci No"].ToString());
                         }
                         dataGridView1.ReadOnly = false;
                         dataGridView1.Columns[0].Width = 100;
                         dataGridView1.ClearSelection();
                     }
                     else
-                        MessageBox.Show("Seçtiğiniz EXCEL içinde Öğrenci No alanı tespit edilemedi\nTablonuzda Öğrenci No adlı bir sütun ve altında öğrenci numaraları olması yeterli","Öğrenci No Sütunu Yok",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Seçtiğiniz EXCEL içinde Öğrenci No alanı tespit edilemedi\nTablonuzda Öğrenci No adlı bir sütun ve altında öğrenci numaraları olması yeterli", "Öğrenci No Sütunu Yok", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     data.Dispose();
                     sda.Dispose();
@@ -132,7 +132,7 @@ namespace atiba
             {
                 MessageBox.Show("Tablo yüklenirken hata oluştu.\nTablonuzda Öğrenci No adlı bir sütun ve altında öğrenci numaraları olması yeterli\nAyrıca tablonuzdaki sayfa adı Sheet1 olmalı.\nLütfen kontrol ediniz.", "Hatalı Dosya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
         private void open_Eokul_Click(object sender, EventArgs e)
         {
@@ -140,7 +140,7 @@ namespace atiba
             eokul.Manage().Window.Maximize();
             eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/");
         }
-      
+
         private void set_Data_Excel_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Veri büyüklüğüne göre Excel'e aktarım zaman alabilir lütfen Bitti uyarısı gelene kadar başka işlem yapmayınız.", "Excel'e Aktarım", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -149,13 +149,13 @@ namespace atiba
                 Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
                 Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
                 Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-                
+
                 worksheet = workbook.Sheets["Sayfa1"];
                 worksheet = workbook.ActiveSheet;
                 worksheet.Name = "Excel Dışa Aktarım";
                 for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
                 {
-                    worksheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
+                    worksheet.Cells[1, i] = dataGridView1.Columns[i - 1].Name.ToString();
                 }
                 for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
@@ -169,7 +169,7 @@ namespace atiba
                         catch { }
                     }
                 }
-                
+
                 MessageBox.Show("Excel'e aktarım hatasız bir şekilde bitti. Tamam tuşuna basarak Excel dosyasına erişebilirsiniz.", "Excel'e Aktarım Bitti", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 app.Visible = true;
             }
@@ -187,7 +187,7 @@ namespace atiba
         }
         private void get_student_Click(object sender, EventArgs e)
         {
-            AddColumnToDataGridView("ogrNo", "Öğrenci No");
+            AddColumn("No");
             dataGridView1.Rows.Add("No Yaz");
         }
 
@@ -258,7 +258,7 @@ namespace atiba
                 }
             }
         }
-        private void AddColumnToDataGridView(string columnName, string columnHeader)
+        private void AddColumn(string columnName)
         {
             bool hasColumn = false;
             foreach (DataGridViewColumn column in dataGridView1.Columns)
@@ -272,18 +272,42 @@ namespace atiba
 
             if (!hasColumn)
             {
-                dataGridView1.Columns.Add(columnName, columnHeader);
+                dataGridView1.Columns.Add(columnName, columnName);
             }
         }
-        public bool Checked(CheckedListBox myListBox, string[] list, string value)
+        public bool Checked(string value)
         {
-            int index = Array.IndexOf(list, value);
+
+            string[] foundInList = null;
+            CheckedListBox myListBox = null;
+            int ogrIndex = Array.IndexOf(ogr_list_Row, value);
+            int babaIndex = Array.IndexOf(baba_list_Row, value);
+            int anneIndex = Array.IndexOf(anne_list_Row, value);
+            if (ogrIndex != -1)
+            {
+                foundInList = ogr_list_Row;
+                myListBox = ogrenciListBox;
+            }
+            else if (babaIndex != -1)
+            {
+                foundInList = baba_list_Row;
+                myListBox = babaListBox;
+            }
+            else if (anneIndex != -1)
+            {
+                foundInList = anne_list_Row;
+                myListBox = anneListBox;
+            }
+
+
+
+            int index = Array.IndexOf(foundInList, value);
             return myListBox.GetItemChecked(index);
         }
         private void open_Eyes(byte secim)
         {
             ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
-            
+
             IList<IWebElement> aranan;
             DateTime start;
 
@@ -327,79 +351,43 @@ namespace atiba
 
         private void get_Data_Click(object sender, EventArgs e)
         {
-            
-            if (Checked(ogrenciListBox, ogr_list_Row, "ad_soyad"))
-            {
-                //dataGridView1.Columns.Add("ad", "Ad");
-                AddColumnToDataGridView("ad", "Ad");
-                AddColumnToDataGridView("soyad", "Soyad");
-            }
-            if (Checked(ogrenciListBox, ogr_list_Row, "tcNo"))
-                AddColumnToDataGridView("tcNo", "TC");
-            if (Checked(ogrenciListBox, ogr_list_Row, "sinif"))
-                AddColumnToDataGridView("sinif", "Sınıf");
-            if (Checked(ogrenciListBox, ogr_list_Row, "veli"))
-                AddColumnToDataGridView("veli", "Veli");
-            if (Checked(ogrenciListBox, ogr_list_Row, "uyruk"))
-                AddColumnToDataGridView("uyruk", "Uyruğu");
-            if (Checked(ogrenciListBox, ogr_list_Row, "cinsiyet"))
-                AddColumnToDataGridView("cinsiyet", "Cinsiyeti");
-            if (Checked(ogrenciListBox, ogr_list_Row, "dogumTarihi"))
-                AddColumnToDataGridView("dogumTarihi", "Doğum Tarihi");
-            if (Checked(ogrenciListBox, ogr_list_Row, "dogumYeri"))
-                AddColumnToDataGridView("dogumYeri", "Doğum Yeri");
-            if (Checked(ogrenciListBox, ogr_list_Row, "ciltNo"))
-                AddColumnToDataGridView("ciltNo", "Cilt No");
-            if (Checked(ogrenciListBox, ogr_list_Row, "aileSiraNo"))
-                AddColumnToDataGridView("aileSiraNo", "Aile Sıra No");
-            if (Checked(ogrenciListBox, ogr_list_Row, "siraNo"))
-                AddColumnToDataGridView("siraNo", "Sıra No");
-            if (Checked(ogrenciListBox, ogr_list_Row, "mahalleKoy"))
-                AddColumnToDataGridView("mahalleKoy", "Mahalle Köy");
-            if (Checked(ogrenciListBox, ogr_list_Row, "boy"))
-                AddColumnToDataGridView("boy", "Boy");
-            if (Checked(ogrenciListBox, ogr_list_Row, "kilo"))
-                AddColumnToDataGridView("kilo", "Kilo");
-            if (Checked(ogrenciListBox, ogr_list_Row, "tasima"))
-                AddColumnToDataGridView("tasima", "Taşıma");
-            if (Checked(ogrenciListBox, ogr_list_Row, "ozurluDev"))
-                AddColumnToDataGridView("ozurluDev", "Özürlü Dev.");
-            if (Checked(ogrenciListBox, ogr_list_Row, "ozursuzDev"))
-                AddColumnToDataGridView("ozursuzDev", "Özürsüz Dev.");
 
-            if (Checked(babaListBox, baba_list_Row, "babaAdSoyad"))
-                AddColumnToDataGridView("babaAdSoyad", "Baba");
-            if (Checked(babaListBox, baba_list_Row, "babaTcNo"))
-                AddColumnToDataGridView("babaTcNo", "Baba TC");
-            if (Checked(babaListBox, baba_list_Row, "babaTel"))
-                AddColumnToDataGridView("babaTel", "Baba Tel");
-            if (Checked(babaListBox, baba_list_Row, "babaSO"))
-                AddColumnToDataGridView("babaSO", "Baba Sağ/Ölü");
-            if (Checked(babaListBox, baba_list_Row, "babaBA"))
-                AddColumnToDataGridView("babaBA", "Baba Birlikte/Ayrı");
-            if (Checked(babaListBox, baba_list_Row, "babaMezuniyet"))
-                AddColumnToDataGridView("babaMezuniyet", "Baba Mezuniyet");
-            if (Checked(babaListBox, baba_list_Row, "babaDT"))
-                AddColumnToDataGridView("babaDT", "Baba Doğum Tarihi");
-            if (Checked(babaListBox, baba_list_Row, "babaMslk"))
-                AddColumnToDataGridView("babaMslk", "Baba Mesleği");
+            if (Checked("Adi")) AddColumn("Adi");
+            if (Checked("Soyadi")) AddColumn("Soyadi");
+            if (Checked("Tc_No")) AddColumn("Tc_No");
+            if (Checked("Sinif")) AddColumn("Sinif");
+            if (Checked("Veli")) AddColumn("Veli");
+            if (Checked("Uyruk")) AddColumn("Uyruk");
+            if (Checked("Cinsiyet")) AddColumn("Cinsiyet");
+            if (Checked("Dogum_Tarihi")) AddColumn("Dogum_Tarihi");
+            if (Checked("Dogum_Yeri")) AddColumn("Dogum_Yeri");
+            if (Checked("Cilt_No")) AddColumn("Cilt_No");
+            if (Checked("Aile_Sira_No")) AddColumn("Aile_Sira_No");
+            if (Checked("Sira_No")) AddColumn("Sira_No");
+            if (Checked("Mahalle_Koy")) AddColumn("Mahalle_Koy");
+            if (Checked("Boy")) AddColumn("Boy");
+            if (Checked("Kilo")) AddColumn("Kilo");
+            if (Checked("Tasima")) AddColumn("Tasima");
+            if (Checked("Ozurlu_Dev")) AddColumn("Ozurlu_Dev");
+            if (Checked("Ozursuz_Dev")) AddColumn("Ozursuz_Dev");
 
-            if (Checked(anneListBox, anne_list_Row, "anneAdSoyad"))
-                AddColumnToDataGridView("anneAdSoyad", "Anne");
-            if (Checked(anneListBox, anne_list_Row, "anneTcNo"))
-                AddColumnToDataGridView("anneTcNo", "Anne TC");
-            if (Checked(anneListBox, anne_list_Row, "anneTel"))
-                AddColumnToDataGridView("anneTel", "Anne Tel");
-            if (Checked(anneListBox, anne_list_Row, "anneSO"))
-                AddColumnToDataGridView("anneSO", "Anne Sağ/Ölü");
-            if (Checked(anneListBox, anne_list_Row, "anneBA"))
-                AddColumnToDataGridView("anneBA", "Anne Birlikte/Ayrı");
-            if (Checked(anneListBox, anne_list_Row, "anneMezuniyet"))
-                AddColumnToDataGridView("anneMezuniyet", "Anne Mezuniyet");
-            if (Checked(anneListBox, anne_list_Row, "anneDT"))
-                AddColumnToDataGridView("anneDT", "Anne Doğum Tarihi");
-            if (Checked(anneListBox, anne_list_Row, "anneMslk"))
-                AddColumnToDataGridView("anneMslk", "Anne Mesleği");
+            if (Checked("Baba_Adi_Soyadi")) AddColumn("Baba_Adi_Soyadi");
+            if (Checked("Baba_Tc_No")) AddColumn("Baba_Tc_No");
+            if (Checked("Baba_Tel")) AddColumn("Baba_Tel");
+            if (Checked("Baba_Sag_Olu")) AddColumn("Baba_Sag_Olu");
+            if (Checked("Baba_Birlikte")) AddColumn("Baba_Birlikte");
+            if (Checked("Baba_Mezuniyet")) AddColumn("Baba_Mezuniyet");
+            if (Checked("Baba_Doğum_Tarihi")) AddColumn("Baba_Doğum_Tarihi");
+            if (Checked("Baba_Mslk")) AddColumn("Baba_Mslk");
+
+            if (Checked("Anne_Adi_Soyadi")) AddColumn("Anne_Adi_Soyadi");
+            if (Checked("Anne_Tc_No")) AddColumn("Anne_Tc_No");
+            if (Checked("Anne_Tel")) AddColumn("Anne_Tel");
+            if (Checked("Anne_Sağ_Olu")) AddColumn("Anne_Sağ_Olu");
+            if (Checked("Anne_Birlikte")) AddColumn("Anne_Birlikte");
+            if (Checked("Anne_Mezuniyet")) AddColumn("Anne_Mezuniyet");
+            if (Checked("Anne_Dogum_Tarihi")) AddColumn("Anne_Dogum_Tarihi");
+            if (Checked("Anne_Mslk")) AddColumn("Anne_Mslk");
 
 
             //if (radioButton3.Checked == true) aihlGiris();
@@ -420,670 +408,675 @@ namespace atiba
             progressBar1.Maximum = dataGridView1.Rows.Count + 1;
             progressBar1.Value = satir;
 
-            while (satir < dataGridView1.Rows.Count-1)
-          
-            {                 
-                    DataGridViewRow dr = dataGridView1.Rows[satir];
-                    progressBar1.Value++;
-                    try
+            while (satir < dataGridView1.Rows.Count - 1)
+
+            {
+                DataGridViewRow dr = dataGridView1.Rows[satir];
+                progressBar1.Value++;
+                try
+                {
+                    //**************ÖĞRENCİ BİLGİLERİ
+                    if (radioButton1.Checked == true)
                     {
-                        //**************ÖĞRENCİ BİLGİLERİ
-                        if (radioButton1.Checked == true)
+                        eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG01001.aspx");
+                        next_Wait(50);
+                        eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
+
+                        veri = eokul.FindElement(By.Id("OGRMenu1_txtTC"));
+                        veri.SendKeys(dr.Cells["No"].Value.ToString());
+                        eokul.FindElement(By.Id("OGRMenu1_btnAra")).Click();
+                        next_Wait(50);
+                    }
+                    else if (radioButton2.Checked == true)
+                    {
+                        eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG00001.aspx");
+                        next_Wait(50);
+                        //eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
+
+                        aranan = eokul.FindElements(By.Id("OGRMenu1_ddlOkulAltTurYeni"));
+                        if (aranan.Count > 0)
                         {
-                            eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG01001.aspx");
-                            next_Wait(50);
-                            eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
-
-                            veri = eokul.FindElement(By.Id("OGRMenu1_txtTC"));
-                            veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
-                            eokul.FindElement(By.Id("OGRMenu1_btnAra")).Click();
-                            next_Wait(50);
+                            aranan[0].SendKeys(sub_School.Text);
+                            next_Wait(100);
                         }
-                        else if (radioButton2.Checked == true)
+
+                        veri = eokul.FindElement(By.Id("OGRMenu1_txtTCYeni"));
+                        veri.SendKeys(dr.Cells["No"].Value.ToString());
+                        eokul.FindElement(By.Id("btnOgrenciAra")).Click();
+                        next_Wait(50);
+                    }
+                    else if (radioButton3.Checked == true)
+                    {
+                        try
                         {
-                            eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG00001.aspx");
-                            next_Wait(50);
-                            //eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
-
-                            aranan = eokul.FindElements(By.Id("OGRMenu1_ddlOkulAltTurYeni"));
-                            if (aranan.Count > 0)
-                            {
-                                aranan[0].SendKeys(sub_School.Text);
-                                next_Wait(100);
-                            }                                                                                   
-
-                            veri = eokul.FindElement(By.Id("OGRMenu1_txtTCYeni"));
-                            veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
-                            eokul.FindElement(By.Id("btnOgrenciAra")).Click();
-                            next_Wait(50);
+                            veri = eokul.FindElement(By.Id("mdlOOO"));
+                            veri.Click();
                         }
-                        else if (radioButton3.Checked == true)
+                        catch
+                        {
+                            eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG01001.aspx");
+                        }
+
+                        veri = eokul.FindElement(By.Id("txtOkulNo"));
+                        veri.SendKeys(dr.Cells["No"].Value.ToString());
+                        veri = eokul.FindElement(By.Id("btnListele"));
+                        veri.Click();
+                        next_Wait(150);
+                        eokul.FindElement(By.TagName("body")).SendKeys(OpenQA.Selenium.Keys.End);
+                        next_Wait(500);
+                        eokul.FindElement(By.TagName("body")).SendKeys(OpenQA.Selenium.Keys.End);
+                        next_Wait(500);
+                        Application.DoEvents();
+                        aranan = eokul.FindElements(By.XPath("//i[@class='fas fa-folder']"));
+                        aranan[0].Click();
+                        next_Wait(50);
+                    }
+                    else if (radioButton4.Checked == true)
+                    {
+                        eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG01001.aspx");
+                        next_Wait(50);
+                        eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
+
+                        veri = eokul.FindElement(By.Id("OGRMenu1_txtTC"));
+                        veri.SendKeys(dr.Cells["No"].Value.ToString());
+                        eokul.FindElement(By.Id("OGRMenu1_btnAra")).Click();
+                        next_Wait(50);
+                    }
+
+
+
+                    veri = eokul.FindElement(By.Id("txtAdi"));
+                    adSoyad = veri.GetAttribute("value").ToString();
+
+                    if (adSoyad.Trim() != "")
+                    {
+                        if (Checked("Adi"))
+                        {
+
+
+                            veri = eokul.FindElement(By.Id("txtAdi"));
+                            geciciVeri = veri.GetAttribute("value").ToString();
+                            dataGridView1.Rows[satir].Cells["Adi"].Value = geciciVeri;
+                        }
+                        if (Checked("Soyadi"))
+                        {
+                            veri = eokul.FindElement(By.Id("txtSoyadi"));
+                            geciciVeri = veri.GetAttribute("value").ToString();
+                            dataGridView1.Rows[satir].Cells["Soyadi"].Value = geciciVeri;
+                        }
+                        if (Checked("Tc_No"))
                         {
                             try
                             {
-                                veri = eokul.FindElement(By.Id("mdlOOO"));
-                                veri.Click();
+                                veri = eokul.FindElement(By.Id("txtKisiTCKimlikNo"));
+                                dataGridView1.Rows[satir].Cells["Tc_No"].Value = veri.GetAttribute("value").ToString();
                             }
-                            catch
-                            {
-                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG01001.aspx");
-                            }
-
-                            veri = eokul.FindElement(By.Id("txtOkulNo"));
-                            veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
-                            veri = eokul.FindElement(By.Id("btnListele"));
-                            veri.Click();
-                            next_Wait(150);
-                            eokul.FindElement(By.TagName("body")).SendKeys(OpenQA.Selenium.Keys.End);
-                            next_Wait(500);
-                            eokul.FindElement(By.TagName("body")).SendKeys(OpenQA.Selenium.Keys.End);
-                            next_Wait(500);
-                            Application.DoEvents();
-                            aranan = eokul.FindElements(By.XPath("//i[@class='fas fa-folder']"));
-                            aranan[0].Click();
-                            next_Wait(50);
+                            catch { dataGridView1.Rows[satir].Cells["Tc_No"].Value = "Hata"; }
                         }
-                        else if (radioButton4.Checked == true)
+                        if (Checked("Sinif"))
                         {
-                            eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG01001.aspx");
-                            next_Wait(50);
-                            eokul.FindElement(By.Id("OGRMenu1_rdOkulNo")).Click();
+                            try
+                            {
+                                if (radioButton1.Checked == true)
+                                    veri = eokul.FindElement(By.Id("IOMPageHeader1_lblSinif"));
+                                else
+                                    veri = eokul.FindElement(By.Id("OOMPageHeader1_lblSinif"));
 
-                            veri = eokul.FindElement(By.Id("OGRMenu1_txtTC"));
-                            veri.SendKeys(dr.Cells["ogrNo"].Value.ToString());
-                            eokul.FindElement(By.Id("OGRMenu1_btnAra")).Click();
+                                dataGridView1.Rows[satir].Cells["Sinif"].Value = veri.Text.ToString();
+                            }
+                            catch { dataGridView1.Rows[satir].Cells["Sinif"].Value = "Hata"; }
+                        }
+                        if (Checked("foto"))
+                        {
+                            //Burada kaldın
+                            string sinifi;
+                            string nosu;
+                            try
+                            {
+                                sinifi = dataGridView1.Rows[satir].Cells["Sinif"].Value.ToString().Replace("/", "-");
+                                nosu = dataGridView1.Rows[satir].Cells["No"].Value.ToString();
+                                ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByTagName('img')[0].setAttribute('style', 'border-radius:0px;border-style: none;height:171px;width:133px;')");
+                                if (radioButton1.Checked == true)
+                                {
+                                    veri = eokul.FindElement(By.Id("IOMPageHeader1_imgOgrenciResim"));
+                                }
+                                else
+                                {
+                                    veri = eokul.FindElement(By.Id("OOMPageHeader1_imgOgrenciResim"));
+                                }
+
+
+
+
+                                foto = ((ITakesScreenshot)veri).GetScreenshot();
+                                string yol = Application.StartupPath;
+                                Directory.CreateDirectory(yol + "\\" + sinifi);
+                                foto.SaveAsFile(yol + "\\" + sinifi + "\\" + nosu + ".jpg", ScreenshotImageFormat.Jpeg);
+                            }
+                            catch { sinifi = "Hata"; }
+
+
+
+                        }
+                        if (Checked("Veli"))
+                        {
+                            try
+                            {
+                                SelectElement se = new SelectElement(eokul.FindElement(By.Id("ddlVelisi")));
+
+                                dataGridView1.Rows[satir].Cells["Veli"].Value = se.SelectedOption.Text.ToString();
+                            }
+                            catch { dataGridView1.Rows[satir].Cells["Veli"].Value = "Hata"; }
+                        }
+                        if (Checked("Uyruk") || Checked("Cinsiyet") || Checked("Dogum_Tarihi") || Checked("Dogum_Yeri") || Checked("Cilt_No") || Checked("Aile_Sira_No") || Checked("Sira_No"))
+                        {
+                            if (radioButton1.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02003.aspx");
+                            else if (radioButton2.Checked == true || radioButton3.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02003.aspx");
+                            else if (radioButton4.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02003.aspx");
+
                             next_Wait(50);
+
+                            open_Eyes(2);
+                            if (Checked("Uyruk"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.XPath("//*[@id='uyruk']"));
+                                    dataGridView1.Rows[satir].Cells["Uyruk"].Value = veri.Text;
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Uyruk"].Value = "Hata"; }
+                            }
+                            if (Checked("Cinsiyet"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.XPath("//*[@id='cinsiyet']"));
+                                    dataGridView1.Rows[satir].Cells["Cinsiyet"].Value = veri.Text;
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Cinsiyet"].Value = "Hata"; }
+                            }
+                            if (Checked("Dogum_Tarihi"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("dogumTarihi"));
+                                    veri = veri.FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
+                                    geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                                    dataGridView1.Rows[satir].Cells["Dogum_Tarihi"].Value = geciciVeri;
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Dogum_Tarihi"].Value = "Hata"; }
+                            }
+                            if (Checked("Dogum_Yeri"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("dogumYeri"));
+                                    veri = veri.FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
+                                    geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                                    dataGridView1.Rows[satir].Cells["Dogum_Yeri"].Value = geciciVeri;
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Dogum_Yeri"].Value = "Hata"; }
+                            }
+                            if (Checked("Cilt_No"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("Cilt_No"));
+                                    veri = veri.FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
+                                    geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                                    dataGridView1.Rows[satir].Cells["Cilt_No"].Value = geciciVeri;
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Cilt_No"].Value = "Hata"; }
+                            }
+                            if (Checked("Aile_Sira_No"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("aileSiraNo"));
+                                    veri = veri.FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
+                                    geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                                    dataGridView1.Rows[satir].Cells["Aile_Sira_No"].Value = geciciVeri;
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Aile_Sira_No"].Value = "Hata"; }
+                            }
+
+
+                            if (Checked("Sira_No"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("siraNo"));
+                                    veri = veri.FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
+                                    geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                                    dataGridView1.Rows[satir].Cells["Sira_No"].Value = geciciVeri;
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Sira_No"].Value = "Hata"; }
+                            }
+
+
+
+
+                            if (Checked("Mahalle_Koy"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("nufusMahalle"));
+                                    veri = veri.FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
+                                    geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                                    dataGridView1.Rows[satir].Cells["Mahalle_Koy"].Value = geciciVeri;
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Mahalle_Koy"].Value = "Hata"; }
+                            }
+                        }
+                        if (Checked("Boy") || Checked("Kilo") || Checked("Tasima"))
+                        {
+                            if (radioButton1.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/iog02002.aspx");
+                            else if (radioButton2.Checked == true || radioButton3.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02002.aspx");
+                            else if (radioButton4.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02002.aspx");
+
+                            next_Wait(50);
+                            if (Checked("Boy"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("txtBoy"));
+                                    dataGridView1.Rows[satir].Cells["Boy"].Value = veri.GetAttribute("value").ToString();
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Boy"].Value = "Hata"; }
+                            }
+                            if (Checked("Kilo"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("txtKilo"));
+                                    dataGridView1.Rows[satir].Cells["Kilo"].Value = veri.GetAttribute("value").ToString();
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Kilo"].Value = "Hata"; }
+                            }
+                            if (Checked("Tasima"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("chkTasimaPalanDahilmi"));
+
+                                    if (veri.Selected == true)
+                                        dataGridView1.Rows[satir].Cells["Tasima"].Value = "Evet";
+                                    else
+                                        dataGridView1.Rows[satir].Cells["Tasima"].Value = "Hayır";
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Tasima"].Value = "Hata"; }
+                            }
+                        }
+                        if (Checked("Ozurlu_Dev") || Checked("Ozursuz_Dev"))
+                        {
+                            if (radioButton1.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02015.aspx");
+                            else if (radioButton2.Checked == true || radioButton3.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02015.aspx");
+                            else if (radioButton4.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02015.aspx");
+
+                            next_Wait(50);
+
+                            if (Checked("Ozurlu_Dev"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("tblOzurluDevamsizlikToplam"));
+                                    veri = veri.FindElement(By.Id("Table3"));
+                                    IList<IWebElement> tableRow = veri.FindElements(By.TagName("tr"));
+                                    IList<IWebElement> tableTD = tableRow[tableRow.Count - 2].FindElements(By.TagName("td"));
+                                    dataGridView1.Rows[satir].Cells["Ozurlu_Dev"].Value = tableTD[3].Text.ToString().Replace("gün", "").Trim();
+                                }
+                                catch
+                                {
+                                    dataGridView1.Rows[satir].Cells["Ozurlu_Dev"].Value = "0";
+                                }
+                            }
+                            if (Checked("Ozursuz_Dev"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.Id("tblOzursuzDevamsizlikToplam"));
+                                    veri = veri.FindElement(By.Id("Table3"));
+                                    IList<IWebElement> tableRow = veri.FindElements(By.TagName("tr"));
+                                    IList<IWebElement> tableTD = tableRow[tableRow.Count - 2].FindElements(By.TagName("td"));
+                                    dataGridView1.Rows[satir].Cells["Ozursuz_Dev"].Value = tableTD[3].Text.ToString().Replace("gün", "").Trim();
+                                }
+                                catch
+                                {
+                                    dataGridView1.Rows[satir].Cells["Ozursuz_Dev"].Value = "0";
+                                }
+                            }
                         }
 
 
+                        //**************BABA BİLGİLERİ
 
-                        veri = eokul.FindElement(By.Id("txtAdi"));
-                        adSoyad = veri.GetAttribute("value").ToString();
-
-                        if (adSoyad.Trim() != "")
+                        if (Checked("Baba_Adi_Soyadi") || Checked("bBaba_Tc_No") || Checked("Baba_Tel") || Checked("Baba_Sag_Olu") || Checked("Baba_Birlikte") || Checked("Baba_Mezuniyet") || Checked("Baba_Doğum_Tarihi") || Checked("Baba_Mslk"))
                         {
-                            if (Checked(ogrenciListBox, ogr_list_Row, "ad_soyad"))
-                            {
-                                dataGridView1.Rows[satir].Cells["ad"].Value = adSoyad;
-                                veri = eokul.FindElement(By.Id("txtSoyadi"));
-                                adSoyad = veri.GetAttribute("value").ToString();
-                                dataGridView1.Rows[satir].Cells["soyad"].Value = adSoyad;
-                            }
-                            if (Checked(ogrenciListBox, ogr_list_Row, "tcNo"))
-                            {
-                                try
-                                {
-                                    veri = eokul.FindElement(By.Id("txtKisiTCKimlikNo"));
-                                    dataGridView1.Rows[satir].Cells["tcNo"].Value = veri.GetAttribute("value").ToString();
-                                }
-                                catch { dataGridView1.Rows[satir].Cells["tcNo"].Value = "Hata"; }
-                            }
-                            if (Checked(ogrenciListBox, ogr_list_Row, "sinif"))
+
+                            if (radioButton1.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02005.aspx");
+                            else if (radioButton2.Checked == true || radioButton3.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02005.aspx");
+                            else if (radioButton4.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG02005.aspx");
+
+
+                            next_Wait(50);
+                            open_Eyes(1);
+
+
+                            aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                            if (Checked("Baba_Adi_Soyadi"))
                             {
                                 try
                                 {
-                                    if (radioButton1.Checked == true)
-                                        veri = eokul.FindElement(By.Id("IOMPageHeader1_lblSinif"));
-                                    else
-                                        veri = eokul.FindElement(By.Id("OOMPageHeader1_lblSinif"));
+                                    veri = aranan[0].FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf("BitMapResim=") + 12);
+                                    adSoyad = geciciVeri.Substring(0, geciciVeri.IndexOf("\""));
+                                    veri = aranan[2].FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf("BitMapResim=") + 12);
+                                    adSoyad += " " + geciciVeri.Substring(0, geciciVeri.IndexOf("\""));
 
-                                    dataGridView1.Rows[satir].Cells["sinif"].Value = veri.Text.ToString();
+                                    dataGridView1.Rows[satir].Cells["Baba_Adi_Soyadi"].Value = adSoyad;
                                 }
-                                catch { dataGridView1.Rows[satir].Cells["sinif"].Value = "Hata"; }
+                                catch { dataGridView1.Rows[satir].Cells["Baba_Adi_Soyadi"].Value = "Hata"; }
                             }
-                            if (Checked(ogrenciListBox, ogr_list_Row, "foto"))
-                            {
-                                string sinifi;
-                                string nosu;
-                                try
-                                {
-                                    sinifi = dataGridView1.Rows[satir].Cells["sinif"].Value.ToString().Replace("/", "-");
-                                    nosu = dataGridView1.Rows[satir].Cells["ogrNo"].Value.ToString();
-                                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByTagName('img')[0].setAttribute('style', 'border-radius:0px;border-style: none;height:171px;width:133px;')");
-                                    if (radioButton1.Checked == true)
-                                    {
-                                        veri = eokul.FindElement(By.Id("IOMPageHeader1_imgOgrenciResim"));
-                                    }
-                                    else
-                                    {
-                                        veri = eokul.FindElement(By.Id("OOMPageHeader1_imgOgrenciResim"));
-                                    }
-
-
-
-
-                                    foto = ((ITakesScreenshot)veri).GetScreenshot();
-                                    string yol = Application.StartupPath;
-                                    Directory.CreateDirectory(yol + "\\" + sinifi);
-                                    foto.SaveAsFile(yol + "\\" + sinifi + "\\" + nosu + ".jpg", ScreenshotImageFormat.Jpeg);
-                                }
-                                catch { sinifi = "Hata"; }
-
-
-
-                            }
-                            if (Checked(ogrenciListBox, ogr_list_Row, "veli"))
+                            if (Checked("Baba_Tel"))
                             {
                                 try
                                 {
-                                    SelectElement se = new SelectElement(eokul.FindElement(By.Id("ddlVelisi")));
+                                    veri = aranan[15].FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("src").ToString();
 
-                                    dataGridView1.Rows[satir].Cells["veli"].Value = se.SelectedOption.Text.ToString();
+                                    dataGridView1.Rows[satir].Cells["Baba_Tel"].Value = geciciVeri.Remove(0, geciciVeri.IndexOf("=") + 1);
                                 }
-                                catch { dataGridView1.Rows[satir].Cells["veli"].Value = "Hata"; }
+                                catch { dataGridView1.Rows[satir].Cells["Baba_Tel"].Value = "Hata"; }
                             }
-
-                            if (Checked(ogrenciListBox, ogr_list_Row, "uyruk") || Checked(ogrenciListBox, ogr_list_Row, "cinsiyet") || Checked(ogrenciListBox, ogr_list_Row, "dogumTarihi") || Checked(ogrenciListBox, ogr_list_Row, "dogumYeri") || Checked(ogrenciListBox, ogr_list_Row, "ciltNo") || Checked(ogrenciListBox, ogr_list_Row, "aileSiraNo") || Checked(ogrenciListBox, ogr_list_Row, "siraNo"))
+                            if (Checked("Baba_Tc_No"))
                             {
-                                if (radioButton1.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02003.aspx");
-                                else if (radioButton2.Checked == true || radioButton3.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02003.aspx");
-                                else if (radioButton4.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02003.aspx");
-
-                                next_Wait(50);
-
-                                open_Eyes(2);
-                                if (Checked(ogrenciListBox, ogr_list_Row, "uyruk"))
+                                if (Checked("Baba_Tc_No"))
                                 {
                                     try
                                     {
-                                        veri = eokul.FindElement(By.XPath("//*[@id='uyruk']"));
-                                        dataGridView1.Rows[satir].Cells["uyruk"].Value = veri.Text;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["uyruk"].Value = "Hata"; }
-                                }
-                                if (Checked(ogrenciListBox, ogr_list_Row, "cinsiyet"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.XPath("//*[@id='cinsiyet']"));
-                                        dataGridView1.Rows[satir].Cells["cinsiyet"].Value = veri.Text;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["cinsiyet"].Value = "Hata"; }
-                                }
-                                if (Checked(ogrenciListBox, ogr_list_Row, "dogumTarihi"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("dogumTarihi"));
-                                        veri = veri.FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                                        geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
-                                        dataGridView1.Rows[satir].Cells["dogumTarihi"].Value = geciciVeri;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["dogumTarihi"].Value = "Hata"; }
-                                }
-                                if (Checked(ogrenciListBox, ogr_list_Row, "dogumYeri"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("dogumYeri"));
-                                        veri = veri.FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                                        geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
-                                        dataGridView1.Rows[satir].Cells["dogumYeri"].Value = geciciVeri;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["dogumYeri"].Value = "Hata"; }
-                                }
-                                if (Checked(ogrenciListBox, ogr_list_Row, "ciltNo"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("ciltNo"));
-                                        veri = veri.FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                                        geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
-                                        dataGridView1.Rows[satir].Cells["ciltNo"].Value = geciciVeri;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["ciltNo"].Value = "Hata"; }
-                                }
-                                if (Checked(ogrenciListBox, ogr_list_Row, "aileSiraNo"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("aileSiraNo"));
-                                        veri = veri.FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                                        geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
-                                        dataGridView1.Rows[satir].Cells["aileSiraNo"].Value = geciciVeri;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["aileSiraNo"].Value = "Hata"; }
-                                }
-
-
-                                if (Checked(ogrenciListBox, ogr_list_Row, "siraNo"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("siraNo"));
-                                        veri = veri.FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                                        geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
-                                        dataGridView1.Rows[satir].Cells["siraNo"].Value = geciciVeri;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["siraNo"].Value = "Hata"; }
-                                }
-
-
-
-
-                                if (Checked(ogrenciListBox, ogr_list_Row, "mahalleKoy"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("nufusMahalle"));
-                                        veri = veri.FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                                        geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
-                                        dataGridView1.Rows[satir].Cells["mahalleKoy"].Value = geciciVeri;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["mahalleKoy"].Value = "Hata"; }
-                                }
-                            }
-
-                            if (Checked(ogrenciListBox, ogr_list_Row, "boy") || Checked(ogrenciListBox, ogr_list_Row, "kilo") || Checked(ogrenciListBox, ogr_list_Row, "tasima"))
-                            {
-                                if (radioButton1.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/iog02002.aspx");
-                                else if (radioButton2.Checked == true || radioButton3.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02002.aspx");
-                                else if (radioButton4.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02002.aspx");
-
-                                next_Wait(50);
-                                if (Checked(ogrenciListBox, ogr_list_Row, "boy"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("txtBoy"));
-                                        dataGridView1.Rows[satir].Cells["boy"].Value = veri.GetAttribute("value").ToString();
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["boy"].Value = "Hata"; }
-                                }
-                                if (Checked(ogrenciListBox, ogr_list_Row, "kilo"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("txtKilo"));
-                                        dataGridView1.Rows[satir].Cells["kilo"].Value = veri.GetAttribute("value").ToString();
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["kilo"].Value = "Hata"; }
-                                }
-                                if (Checked(ogrenciListBox, ogr_list_Row, "tasima"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("chkTasimaPalanDahilmi"));
-
-                                        if (veri.Selected == true)
-                                            dataGridView1.Rows[satir].Cells["tasima"].Value = "Evet";
-                                        else
-                                            dataGridView1.Rows[satir].Cells["tasima"].Value = "Hayır";
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["tasima"].Value = "Hata"; }
-                                }
-                            }
-
-                            if (Checked(ogrenciListBox, ogr_list_Row, "ozurluDev") || Checked(ogrenciListBox, ogr_list_Row, "ozursuzDev"))
-                            {
-                                if (radioButton1.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02015.aspx");
-                                else if (radioButton2.Checked == true || radioButton3.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02015.aspx");
-                                else if (radioButton4.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/OOG02015.aspx");
-
-                                next_Wait(50);
-
-                                if (Checked(ogrenciListBox, ogr_list_Row, "ozurluDev"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("tblOzurluDevamsizlikToplam"));
-                                        veri = veri.FindElement(By.Id("Table3"));
-                                        IList<IWebElement> tableRow = veri.FindElements(By.TagName("tr"));
-                                        IList<IWebElement> tableTD = tableRow[tableRow.Count - 2].FindElements(By.TagName("td"));
-                                        dataGridView1.Rows[satir].Cells["ozurluDev"].Value = tableTD[3].Text.ToString().Replace("gün", "").Trim();
-                                    }
-                                    catch
-                                    {
-                                        dataGridView1.Rows[satir].Cells["ozurluDev"].Value = "0";
-                                    }
-                                }
-                                if (Checked(ogrenciListBox, ogr_list_Row, "ozursuzDev"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.Id("tblOzursuzDevamsizlikToplam"));
-                                        veri = veri.FindElement(By.Id("Table3"));
-                                        IList<IWebElement> tableRow = veri.FindElements(By.TagName("tr"));
-                                        IList<IWebElement> tableTD = tableRow[tableRow.Count - 2].FindElements(By.TagName("td"));
-                                        dataGridView1.Rows[satir].Cells["ozursuzDev"].Value = tableTD[3].Text.ToString().Replace("gün", "").Trim();
-                                    }
-                                    catch
-                                    {
-                                        dataGridView1.Rows[satir].Cells["ozursuzDev"].Value = "0";
-                                    }
-                                }
-                            }
-
-
-                            //**************BABA BİLGİLERİ
-
-                            if (Checked(babaListBox, baba_list_Row, "babaAdSoyad") || Checked(babaListBox, baba_list_Row, "babaTcNo") || Checked(babaListBox, baba_list_Row, "babaTel") || Checked(babaListBox, baba_list_Row, "babaSO") || Checked(babaListBox, baba_list_Row, "babaBA") || Checked(babaListBox, baba_list_Row, "babaMezuniyet") || Checked(babaListBox, baba_list_Row, "babaDT") || Checked(babaListBox, baba_list_Row, "babaMslk"))
-                            {
-
-                                if (radioButton1.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02005.aspx");
-                                else if (radioButton2.Checked == true || radioButton3.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02005.aspx");
-                                else if (radioButton4.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG02005.aspx");
-
-
-                                next_Wait(50);
-                                open_Eyes(1);
-
-
-                                aranan = eokul.FindElements(By.ClassName("col-sm-4"));
-                                if (Checked(babaListBox, baba_list_Row, "babaAdSoyad"))
-                                {
-                                    try
-                                    {
-                                        veri = aranan[0].FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf("BitMapResim=") + 12);
-                                        adSoyad = geciciVeri.Substring(0, geciciVeri.IndexOf("\""));
-                                        veri = aranan[2].FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf("BitMapResim=") + 12);
-                                        adSoyad += " " + geciciVeri.Substring(0, geciciVeri.IndexOf("\""));
-
-                                        dataGridView1.Rows[satir].Cells["babaAdSoyad"].Value = adSoyad;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["babaAdSoyad"].Value = "Hata"; }
-                                }
-                                if (Checked(babaListBox, baba_list_Row, "babaTel"))
-                                {
-                                    try
-                                    {
-                                        veri = aranan[15].FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("src").ToString();
-
-                                        dataGridView1.Rows[satir].Cells["babaTel"].Value = geciciVeri.Remove(0, geciciVeri.IndexOf("=") + 1);
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["babaTel"].Value = "Hata"; }
-                                }
-                                if (Checked(babaListBox, baba_list_Row, "babaTcNo"))
-                                {
-                                    if (Checked(babaListBox, baba_list_Row, "babaTcNo"))
-                                    {
-                                        try
-                                        {
-                                            aranan = eokul.FindElements(By.Id("yeniBabaTc"));
-                                            if (aranan.Count == 0)
-                                            {
-                                                aranan = eokul.FindElements(By.ClassName("col-6"));
-                                                veri = aranan[0].FindElement(By.TagName("h4"));
-                                                dataGridView1.Rows[satir].Cells["babaTcNo"].Value = veri.Text.ToString();
-                                            }
-                                            else
-                                            {
-                                                veri = eokul.FindElement(By.Id("yeniBabaTc"));
-                                                dataGridView1.Rows[satir].Cells["babaTcNo"].Value = veri.GetAttribute("value");
-                                            }
-                                        }
-                                        catch { dataGridView1.Rows[satir].Cells["babaTcNo"].Value = "Hata"; }
-                                    }
-
-                                }
-                                if (Checked(babaListBox, baba_list_Row, "babaSO"))
-                                {
-                                    try
-                                    {
-                                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
-                                        veri = aranan[4].FindElement(By.TagName("span"));
-                                        if (veri.Text.ToString() == "Sağ" || veri.Text.ToString() == "Ölü")
-                                            dataGridView1.Rows[satir].Cells["babaSO"].Value = veri.Text.ToString();
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["babaSO"].Value = "Hata"; }
-                                }
-                                if (Checked(babaListBox, baba_list_Row, "babaBA"))
-                                {
-                                    try
-                                    {
-                                        veri = eokul.FindElement(By.XPath("//div[@class='form-check form-check-inline']"));
-                                        veri = veri.FindElement(By.TagName("span"));
-                                        if (veri.Text.ToString() == "Birlikte" || veri.Text.ToString() == "Ayrı")
-                                            dataGridView1.Rows[satir].Cells["babaBA"].Value = veri.Text.ToString();
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["babaBA"].Value = "Hata"; }
-                                }
-                                if (Checked(babaListBox, baba_list_Row, "babaDT"))
-                                {
-                                    try
-                                    {
-                                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
-                                        veri = aranan[9].FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("src").ToString();
-                                        geciciVeri = geciciVeri.Substring(geciciVeri.IndexOf("=") + 1);
-                                        dataGridView1.Rows[satir].Cells["babaDT"].Value = geciciVeri;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["babaDT"].Value = "Hata"; }
-                                }
-                                if (Checked(babaListBox, baba_list_Row, "babaMezuniyet"))
-                                {
-                                    next_Wait(100);
-                                    bool hataVar = false;
-                                    do
-                                    {
-                                        try
-                                        {
-                                            SelectElement se = new SelectElement(eokul.FindElement(By.Id("ogrenimDurumu")));
-                                            dataGridView1.Rows[satir].Cells["babaMezuniyet"].Value = se.SelectedOption.Text.ToString();
-                                            hataVar = false;
-                                        }
-                                        catch
-                                        {
-                                            dataGridView1.Rows[satir].Cells["babaMezuniyet"].Value = "Hata";
-                                            hataVar = true;
-                                            eokul.Navigate().Refresh();
-                                            next_Wait(500);
-                                        }
-                                    } while (hataVar == true);
-                                }
-                                if (Checked(babaListBox, baba_list_Row, "babaMslk"))
-                                {
-                                    next_Wait(100);
-                                    bool hataVar = false;
-                                    do
-                                    {
-                                        try
-                                        {
-                                            SelectElement se = new SelectElement(eokul.FindElement(By.Id("cmbMeslek")));
-                                            dataGridView1.Rows[satir].Cells["babaMslk"].Value = se.SelectedOption.Text.ToString();
-                                            hataVar = false;
-                                        }
-                                        catch
-                                        {
-                                            dataGridView1.Rows[satir].Cells["babaMslk"].Value = "Hata";
-                                            hataVar = true;
-                                            eokul.Navigate().Refresh();
-                                            next_Wait(500);
-                                        }
-                                    } while (hataVar == true);
-                                }
-
-                            }
-
-                            //**************ANNE BİLGİLERİ
-
-                            if (Checked(anneListBox, anne_list_Row, "anneAdSoyad") || Checked(anneListBox, anne_list_Row, "anneTcNo") || Checked(anneListBox, anne_list_Row, "anneTel") || Checked(anneListBox, anne_list_Row, "anneSO") || Checked(anneListBox, anne_list_Row, "anneBA") || Checked(anneListBox, anne_list_Row, "anneMezuniyet") || Checked(anneListBox, anne_list_Row, "anneDT") || Checked(anneListBox, anne_list_Row, "anneMslk"))
-                            {
-                                if (radioButton1.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02006.aspx");
-                                else if (radioButton2.Checked == true || radioButton3.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02006.aspx");
-                                else if (radioButton4.Checked == true)
-                                    eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG02006.aspx");
-
-                                next_Wait(50);
-                                open_Eyes(1);
-
-                                aranan = eokul.FindElements(By.ClassName("col-sm-4"));
-                                if (Checked(anneListBox, anne_list_Row, "anneAdSoyad"))
-                                {
-                                    try
-                                    {
-                                        veri = aranan[0].FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf("BitMapResim=") + 12);
-                                        adSoyad = geciciVeri.Substring(0, geciciVeri.IndexOf("\""));
-                                        veri = aranan[2].FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                                        geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf("BitMapResim=") + 12);
-                                        adSoyad += " " + geciciVeri.Substring(0, geciciVeri.IndexOf("\""));
-
-                                        dataGridView1.Rows[satir].Cells["anneAdSoyad"].Value = adSoyad;
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["anneAdSoyad"].Value = "Hata"; }
-                                }
-                                if (Checked(anneListBox, anne_list_Row, "anneTel"))
-                                {
-                                    try
-                                    {
-                                        veri = aranan[15].FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("src").ToString();
-
-                                        dataGridView1.Rows[satir].Cells["anneTel"].Value = geciciVeri.Remove(0, geciciVeri.IndexOf("=") + 1);
-                                    }
-                                    catch { dataGridView1.Rows[satir].Cells["anneTel"].Value = "Hata"; }
-                                }
-                                if (Checked(anneListBox, anne_list_Row, "anneTcNo"))
-                                {
-                                    try
-                                    {
-                                        aranan = eokul.FindElements(By.XPath("//*[@id='chartdiv']/div/div[3]/div/div/div/div/div[2]/div/div[2]/div/div[1]/input"));
+                                        aranan = eokul.FindElements(By.Id("yeniBabaTc"));
                                         if (aranan.Count == 0)
                                         {
                                             aranan = eokul.FindElements(By.ClassName("col-6"));
                                             veri = aranan[0].FindElement(By.TagName("h4"));
-                                            dataGridView1.Rows[satir].Cells["anneTcNo"].Value = veri.Text.ToString();
+                                            dataGridView1.Rows[satir].Cells["Baba_Tc_No"].Value = veri.Text.ToString();
                                         }
                                         else
                                         {
-                                            veri = eokul.FindElement(By.XPath("//*[@id='chartdiv']/div/div[3]/div/div/div/div/div[2]/div/div[2]/div/div[1]/input"));
-                                            dataGridView1.Rows[satir].Cells["anneTcNo"].Value = veri.GetAttribute("value");
+                                            veri = eokul.FindElement(By.Id("yeniBabaTc"));
+                                            dataGridView1.Rows[satir].Cells["Baba_Tc_No"].Value = veri.GetAttribute("value");
                                         }
                                     }
-                                    catch { dataGridView1.Rows[satir].Cells["anneTcNo"].Value = "Hata"; }
+                                    catch { dataGridView1.Rows[satir].Cells["Baba_Tc_No"].Value = "Hata"; }
                                 }
-                                if (Checked(anneListBox, anne_list_Row, "anneSO"))
+
+                            }
+                            if (Checked("Baba_Sag_Olu"))
+                            {
+                                try
+                                {
+                                    aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                                    veri = aranan[4].FindElement(By.TagName("span"));
+                                    if (veri.Text.ToString() == "Sağ" || veri.Text.ToString() == "Ölü")
+                                        dataGridView1.Rows[satir].Cells["Baba_Sag_Olu"].Value = veri.Text.ToString();
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Baba_Sag_Olu"].Value = "Hata"; }
+                            }
+                            if (Checked("Baba_Birlikte"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.XPath("//div[@class='form-check form-check-inline']"));
+                                    veri = veri.FindElement(By.TagName("span"));
+                                    if (veri.Text.ToString() == "Birlikte" || veri.Text.ToString() == "Ayrı")
+                                        dataGridView1.Rows[satir].Cells["Baba_Birlikte"].Value = veri.Text.ToString();
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Baba_Birlikte"].Value = "Hata"; }
+                            }
+                            if (Checked("Baba_Doğum_Tarihi"))
+                            {
+                                try
+                                {
+                                    aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                                    veri = aranan[9].FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("src").ToString();
+                                    geciciVeri = geciciVeri.Substring(geciciVeri.IndexOf("=") + 1);
+                                    dataGridView1.Rows[satir].Cells["Baba_Doğum_Tarihi"].Value = geciciVeri;
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Baba_Doğum_Tarihi"].Value = "Hata"; }
+                            }
+                            if (Checked("Baba_Mezuniyet"))
+                            {
+                                next_Wait(100);
+                                bool hataVar = false;
+                                do
                                 {
                                     try
                                     {
-                                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
-                                        veri = aranan[4].FindElement(By.TagName("span"));
-                                        if (veri.Text.ToString() == "Sağ" || veri.Text.ToString() == "Ölü")
-                                            dataGridView1.Rows[satir].Cells["anneSO"].Value = veri.Text.ToString();
+                                        SelectElement se = new SelectElement(eokul.FindElement(By.Id("ogrenimDurumu")));
+                                        dataGridView1.Rows[satir].Cells["Baba_Mezuniyet"].Value = se.SelectedOption.Text.ToString();
+                                        hataVar = false;
                                     }
-                                    catch { dataGridView1.Rows[satir].Cells["anneSO"].Value = "Hata"; }
-                                }
-                                if (Checked(anneListBox, anne_list_Row, "anneBA"))
+                                    catch
+                                    {
+                                        dataGridView1.Rows[satir].Cells["Baba_Mezuniyet"].Value = "Hata";
+                                        hataVar = true;
+                                        eokul.Navigate().Refresh();
+                                        next_Wait(500);
+                                    }
+                                } while (hataVar == true);
+                            }
+                            if (Checked("Baba_Mslk"))
+                            {
+                                next_Wait(100);
+                                bool hataVar = false;
+                                do
                                 {
                                     try
                                     {
-                                        veri = eokul.FindElement(By.XPath("//div[@class='form-check form-check-inline']"));
-                                        veri = veri.FindElement(By.TagName("span"));
-                                        if (veri.Text.ToString() == "Birlikte" || veri.Text.ToString() == "Ayrı")
-                                            dataGridView1.Rows[satir].Cells["anneBA"].Value = veri.Text.ToString();
+                                        SelectElement se = new SelectElement(eokul.FindElement(By.Id("cmbMeslek")));
+                                        dataGridView1.Rows[satir].Cells["Baba_Mslk"].Value = se.SelectedOption.Text.ToString();
+                                        hataVar = false;
                                     }
-                                    catch { dataGridView1.Rows[satir].Cells["anneBA"].Value = "Hata"; }
+                                    catch
+                                    {
+                                        dataGridView1.Rows[satir].Cells["Baba_Mslk"].Value = "Hata";
+                                        hataVar = true;
+                                        eokul.Navigate().Refresh();
+                                        next_Wait(500);
+                                    }
+                                } while (hataVar == true);
+                            }
+
+                        }
+
+                        //**************ANNE BİLGİLERİ
+
+                        if (Checked("Anne_Adi_Soyadi") || Checked("Anne_Tc_No") || Checked("Anne_Tel") || Checked("Anne_Sağ_Olu") || Checked("Anne_Birlikte") || Checked("Anne_Mezuniyet") || Checked("Anne_Dogum_Tarihi") || Checked("Anne_Mslk"))
+                        {
+                            if (radioButton1.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/IlkOgretim/OGR/IOG02006.aspx");
+                            else if (radioButton2.Checked == true || radioButton3.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OrtaOgretim/OGR/OOG02006.aspx");
+                            else if (radioButton4.Checked == true)
+                                eokul.Navigate().GoToUrl("https://e-okul.meb.gov.tr/OkulOncesi/OGR/AOG02006.aspx");
+
+                            next_Wait(50);
+                            open_Eyes(1);
+
+                            aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                            if (Checked("Anne_Adi_Soyadi"))
+                            {
+                                try
+                                {
+                                    veri = aranan[0].FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf("BitMapResim=") + 12);
+                                    adSoyad = geciciVeri.Substring(0, geciciVeri.IndexOf("\""));
+                                    veri = aranan[2].FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
+                                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf("BitMapResim=") + 12);
+                                    adSoyad += " " + geciciVeri.Substring(0, geciciVeri.IndexOf("\""));
+
+                                    dataGridView1.Rows[satir].Cells["Anne_Adi_Soyadi"].Value = adSoyad;
                                 }
-                                if (Checked(anneListBox, anne_list_Row, "anneDT"))
+                                catch { dataGridView1.Rows[satir].Cells["Anne_Adi_Soyadi"].Value = "Hata"; }
+                            }
+                            if (Checked("Anne_Tel"))
+                            {
+                                try
+                                {
+                                    veri = aranan[15].FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("src").ToString();
+
+                                    dataGridView1.Rows[satir].Cells["Anne_Tel"].Value = geciciVeri.Remove(0, geciciVeri.IndexOf("=") + 1);
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Anne_Tel"].Value = "Hata"; }
+                            }
+                            if (Checked("Anne_Tc_No"))
+                            {
+                                try
+                                {
+                                    aranan = eokul.FindElements(By.XPath("//*[@id='chartdiv']/div/div[3]/div/div/div/div/div[2]/div/div[2]/div/div[1]/input"));
+                                    if (aranan.Count == 0)
+                                    {
+                                        aranan = eokul.FindElements(By.ClassName("col-6"));
+                                        veri = aranan[0].FindElement(By.TagName("h4"));
+                                        dataGridView1.Rows[satir].Cells["Anne_Tc_No"].Value = veri.Text.ToString();
+                                    }
+                                    else
+                                    {
+                                        veri = eokul.FindElement(By.XPath("//*[@id='chartdiv']/div/div[3]/div/div/div/div/div[2]/div/div[2]/div/div[1]/input"));
+                                        dataGridView1.Rows[satir].Cells["Anne_Tc_No"].Value = veri.GetAttribute("value");
+                                    }
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Anne_Tc_No"].Value = "Hata"; }
+                            }
+                            if (Checked("Anne_Sağ_Olu"))
+                            {
+                                try
+                                {
+                                    aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                                    veri = aranan[4].FindElement(By.TagName("span"));
+                                    if (veri.Text.ToString() == "Sağ" || veri.Text.ToString() == "Ölü")
+                                        dataGridView1.Rows[satir].Cells["Anne_Sağ_Olu"].Value = veri.Text.ToString();
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Anne_Sağ_Olu"].Value = "Hata"; }
+                            }
+                            if (Checked("Anne_Birlikte"))
+                            {
+                                try
+                                {
+                                    veri = eokul.FindElement(By.XPath("//div[@class='form-check form-check-inline']"));
+                                    veri = veri.FindElement(By.TagName("span"));
+                                    if (veri.Text.ToString() == "Birlikte" || veri.Text.ToString() == "Ayrı")
+                                        dataGridView1.Rows[satir].Cells["Anne_Birlikte"].Value = veri.Text.ToString();
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Anne_Birlikte"].Value = "Hata"; }
+                            }
+                            if (Checked("Anne_Dogum_Tarihi"))
+                            {
+                                try
+                                {
+                                    aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                                    veri = aranan[9].FindElement(By.TagName("img"));
+                                    geciciVeri = veri.GetAttribute("src").ToString();
+                                    geciciVeri = geciciVeri.Substring(geciciVeri.IndexOf("=") + 1);
+                                    dataGridView1.Rows[satir].Cells["Anne_Dogum_Tarihi"].Value = geciciVeri;
+                                }
+                                catch { dataGridView1.Rows[satir].Cells["Anne_Dogum_Tarihi"].Value = "Hata"; }
+                            }
+                            if (Checked("Anne_Mezuniyet"))
+                            {
+                                next_Wait(100);
+                                bool hataVar = false;
+                                do
                                 {
                                     try
                                     {
-                                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
-                                        veri = aranan[9].FindElement(By.TagName("img"));
-                                        geciciVeri = veri.GetAttribute("src").ToString();
-                                        geciciVeri = geciciVeri.Substring(geciciVeri.IndexOf("=") + 1);
-                                        dataGridView1.Rows[satir].Cells["anneDT"].Value = geciciVeri;
+                                        SelectElement se = new SelectElement(eokul.FindElement(By.Id("ogrenimDurumu")));
+                                        dataGridView1.Rows[satir].Cells["Anne_Mezuniyet"].Value = se.SelectedOption.Text.ToString();
+                                        hataVar = false;
                                     }
-                                    catch { dataGridView1.Rows[satir].Cells["anneDT"].Value = "Hata"; }
-                                }
-                                if (Checked(anneListBox, anne_list_Row, "anneMezuniyet"))
-                                {
-                                    next_Wait(100);
-                                    bool hataVar = false;
-                                    do
+                                    catch
                                     {
-                                        try
-                                        {
-                                            SelectElement se = new SelectElement(eokul.FindElement(By.Id("ogrenimDurumu")));
-                                            dataGridView1.Rows[satir].Cells["anneMezuniyet"].Value = se.SelectedOption.Text.ToString();
-                                            hataVar = false;
-                                        }
-                                        catch
-                                        {
-                                            dataGridView1.Rows[satir].Cells["anneMezuniyet"].Value = "Hata";
-                                            hataVar = true;
-                                            eokul.Navigate().Refresh();
-                                            next_Wait(500);
-                                        }
-                                    } while (hataVar == true);
-                                }
-                                if (Checked(anneListBox, anne_list_Row, "anneMslk"))
+                                        dataGridView1.Rows[satir].Cells["Anne_Mezuniyet"].Value = "Hata";
+                                        hataVar = true;
+                                        eokul.Navigate().Refresh();
+                                        next_Wait(500);
+                                    }
+                                } while (hataVar == true);
+                            }
+                            if (Checked("Anne_Mslk"))
+                            {
+                                next_Wait(100);
+                                bool hataVar = false;
+                                do
                                 {
-                                    next_Wait(100);
-                                    bool hataVar = false;
-                                    do
+                                    try
                                     {
-                                        try
-                                        {
-                                            SelectElement se = new SelectElement(eokul.FindElement(By.Id("cmbMeslek")));
-                                            dataGridView1.Rows[satir].Cells["anneMslk"].Value = se.SelectedOption.Text.ToString();
-                                            hataVar = false;
-                                        }
-                                        catch
-                                        {
-                                            dataGridView1.Rows[satir].Cells["anneMslk"].Value = "Hata";
-                                            hataVar = true;
-                                            eokul.Navigate().Refresh();
-                                            next_Wait(500);
-                                        }
-                                    } while (hataVar == true);
-                                }
+                                        SelectElement se = new SelectElement(eokul.FindElement(By.Id("cmbMeslek")));
+                                        dataGridView1.Rows[satir].Cells["Anne_Mslk"].Value = se.SelectedOption.Text.ToString();
+                                        hataVar = false;
+                                    }
+                                    catch
+                                    {
+                                        dataGridView1.Rows[satir].Cells["Anne_Mslk"].Value = "Hata";
+                                        hataVar = true;
+                                        eokul.Navigate().Refresh();
+                                        next_Wait(500);
+                                    }
+                                } while (hataVar == true);
                             }
                         }
-                        else
-                        {
-                            dataGridView1.Rows[satir].Cells["adSoyad"].Value = "Öğrenci bulunamadı";
-                            dataGridView1.Rows[satir].Cells["adSoyad"].Style.BackColor = Color.PaleVioletRed;
-                        }
-
-                        endingRow = satir;
                     }
-                    catch
+                    else
                     {
+                        dataGridView1.Rows[satir].Cells["Adi"].Value = "Öğrenci bulunamadı";
+                        dataGridView1.Rows[satir].Cells["Adi"].Style.BackColor = Color.PaleVioletRed;
+                    }
 
-                    }
-                    finally
-                    {
-                        satir++;
-                       Application.DoEvents();
-                        next_Wait(10);
- 
-                    }
-                
+                    endingRow = satir;
+                }
+                catch
+                {
+
+                }
+                finally
+                {
+                    satir++;
+                    Application.DoEvents();
+                    next_Wait(10);
+
+                }
+
 
 
             }
@@ -1107,7 +1100,7 @@ namespace atiba
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -1137,6 +1130,11 @@ namespace atiba
         {
             sub_School.Enabled = true;
             label1.Enabled = true;
+        }
+
+        private void tabPage5_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void next_Wait(int saniye)

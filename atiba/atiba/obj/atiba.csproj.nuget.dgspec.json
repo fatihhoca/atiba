@@ -48,7 +48,7 @@
             },
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
-              "version": "[108.0.5359.7100, )"
+              "version": "[109.0.5414.7400, )"
             }
           }
         }
