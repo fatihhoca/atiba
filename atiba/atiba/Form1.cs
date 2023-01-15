@@ -114,15 +114,42 @@ namespace atiba
                     sda.Fill(data);
                     if (data.Columns.IndexOf("Öğrenci No") != -1)
                     {
+                        //dataGridView1.DataSource = data;
+
                         dataGridView1.Columns.Add("No", "No");
+
                         foreach (DataRow drx in data.Rows)
                         {
                             if (drx["Öğrenci No"].ToString() != "")
-                                dataGridView1.Rows.Add(drx["Öğrenci No"].ToString());
+                                dataGridView1.Rows.Add(drx["Öğrenci No"]);
+
+                            //dataGridView1.Rows[satir].Cells["Tc_No"].Value
+
+
+
                         }
                         dataGridView1.ReadOnly = false;
                         dataGridView1.Columns[0].Width = 100;
                         dataGridView1.ClearSelection();
+                    }
+                    else if (data.Columns.IndexOf("No") != -1)
+                    {
+                        foreach (DataColumn column in data.Columns)
+                        {
+                            dataGridView1.Columns.Add(column.ColumnName, column.ColumnName);
+                        }
+
+                        foreach (DataRow row in data.Rows)
+                        {
+                            int index = dataGridView1.Rows.Add();
+                            for (int i = 0; i < data.Columns.Count; i++)
+                            {
+                                dataGridView1.Rows[index].Cells[i].Value = row[i];
+                            }
+                        }
+                        endingRow = data.Columns.Count;
+
+
                     }
                     else
                         MessageBox.Show("Seçtiğiniz EXCEL içinde Öğrenci No alanı tespit edilemedi\nTablonuzda Öğrenci No adlı bir sütun ve altında öğrenci numaraları olması yeterli", "Öğrenci No Sütunu Yok", MessageBoxButtons.OK, MessageBoxIcon.Error);
