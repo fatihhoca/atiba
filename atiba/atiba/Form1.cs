@@ -201,7 +201,7 @@ namespace atiba
 
                 worksheet = workbook.Sheets["Sayfa1"];
                 worksheet = workbook.ActiveSheet;
-                worksheet.Name = "Excel Dışa Aktarım";
+                worksheet.Name = "Sheet1";
                 for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
                 {
                     worksheet.Cells[1, i] = dataGridView1.Columns[i - 1].Name.ToString();
