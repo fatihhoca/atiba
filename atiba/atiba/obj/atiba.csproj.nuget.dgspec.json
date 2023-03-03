@@ -40,15 +40,15 @@
           "dependencies": {
             "Selenium.Support": {
               "target": "Package",
-              "version": "[4.8.0, )"
+              "version": "[4.8.1, )"
             },
             "Selenium.WebDriver": {
               "target": "Package",
-              "version": "[4.8.0, )"
+              "version": "[4.8.1, )"
             },
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
-              "version": "[109.0.5414.7400, )"
+              "version": "[110.0.5481.7700, )"
             }
           }
         }

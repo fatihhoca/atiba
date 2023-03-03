@@ -394,7 +394,7 @@ namespace atiba
                     try
                     {
                         //Öğrernci bilgi çekmek
-                        SlnGetData.SearchStudent(dr.Cells["Ogr_No"].Value.ToString());
+                        //SlnGetData.SearchStudent(dr.Cells["Ogr_No"].Value.ToString());
                         foreach (DataGridViewColumn column in dataGridView1.Columns)
                         {
                             if (column.Index != 0)
@@ -470,6 +470,14 @@ namespace atiba
         {
             SlnGetData.SubSchool = sub_School.Text;
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            foreach (string item in babaListBox.CheckedItems) AddColumn(item);
+
+
         }
     }
 }

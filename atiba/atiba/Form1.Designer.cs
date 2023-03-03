@@ -56,6 +56,7 @@
             this.babaListBox = new System.Windows.Forms.CheckedListBox();
             this.ogrenciListBox = new System.Windows.Forms.CheckedListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -77,6 +78,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.topmost);
             this.tabPage4.Controls.Add(this.coyp_Data);
             this.tabPage4.Controls.Add(this.set_Data_Excel);
@@ -391,11 +393,21 @@
             this.ogrenciListBox.Size = new System.Drawing.Size(280, 536);
             this.ogrenciListBox.TabIndex = 5;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(624, 991);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 64);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 1012);
+            this.ClientSize = new System.Drawing.Size(1298, 1232);
             this.Controls.Add(this.tabControl2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
@@ -447,6 +459,7 @@
         private System.Windows.Forms.ComboBox sub_School;
         private System.Windows.Forms.CheckBox topmost;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

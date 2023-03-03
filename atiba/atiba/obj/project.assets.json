@@ -2,10 +2,10 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.8": {
-      "Selenium.Support/4.8.0": {
+      "Selenium.Support/4.8.1": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.8.0"
+          "Selenium.WebDriver": "4.8.1"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -17,7 +17,7 @@
           "lib/net48/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.8.0": {
+      "Selenium.WebDriver/4.8.1": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -32,7 +32,7 @@
           "build/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/109.0.5414.7400": {
+      "Selenium.WebDriver.ChromeDriver/110.0.5481.7700": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -40,10 +40,10 @@
       }
     },
     ".NETFramework,Version=v4.8/win": {
-      "Selenium.Support/4.8.0": {
+      "Selenium.Support/4.8.1": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.8.0"
+          "Selenium.WebDriver": "4.8.1"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -55,7 +55,7 @@
           "lib/net48/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.8.0": {
+      "Selenium.WebDriver/4.8.1": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -70,7 +70,7 @@
           "build/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/109.0.5414.7400": {
+      "Selenium.WebDriver.ChromeDriver/110.0.5481.7700": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -78,10 +78,10 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x64": {
-      "Selenium.Support/4.8.0": {
+      "Selenium.Support/4.8.1": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.8.0"
+          "Selenium.WebDriver": "4.8.1"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -93,7 +93,7 @@
           "lib/net48/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.8.0": {
+      "Selenium.WebDriver/4.8.1": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -108,7 +108,7 @@
           "build/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/109.0.5414.7400": {
+      "Selenium.WebDriver.ChromeDriver/110.0.5481.7700": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -116,10 +116,10 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x86": {
-      "Selenium.Support/4.8.0": {
+      "Selenium.Support/4.8.1": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.8.0"
+          "Selenium.WebDriver": "4.8.1"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -131,7 +131,7 @@
           "lib/net48/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.8.0": {
+      "Selenium.WebDriver/4.8.1": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -146,7 +146,7 @@
           "build/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/109.0.5414.7400": {
+      "Selenium.WebDriver.ChromeDriver/110.0.5481.7700": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -155,10 +155,10 @@
     }
   },
   "libraries": {
-    "Selenium.Support/4.8.0": {
-      "sha512": "5sibZXRPiG/MpHGJzu4S4xkjCbQE04WTO0jWMug7+7DWI3Sqz1aL0dryEZxovQjUb09KB8MpJZtc7NBabJdvtg==",
+    "Selenium.Support/4.8.1": {
+      "sha512": "S7ZkZvCbg7UW8botSWJUBLBcPqumBH+cUJtwoTNWCw3Bhj/SBrxMG0q+CRBkrF2HW1btJXkOqzsiWAPAV0EVfA==",
       "type": "package",
-      "path": "selenium.support/4.8.0",
+      "path": "selenium.support/4.8.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -171,14 +171,14 @@
         "lib/net6.0/WebDriver.Support.dll",
         "lib/netstandard2.0/WebDriver.Support.dll",
         "lib/netstandard2.1/WebDriver.Support.dll",
-        "selenium.support.4.8.0.nupkg.sha512",
+        "selenium.support.4.8.1.nupkg.sha512",
         "selenium.support.nuspec"
       ]
     },
-    "Selenium.WebDriver/4.8.0": {
-      "sha512": "12/UPRx8JHOKnQTW4vTeLT+gkMPF/2RJFbGn6rGLj9NBffd62PdXYoFTWFeOwywSfNpWcJVyjzk9MXoJjrA0Ww==",
+    "Selenium.WebDriver/4.8.1": {
+      "sha512": "h4H7pEyr41Xf+IgmhNqrbF3I24SV02x2G1INS82pycNltg1q15/qVV/aRKu/MbMFKtqy1mVoNEE/4/p7T/4Ngw==",
       "type": "package",
-      "path": "selenium.webdriver/4.8.0",
+      "path": "selenium.webdriver/4.8.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -195,14 +195,14 @@
         "manager/linux/selenium-manager",
         "manager/macos/selenium-manager",
         "manager/windows/selenium-manager.exe",
-        "selenium.webdriver.4.8.0.nupkg.sha512",
+        "selenium.webdriver.4.8.1.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.ChromeDriver/109.0.5414.7400": {
-      "sha512": "eTclb0YvUFujj9MCe3RfQvZA9LRcazmqoYzqmrOdW/FMhossjXOpbiaLsUsI84EDNFZQlkRMq4S61XmUtzZOaw==",
+    "Selenium.WebDriver.ChromeDriver/110.0.5481.7700": {
+      "sha512": "fRcvSVCO5vfWMyNZhu4jyt4/UBUIRENR261XozDdDJhgPIcHY99BMKViYzlEcinzkdJ6m+571rlcaNNiaZHhlQ==",
       "type": "package",
-      "path": "selenium.webdriver.chromedriver/109.0.5414.7400",
+      "path": "selenium.webdriver.chromedriver/110.0.5481.7700",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -214,33 +214,38 @@
         "driver/mac64arm/chromedriver",
         "driver/win32/chromedriver.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.chromedriver.109.0.5414.7400.nupkg.sha512",
+        "selenium.webdriver.chromedriver.110.0.5481.7700.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
-      "Selenium.Support >= 4.8.0",
-      "Selenium.WebDriver >= 4.8.0",
-      "Selenium.WebDriver.ChromeDriver >= 109.0.5414.7400"
+      "Selenium.Support >= 4.8.1",
+      "Selenium.WebDriver >= 4.8.1",
+      "Selenium.WebDriver.ChromeDriver >= 110.0.5481.7700"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fkbos\\.nuget\\packages\\": {}
+    "C:\\Users\\egiti\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\atiba.csproj",
+      "projectUniqueName": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\atiba.csproj",
       "projectName": "atiba",
-      "projectPath": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\atiba.csproj",
-      "packagesPath": "C:\\Users\\fkbos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\obj\\",
+      "projectPath": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\atiba.csproj",
+      "packagesPath": "C:\\Users\\egiti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\fkbos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\egiti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -261,15 +266,15 @@
         "dependencies": {
           "Selenium.Support": {
             "target": "Package",
-            "version": "[4.8.0, )"
+            "version": "[4.8.1, )"
           },
           "Selenium.WebDriver": {
             "target": "Package",
-            "version": "[4.8.0, )"
+            "version": "[4.8.1, )"
           },
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
-            "version": "[109.0.5414.7400, )"
+            "version": "[110.0.5481.7700, )"
           }
         }
       }

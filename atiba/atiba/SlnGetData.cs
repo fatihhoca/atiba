@@ -812,7 +812,8 @@ namespace atiba
 
             if (Src)
             {
-                if (MomUrl != eokul.Url) {
+                if (MomUrl != eokul.Url)
+                {
                     eokul.Navigate().GoToUrl(MomUrl);
                     Next_Wait(50);
                     Open_Eyes(1);
@@ -834,9 +835,9 @@ namespace atiba
                     else
                     {
                         veri = eokul.FindElement(By.Name("txtAdi"));
-                        Result = veri.ToString();
+                        Result = veri.GetAttribute("value").ToString();
                         veri = eokul.FindElement(By.Name("txtSoyadi"));
-                        Result += " " + veri.ToString();
+                        Result += " " + veri.GetAttribute("value").ToString();
                     }
 
                 }
@@ -878,8 +879,8 @@ namespace atiba
                     }
                     else
                     {
-                        veri = eokul.FindElement(By.Name("txtAileTCKimlikNo"));
-                        Result = veri.ToString();
+                        veri = eokul.FindElement(By.Id("txtAileTCKimlikNo"));
+                        Result = veri.GetAttribute("value").ToString();
                     }
                 }
                 catch
@@ -911,8 +912,8 @@ namespace atiba
                     }
                     else
                     {
-                        veri = eokul.FindElement(By.Name("txtTelCep"));
-                        Result = veri.ToString();
+                        veri = eokul.FindElement(By.Id("txtTelCep"));
+                        Result = veri.GetAttribute("value").ToString();
                     }
                 }
                 catch
@@ -944,8 +945,11 @@ namespace atiba
                     }
                     else
                     {
-                        veri = eokul.FindElement(By.Name("rdGrpSagOlu"));
-                        Result = (veri.Selected) ? "Sağ" : "Ölü";
+
+                        IWebElement radioBtn = eokul.FindElement(By.Id("rdSag"));
+                        bool isSelected = radioBtn.Selected;
+
+                        Result = (isSelected) ? "Sağ" : "Ölü";
                     }
                 }
                 catch
@@ -977,8 +981,12 @@ namespace atiba
                     }
                     else
                     {
-                        veri = eokul.FindElement(By.Name("rdGrpBirlikteAyri"));
-                        Result = (veri.Selected) ? "Birlikte" : "Ayrı"; 
+
+                        IWebElement radioBtn = eokul.FindElement(By.Id("rdBirlikte"));
+                        bool isSelected = radioBtn.Selected;
+
+                        Result = (isSelected) ? "Birlikte" : "Ayrı";
+
                     }
                 }
                 catch
@@ -1048,7 +1056,7 @@ namespace atiba
                     else
                     {
                         veri = eokul.FindElement(By.Name("txtDogumTarihi"));
-                        Result = veri.ToString();
+                        Result = veri.GetAttribute("value").ToString();
                     }
                 }
                 catch
@@ -1092,7 +1100,7 @@ namespace atiba
                     }
 
                 } while (hataVar == true);
-            }
+        }
             else
             { Result = "Bulunamadı"; }
             return Result;
@@ -1113,17 +1121,7 @@ namespace atiba
                 }
                 try
                 {
-                    if (School == "OkulOncesi")
-                    {
 
-                        veri = eokul.FindElement(By.Id("txtAdi"));
-                        adsoyad = veri.ToString();
-                        veri = eokul.FindElement(By.Id("txtSoyadi"));
-
-                        adsoyad += " " + veri;
-                    }
-                    else
-                    {
                         aranan = eokul.FindElements(By.ClassName("col-sm-4"));
                         veri = aranan[0].FindElement(By.TagName("img"));
                         geciciVeri = veri.GetAttribute("outerHTML").ToString();
@@ -1133,7 +1131,7 @@ namespace atiba
                         geciciVeri = veri.GetAttribute("outerHTML").ToString();
                         geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf("BitMapResim=") + 12);
                         adsoyad += " " + geciciVeri.Substring(0, geciciVeri.IndexOf("\""));
-                    }
+                    
                     Result = adsoyad;
 
                 }
@@ -1158,14 +1156,7 @@ namespace atiba
                 }
                 try
                 {
-                    if (School == "OkulOncesi")
-                    {
-                        veri = eokul.FindElement(By.Id("txtAileTCKimlikNo"));
-                        geciciVeri = veri.ToString();
-                        Result = geciciVeri;
-                    }
-                    else
-                    {
+
                         aranan = eokul.FindElements(By.Id("yeniBabaTc"));
                         if (aranan.Count == 0)
                         {
@@ -1179,7 +1170,7 @@ namespace atiba
                             Result = veri.GetAttribute("value");
                         }
 
-                    }
+                    
                 }
                 catch
                 { Result = "Hata"; }
@@ -1199,25 +1190,18 @@ namespace atiba
                     Next_Wait(50);
                     Open_Eyes(1);
                 }
+                
                 try
                 {
 
-                    if (School == "OkulOncesi")
-                    {
-                        veri = eokul.FindElement(By.Id("txtTelCep"));
-                        geciciVeri = veri.ToString();
-                        Result = geciciVeri;
-                    }
-                    else
-                    {
-
+   
 
 
                         aranan = eokul.FindElements(By.ClassName("col-sm-4"));
                         veri = aranan[15].FindElement(By.TagName("img"));
                         geciciVeri = veri.GetAttribute("src").ToString();
                         Result = geciciVeri.Remove(0, geciciVeri.IndexOf("=") + 1);
-                    }
+                    
                 }
                 catch
                 { Result = "Hata"; }
