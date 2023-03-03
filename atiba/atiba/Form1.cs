@@ -394,7 +394,7 @@ namespace atiba
                     try
                     {
                         //Öğrernci bilgi çekmek
-                        //SlnGetData.SearchStudent(dr.Cells["Ogr_No"].Value.ToString());
+                        SlnGetData.SearchStudent(dr.Cells["Ogr_No"].Value.ToString());
                         foreach (DataGridViewColumn column in dataGridView1.Columns)
                         {
                             if (column.Index != 0)
