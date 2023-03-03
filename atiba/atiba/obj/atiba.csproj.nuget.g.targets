@@ -5,6 +5,6 @@
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)selenium.webdriver.chromedriver\109.0.5414.7400\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('$(NuGetPackageRoot)selenium.webdriver.chromedriver\109.0.5414.7400\build\Selenium.WebDriver.ChromeDriver.targets')" />
-    <Import Project="$(NuGetPackageRoot)selenium.webdriver\4.7.0\build\Selenium.WebDriver.targets" Condition="Exists('$(NuGetPackageRoot)selenium.webdriver\4.7.0\build\Selenium.WebDriver.targets')" />
+    <Import Project="$(NuGetPackageRoot)selenium.webdriver\4.8.0\build\Selenium.WebDriver.targets" Condition="Exists('$(NuGetPackageRoot)selenium.webdriver\4.8.0\build\Selenium.WebDriver.targets')" />
   </ImportGroup>
 </Project>

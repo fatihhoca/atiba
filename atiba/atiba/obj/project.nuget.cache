@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "X8i+o9/pHkj/VFkdDy3ZC38Q/IdUBxMUUW6TFS6CVlG+STS7UtS4VqA6kwfDk43L5s0nJDbl5GQx1mj7mgb2NA==",
+  "dgSpecHash": "7aFOV490ktVJ61d8O5i3fE+Sft33VkFG3hsI4/bPRhKxfykYy6ngiD2sFTeoc3p8iwK6NdSAcetPPmMmZ/Na1g==",
   "success": true,
   "projectFilePath": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\atiba.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\egiti\\.nuget\\packages\\selenium.support\\4.7.0\\selenium.support.4.7.0.nupkg.sha512",
-    "C:\\Users\\egiti\\.nuget\\packages\\selenium.webdriver\\4.7.0\\selenium.webdriver.4.7.0.nupkg.sha512",
+    "C:\\Users\\egiti\\.nuget\\packages\\selenium.support\\4.8.0\\selenium.support.4.8.0.nupkg.sha512",
+    "C:\\Users\\egiti\\.nuget\\packages\\selenium.webdriver\\4.8.0\\selenium.webdriver.4.8.0.nupkg.sha512",
     "C:\\Users\\egiti\\.nuget\\packages\\selenium.webdriver.chromedriver\\109.0.5414.7400\\selenium.webdriver.chromedriver.109.0.5414.7400.nupkg.sha512"
   ],
   "logs": []
