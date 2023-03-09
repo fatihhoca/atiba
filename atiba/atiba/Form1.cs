@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Windows.Forms;
-using System.Data.OleDb;
 
 
 namespace atiba
@@ -45,23 +45,23 @@ namespace atiba
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
 
-                seting_Save();
+            seting_Save();
             SlnGetData.BaglantiKes();
-                //SlnGetData.eokul.Close();
-                //SlnGetData.eokul.Dispose();
+            //SlnGetData.eokul.Close();
+            //SlnGetData.eokul.Dispose();
 
         }
 
 
         private static int endingRow;
 
-        private static string[] Ogr_list_Row= SlnGetData.Set_List("Ogr");
+        private static string[] Ogr_list_Row = SlnGetData.Set_List("Ogr");
         private static string[] Baba_list_Row = SlnGetData.Set_List("Baba");
         private static string[] Anne_list_Row = SlnGetData.Set_List("Anne");
 
         private static int satir = 0;
-        
-        
+
+
 
 
 
@@ -86,7 +86,7 @@ namespace atiba
                     string DosyaAdi = ofd.SafeFileName;
                     // sçeilen dosyanın adını verir.
                     //pictureBox1.ImageLocation = DosyaYolu;
-                   // dataGridView1.Rows.Clear();
+                    // dataGridView1.Rows.Clear();
 
                     string name = "Sheet1";
                     string constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + DosyaYolu + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
@@ -106,16 +106,16 @@ namespace atiba
                         {
                             if (drx["Öğrenci No"].ToString() != "")
 
-                             
-                            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
-                            {
-                                    ay = -1;
-                                    if (dataGridView1.Rows[i].Cells["Ogr_No"].Value.ToString() == drx["Öğrenci No"].ToString() )
+
+                                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                                 {
+                                    ay = -1;
+                                    if (dataGridView1.Rows[i].Cells["Ogr_No"].Value.ToString() == drx["Öğrenci No"].ToString())
+                                    {
                                         ay = i;
-                                    break;
-                                }
-                            };
+                                        break;
+                                    }
+                                };
 
 
                             if (ay == -1 && drx["Öğrenci No"].ToString() != "")
@@ -137,7 +137,7 @@ namespace atiba
                         foreach (DataColumn column in data.Columns)
                         {
                             AddColumn(column.ColumnName);
-                            
+
                         }
 
                         foreach (DataRow row in data.Rows)
@@ -148,7 +148,7 @@ namespace atiba
                                 dataGridView1.Rows[index].Cells[i].Value = row[i];
                             }
                         }
-                        endingRow = dataGridView1.Rows.Count-1;
+                        endingRow = dataGridView1.Rows.Count - 1;
 
 
                     }
@@ -169,9 +169,9 @@ namespace atiba
         }
         private void open_Eokul_Click(object sender, EventArgs e)
         {
-            
+
             SlnGetData.Baglan();
-            
+
 
 
         }
@@ -345,7 +345,7 @@ namespace atiba
 
         private void get_Data_Click(object sender, EventArgs e)
         {
-            if (SlnGetData.eokul == null) 
+            if (SlnGetData.eokul == null)
             {
                 MessageBox.Show("Eokul için Chrome Tarayıcısı açılmamış\nEokulu yandaki butonu kullanarak açın.", "Her şeyin Sırası var", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -365,7 +365,7 @@ namespace atiba
 
   */
 
-                DialogResult xxx = MessageBox.Show("Eokul'dan "+SlnGetData.School+" okul türünde\n" + (dataGridView1.Rows.Count-1) +" Öğrenci\nBilgisi Çekilecek?", "Son Kontroller", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult xxx = MessageBox.Show("Eokul'dan " + SlnGetData.School + " okul türünde\n" + (dataGridView1.Rows.Count - 1) + " Öğrenci\nBilgisi Çekilecek?", "Son Kontroller", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (xxx == DialogResult.No)
                 {
@@ -469,7 +469,7 @@ namespace atiba
         private void sub_School_SelectedIndexChanged(object sender, EventArgs e)
         {
             SlnGetData.SubSchool = sub_School.Text;
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
