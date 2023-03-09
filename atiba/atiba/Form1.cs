@@ -479,5 +479,15 @@ namespace atiba
 
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            endingRow = dataGridView1.Rows.Count-1;
+        }
     }
 }

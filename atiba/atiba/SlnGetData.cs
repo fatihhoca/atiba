@@ -1057,7 +1057,7 @@ namespace atiba
                         hataVar = true;
                         eokul.Navigate().Refresh();
                         Next_Wait(500);
-
+                        if (School != "OkulOncesi") Open_Eyes(1);
                     }
 
                 } while (hataVar == true);
@@ -1139,7 +1139,7 @@ namespace atiba
                         hataVar = true;
                         eokul.Navigate().Refresh();
                         Next_Wait(500);
-
+                        if (School != "OkulOncesi") Open_Eyes(1);
                     }
 
                 } while (hataVar == true);
@@ -1389,7 +1389,7 @@ namespace atiba
                         hataVar = true;
                         eokul.Navigate().Refresh();
                         Next_Wait(500);
-
+                        if (School != "OkulOncesi") Open_Eyes(1);
                     }
 
                 } while (hataVar == true);
@@ -1472,6 +1472,7 @@ namespace atiba
                         hataVar = true;
                         eokul.Navigate().Refresh();
                         Next_Wait(500);
+                        if (School != "OkulOncesi") Open_Eyes(1);
                     }
 
                 } while (hataVar == true);
