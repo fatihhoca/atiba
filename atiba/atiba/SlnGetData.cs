@@ -6,7 +6,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Drawing;
+using System.Net;
+using Tesseract;
+
 using Application = System.Windows.Forms.Application;
+using System.Security.Policy;
 
 namespace atiba
 {
@@ -34,7 +39,7 @@ namespace atiba
         public static string ExcusedUrl;
         public static string EduStatusId;
         public static string JobId;
-
+        
 
         public static void Set_Speed(string rb_speed)
         {
@@ -46,7 +51,26 @@ namespace atiba
             { Speed = 3; }
             Console.WriteLine(Speed);
         }
-
+        static string ReadTextFromImage(string imageUrl)
+        {
+            using (var client = new WebClient())
+            {
+                using (var stream = client.OpenRead(imageUrl))
+                {
+                    using (var engine = new TesseractEngine("./tessdata", "tur", EngineMode.Default))
+                    {
+                        using (var img = Bitmap.FromStream(stream) as Bitmap)
+                        {
+                            using (var page = engine.Process(img, PageSegMode.SingleWord))
+                            {
+                                var text = page.GetText();
+                                return text;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         public static void Set_School(string SchoolName)
 
         {
@@ -402,7 +426,7 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    Open_Eyes(2);
+                   
                 }
 
                 try
@@ -431,7 +455,6 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    Open_Eyes(2);
                 }
 
                 try
@@ -460,15 +483,15 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    Open_Eyes(2);
+                    
                 }
                 try
                 {
                     veri = eokul.FindElement(By.Id("dogumTarihi"));
-                    veri = veri.FindElement(By.TagName("img"));
-                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                    Result = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                   
+                    geciciVeri = veri.GetAttribute("src");
+                   
+                    Result = ReadTextFromImage(geciciVeri);
 
                 }
                 catch
@@ -489,15 +512,15 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    Open_Eyes(2);
+                   
                 }
                 try
                 {
-                    veri = eokul.FindElement(By.Id("dogumYeri"));
-                    veri = veri.FindElement(By.TagName("img"));
-                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                    Result = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                     veri = eokul.FindElement(By.Id("dogumYeri"));
+                     geciciVeri = veri.GetAttribute("src");
+                     Result = ReadTextFromImage(geciciVeri);
+
+
 
                 }
                 catch
@@ -518,16 +541,14 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    Open_Eyes(2);
+                    
                 }
                 try
                 {
+ 
                     veri = eokul.FindElement(By.Id("nufusIl"));
-                    veri = veri.FindElement(By.TagName("img"));
-                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                    Result = geciciVeri.Substring(0, geciciVeri.Length - 2);
-
+                    geciciVeri = veri.GetAttribute("src");
+                    Result = ReadTextFromImage(geciciVeri);
                 }
                 catch
                 { Result = "Hata"; }
@@ -547,16 +568,13 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    Open_Eyes(2);
+                    
                 }
                 try
                 {
                     veri = eokul.FindElement(By.Id("nufusIlce"));
-                    veri = veri.FindElement(By.TagName("img"));
-                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                    Result = geciciVeri.Substring(0, geciciVeri.Length - 2);
-
+                    geciciVeri = veri.GetAttribute("src");
+                    Result = ReadTextFromImage(geciciVeri);
                 }
                 catch
                 { Result = "Hata"; }
@@ -575,17 +593,13 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    Open_Eyes(2);
+                   
                 }
                 try
                 {
                     veri = eokul.FindElement(By.Id("ciltNo"));
-                    veri = veri.FindElement(By.TagName("img"));
-                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                    Result = geciciVeri.Substring(0, geciciVeri.Length - 2);
-
-
+                    geciciVeri = veri.GetAttribute("src");
+                    Result = ReadTextFromImage(geciciVeri);
                 }
                 catch
                 { Result = "Hata"; }
@@ -605,16 +619,15 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    Open_Eyes(2);
+                    
                 }
                 try
                 {
-                    veri = eokul.FindElement(By.Id("aileSiraNo"));
-                    veri = veri.FindElement(By.TagName("img"));
-                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                    Result = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                    //((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementById('aileSiraNo').setAttribute('style', 'border-radius:0px;border-style: none;height:300px;width:200px;')");
 
+                    veri = eokul.FindElement(By.Id("aileSiraNo"));
+                    geciciVeri = veri.GetAttribute("src");
+                    Result = ReadTextFromImage(geciciVeri);
 
                 }
                 catch
@@ -635,17 +648,15 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    Open_Eyes(2);
+                  
                 }
                 try
                 {
+                    //((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementById('siraNo').setAttribute('style', 'border-radius:0px;border-style: none;height:300px;width:200px;')");
 
                     veri = eokul.FindElement(By.Id("siraNo"));
-                    veri = veri.FindElement(By.TagName("img"));
-                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                    Result = geciciVeri.Substring(0, geciciVeri.Length - 2);
-
+                    geciciVeri = veri.GetAttribute("src");
+                    Result = ReadTextFromImage(geciciVeri);
                 }
                 catch
                 { Result = "Hata"; }
@@ -666,15 +677,13 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    Open_Eyes(2);
+                    
                 }
                 try
                 {
                     veri = eokul.FindElement(By.Id("nufusMahalle"));
-                    veri = veri.FindElement(By.TagName("img"));
-                    geciciVeri = veri.GetAttribute("outerHTML").ToString();
-                    geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
-                    Result = geciciVeri.Substring(0, geciciVeri.Length - 2);
+                    geciciVeri = veri.GetAttribute("src");
+                    Result = ReadTextFromImage(geciciVeri);
                 }
                 catch
                 { Result = "Hata"; }

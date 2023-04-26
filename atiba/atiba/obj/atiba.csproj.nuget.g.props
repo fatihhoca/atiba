@@ -13,4 +13,7 @@
     <SourceRoot Include="C:\Users\egiti\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgTesseract-OCR Condition=" '$(PkgTesseract-OCR)' == '' ">C:\Users\egiti\.nuget\packages\tesseract-ocr\1.0.4</PkgTesseract-OCR>
+  </PropertyGroup>
 </Project>

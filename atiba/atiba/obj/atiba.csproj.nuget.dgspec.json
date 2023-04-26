@@ -40,15 +40,23 @@
           "dependencies": {
             "Selenium.Support": {
               "target": "Package",
-              "version": "[4.8.1, )"
+              "version": "[4.9.0, )"
             },
             "Selenium.WebDriver": {
               "target": "Package",
-              "version": "[4.8.1, )"
+              "version": "[4.9.0, )"
             },
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
-              "version": "[110.0.5481.7700, )"
+              "version": "[112.0.5615.4900, )"
+            },
+            "Tesseract": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            },
+            "Tesseract-OCR": {
+              "target": "Package",
+              "version": "[1.0.4, )"
             }
           }
         }

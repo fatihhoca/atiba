@@ -2,10 +2,10 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.8": {
-      "Selenium.Support/4.8.1": {
+      "Selenium.Support/4.9.0": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.8.1"
+          "Selenium.WebDriver": "4.9.0"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -17,7 +17,7 @@
           "lib/net48/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.8.1": {
+      "Selenium.WebDriver/4.9.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -29,21 +29,36 @@
           "lib/net48/WebDriver.dll": {}
         },
         "build": {
-          "build/Selenium.WebDriver.targets": {}
+          "buildTransitive/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/110.0.5481.7700": {
+      "Selenium.WebDriver.ChromeDriver/112.0.5615.4900": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
         }
+      },
+      "Tesseract/5.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net48/Tesseract.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Tesseract.dll": {}
+        },
+        "build": {
+          "build/Tesseract.targets": {}
+        }
+      },
+      "Tesseract-OCR/1.0.4": {
+        "type": "package"
       }
     },
     ".NETFramework,Version=v4.8/win": {
-      "Selenium.Support/4.8.1": {
+      "Selenium.Support/4.9.0": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.8.1"
+          "Selenium.WebDriver": "4.9.0"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -55,7 +70,7 @@
           "lib/net48/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.8.1": {
+      "Selenium.WebDriver/4.9.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -67,21 +82,36 @@
           "lib/net48/WebDriver.dll": {}
         },
         "build": {
-          "build/Selenium.WebDriver.targets": {}
+          "buildTransitive/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/110.0.5481.7700": {
+      "Selenium.WebDriver.ChromeDriver/112.0.5615.4900": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
         }
+      },
+      "Tesseract/5.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net48/Tesseract.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Tesseract.dll": {}
+        },
+        "build": {
+          "build/Tesseract.targets": {}
+        }
+      },
+      "Tesseract-OCR/1.0.4": {
+        "type": "package"
       }
     },
     ".NETFramework,Version=v4.8/win-x64": {
-      "Selenium.Support/4.8.1": {
+      "Selenium.Support/4.9.0": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.8.1"
+          "Selenium.WebDriver": "4.9.0"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -93,7 +123,7 @@
           "lib/net48/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.8.1": {
+      "Selenium.WebDriver/4.9.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -105,21 +135,36 @@
           "lib/net48/WebDriver.dll": {}
         },
         "build": {
-          "build/Selenium.WebDriver.targets": {}
+          "buildTransitive/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/110.0.5481.7700": {
+      "Selenium.WebDriver.ChromeDriver/112.0.5615.4900": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
         }
+      },
+      "Tesseract/5.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net48/Tesseract.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Tesseract.dll": {}
+        },
+        "build": {
+          "build/Tesseract.targets": {}
+        }
+      },
+      "Tesseract-OCR/1.0.4": {
+        "type": "package"
       }
     },
     ".NETFramework,Version=v4.8/win-x86": {
-      "Selenium.Support/4.8.1": {
+      "Selenium.Support/4.9.0": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.8.1"
+          "Selenium.WebDriver": "4.9.0"
         },
         "frameworkAssemblies": [
           "System.Drawing"
@@ -131,7 +176,7 @@
           "lib/net48/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.8.1": {
+      "Selenium.WebDriver/4.9.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Drawing"
@@ -143,22 +188,37 @@
           "lib/net48/WebDriver.dll": {}
         },
         "build": {
-          "build/Selenium.WebDriver.targets": {}
+          "buildTransitive/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/110.0.5481.7700": {
+      "Selenium.WebDriver.ChromeDriver/112.0.5615.4900": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
         }
+      },
+      "Tesseract/5.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net48/Tesseract.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Tesseract.dll": {}
+        },
+        "build": {
+          "build/Tesseract.targets": {}
+        }
+      },
+      "Tesseract-OCR/1.0.4": {
+        "type": "package"
       }
     }
   },
   "libraries": {
-    "Selenium.Support/4.8.1": {
-      "sha512": "S7ZkZvCbg7UW8botSWJUBLBcPqumBH+cUJtwoTNWCw3Bhj/SBrxMG0q+CRBkrF2HW1btJXkOqzsiWAPAV0EVfA==",
+    "Selenium.Support/4.9.0": {
+      "sha512": "YzLglT1RymLURjlUQ5FjspDwaDRvPS/iEPPcU0DPDi9vSQUhZLgFEn1z6L2RuFQY+1Uo8LSN54awLK3fsB+UTg==",
       "type": "package",
-      "path": "selenium.support/4.8.1",
+      "path": "selenium.support/4.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -171,18 +231,19 @@
         "lib/net6.0/WebDriver.Support.dll",
         "lib/netstandard2.0/WebDriver.Support.dll",
         "lib/netstandard2.1/WebDriver.Support.dll",
-        "selenium.support.4.8.1.nupkg.sha512",
+        "selenium.support.4.9.0.nupkg.sha512",
         "selenium.support.nuspec"
       ]
     },
-    "Selenium.WebDriver/4.8.1": {
-      "sha512": "h4H7pEyr41Xf+IgmhNqrbF3I24SV02x2G1INS82pycNltg1q15/qVV/aRKu/MbMFKtqy1mVoNEE/4/p7T/4Ngw==",
+    "Selenium.WebDriver/4.9.0": {
+      "sha512": "7MiV7cpu5LuM7bBhMz/a25Lb78rFyfl8v2G3q56TAtxdDJEj3WXaRMDyytrKq1YVZ7jaN3pygku0n0IsYfe/SQ==",
       "type": "package",
-      "path": "selenium.webdriver/4.8.1",
+      "path": "selenium.webdriver/4.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "build/Selenium.WebDriver.targets",
+        "buildTransitive/Selenium.WebDriver.targets",
         "images/icon.png",
         "lib/net45/WebDriver.dll",
         "lib/net46/WebDriver.dll",
@@ -195,14 +256,14 @@
         "manager/linux/selenium-manager",
         "manager/macos/selenium-manager",
         "manager/windows/selenium-manager.exe",
-        "selenium.webdriver.4.8.1.nupkg.sha512",
+        "selenium.webdriver.4.9.0.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.ChromeDriver/110.0.5481.7700": {
-      "sha512": "fRcvSVCO5vfWMyNZhu4jyt4/UBUIRENR261XozDdDJhgPIcHY99BMKViYzlEcinzkdJ6m+571rlcaNNiaZHhlQ==",
+    "Selenium.WebDriver.ChromeDriver/112.0.5615.4900": {
+      "sha512": "PjWk+/RzxDhnxsCKeprnHb4RRB+cE/ekMVrqdcmdPxNoK/rvfBZdxori5Fm+dh9BU080SLeOKrD8Mtah0HcwlQ==",
       "type": "package",
-      "path": "selenium.webdriver.chromedriver/110.0.5481.7700",
+      "path": "selenium.webdriver.chromedriver/112.0.5615.4900",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -214,16 +275,103 @@
         "driver/mac64arm/chromedriver",
         "driver/win32/chromedriver.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.chromedriver.110.0.5481.7700.nupkg.sha512",
+        "selenium.webdriver.chromedriver.112.0.5615.4900.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
+      ]
+    },
+    "Tesseract/5.2.0": {
+      "sha512": "YB7feJlrTWSXtK8+WaCcseGSPK/1r2d2FWeKGyndlrPwYClrzTlCoHD4/oQEUjKafmpkWlhTZZ7pxiRJYZgj6w==",
+      "type": "package",
+      "path": "tesseract/5.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Tesseract.targets",
+        "lib/net47/Tesseract.dll",
+        "lib/net48/Tesseract.dll",
+        "lib/netstandard2.0/Tesseract.dll",
+        "lib/netstandard2.0/Tesseract.xml",
+        "tesseract.5.2.0.nupkg.sha512",
+        "tesseract.nuspec",
+        "x64/leptonica-1.82.0.dll",
+        "x64/tesseract50.dll",
+        "x86/leptonica-1.82.0.dll",
+        "x86/tesseract50.dll"
+      ]
+    },
+    "Tesseract-OCR/1.0.4": {
+      "sha512": "dXjJw1+0PW1fvkxw8ZnCQiwQWUMruHH1EVOYeM27IXQL4ruNquVFJQncGhIe1UxaxH7gTDw806USKK7Jx+XtGg==",
+      "type": "package",
+      "path": "tesseract-ocr/1.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Tesseract-OCR/ambiguous_words.exe",
+        "content/Tesseract-OCR/classifier_tester.exe",
+        "content/Tesseract-OCR/cntraining.exe",
+        "content/Tesseract-OCR/combine_tessdata.exe",
+        "content/Tesseract-OCR/dawg2wordlist.exe",
+        "content/Tesseract-OCR/doc/AUTHORS",
+        "content/Tesseract-OCR/doc/COPYING",
+        "content/Tesseract-OCR/doc/README",
+        "content/Tesseract-OCR/doc/ReleaseNotes",
+        "content/Tesseract-OCR/doc/eurotext.tif",
+        "content/Tesseract-OCR/doc/phototest.tif",
+        "content/Tesseract-OCR/java/ScrollView.jar",
+        "content/Tesseract-OCR/mftraining.exe",
+        "content/Tesseract-OCR/output/ocr_output_buffer.txt",
+        "content/Tesseract-OCR/shapeclustering.exe",
+        "content/Tesseract-OCR/tessdata/chi_sim.traineddata",
+        "content/Tesseract-OCR/tessdata/configs/ambigs.train",
+        "content/Tesseract-OCR/tessdata/configs/api_config",
+        "content/Tesseract-OCR/tessdata/configs/bigram",
+        "content/Tesseract-OCR/tessdata/configs/box.train",
+        "content/Tesseract-OCR/tessdata/configs/box.train.stderr",
+        "content/Tesseract-OCR/tessdata/configs/digits",
+        "content/Tesseract-OCR/tessdata/configs/hocr",
+        "content/Tesseract-OCR/tessdata/configs/inter",
+        "content/Tesseract-OCR/tessdata/configs/kannada",
+        "content/Tesseract-OCR/tessdata/configs/linebox",
+        "content/Tesseract-OCR/tessdata/configs/logfile",
+        "content/Tesseract-OCR/tessdata/configs/makebox",
+        "content/Tesseract-OCR/tessdata/configs/quiet",
+        "content/Tesseract-OCR/tessdata/configs/rebox",
+        "content/Tesseract-OCR/tessdata/configs/strokewidth",
+        "content/Tesseract-OCR/tessdata/configs/unlv",
+        "content/Tesseract-OCR/tessdata/eng.cube.bigrams",
+        "content/Tesseract-OCR/tessdata/eng.cube.fold",
+        "content/Tesseract-OCR/tessdata/eng.cube.lm",
+        "content/Tesseract-OCR/tessdata/eng.cube.lm_",
+        "content/Tesseract-OCR/tessdata/eng.cube.nn",
+        "content/Tesseract-OCR/tessdata/eng.cube.params",
+        "content/Tesseract-OCR/tessdata/eng.cube.size",
+        "content/Tesseract-OCR/tessdata/eng.cube.word-freq",
+        "content/Tesseract-OCR/tessdata/eng.tesseract_cube.nn",
+        "content/Tesseract-OCR/tessdata/eng.traineddata",
+        "content/Tesseract-OCR/tessdata/tessconfigs/batch",
+        "content/Tesseract-OCR/tessdata/tessconfigs/batch.nochop",
+        "content/Tesseract-OCR/tessdata/tessconfigs/matdemo",
+        "content/Tesseract-OCR/tessdata/tessconfigs/msdemo",
+        "content/Tesseract-OCR/tessdata/tessconfigs/nobatch",
+        "content/Tesseract-OCR/tessdata/tessconfigs/segdemo",
+        "content/Tesseract-OCR/tesseract.exe",
+        "content/Tesseract-OCR/unicharset_extractor.exe",
+        "content/Tesseract-OCR/wordlist2dawg.exe",
+        "tesseract-ocr.1.0.4.nupkg.sha512",
+        "tesseract-ocr.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
       ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
-      "Selenium.Support >= 4.8.1",
-      "Selenium.WebDriver >= 4.8.1",
-      "Selenium.WebDriver.ChromeDriver >= 110.0.5481.7700"
+      "Selenium.Support >= 4.9.0",
+      "Selenium.WebDriver >= 4.9.0",
+      "Selenium.WebDriver.ChromeDriver >= 112.0.5615.4900",
+      "Tesseract >= 5.2.0",
+      "Tesseract-OCR >= 1.0.4"
     ]
   },
   "packageFolders": {
@@ -266,15 +414,23 @@
         "dependencies": {
           "Selenium.Support": {
             "target": "Package",
-            "version": "[4.8.1, )"
+            "version": "[4.9.0, )"
           },
           "Selenium.WebDriver": {
             "target": "Package",
-            "version": "[4.8.1, )"
+            "version": "[4.9.0, )"
           },
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
-            "version": "[110.0.5481.7700, )"
+            "version": "[112.0.5615.4900, )"
+          },
+          "Tesseract": {
+            "target": "Package",
+            "version": "[5.2.0, )"
+          },
+          "Tesseract-OCR": {
+            "target": "Package",
+            "version": "[1.0.4, )"
           }
         }
       }
