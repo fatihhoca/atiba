@@ -29,7 +29,7 @@
           "lib/net48/WebDriver.dll": {}
         },
         "build": {
-          "buildTransitive/Selenium.WebDriver.targets": {}
+          "build/Selenium.WebDriver.targets": {}
         }
       },
       "Selenium.WebDriver.ChromeDriver/112.0.5615.4900": {
@@ -82,7 +82,7 @@
           "lib/net48/WebDriver.dll": {}
         },
         "build": {
-          "buildTransitive/Selenium.WebDriver.targets": {}
+          "build/Selenium.WebDriver.targets": {}
         }
       },
       "Selenium.WebDriver.ChromeDriver/112.0.5615.4900": {
@@ -135,7 +135,7 @@
           "lib/net48/WebDriver.dll": {}
         },
         "build": {
-          "buildTransitive/Selenium.WebDriver.targets": {}
+          "build/Selenium.WebDriver.targets": {}
         }
       },
       "Selenium.WebDriver.ChromeDriver/112.0.5615.4900": {
@@ -188,7 +188,7 @@
           "lib/net48/WebDriver.dll": {}
         },
         "build": {
-          "buildTransitive/Selenium.WebDriver.targets": {}
+          "build/Selenium.WebDriver.targets": {}
         }
       },
       "Selenium.WebDriver.ChromeDriver/112.0.5615.4900": {
@@ -375,25 +375,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\egiti\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\fkbos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\atiba.csproj",
+      "projectUniqueName": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\atiba.csproj",
       "projectName": "atiba",
-      "projectPath": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\atiba.csproj",
-      "packagesPath": "C:\\Users\\egiti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\obj\\",
+      "projectPath": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\atiba.csproj",
+      "packagesPath": "C:\\Users\\fkbos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fkbos\\Desktop\\atiba\\atiba\\atiba\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\egiti\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\fkbos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

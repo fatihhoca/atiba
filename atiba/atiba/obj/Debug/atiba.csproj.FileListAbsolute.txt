@@ -56,3 +56,8 @@ C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.csproj
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.csproj.CopyComplete
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.exe
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.pdb
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\x86\leptonica-1.82.0.dll
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\x86\tesseract50.dll
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\x64\leptonica-1.82.0.dll
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\x64\tesseract50.dll
+C:\Users\fkbos\Desktop\atiba\atiba\atiba\bin\Debug\Tesseract.dll
