@@ -69,11 +69,12 @@
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1300, 1119);
+            this.tabControl2.Size = new System.Drawing.Size(650, 582);
             this.tabControl2.TabIndex = 31;
+            this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
             // 
             // tabPage4
             // 
@@ -86,11 +87,11 @@
             this.tabPage4.Controls.Add(this.get_students_List);
             this.tabPage4.Controls.Add(this.open_Eokul);
             this.tabPage4.Controls.Add(this.dataGridView1);
-            this.tabPage4.Location = new System.Drawing.Point(8, 39);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(1284, 1072);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Size = new System.Drawing.Size(642, 556);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Veri Sayfası";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -100,10 +101,9 @@
             // 
             this.topmost.AutoSize = true;
             this.topmost.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.topmost.Location = new System.Drawing.Point(1070, 931);
-            this.topmost.Margin = new System.Windows.Forms.Padding(6);
+            this.topmost.Location = new System.Drawing.Point(535, 484);
             this.topmost.Name = "topmost";
-            this.topmost.Size = new System.Drawing.Size(201, 29);
+            this.topmost.Size = new System.Drawing.Size(103, 17);
             this.topmost.TabIndex = 38;
             this.topmost.Text = "Her zaman üstte";
             this.topmost.UseVisualStyleBackColor = true;
@@ -111,10 +111,9 @@
             // 
             // coyp_Data
             // 
-            this.coyp_Data.Location = new System.Drawing.Point(986, 842);
-            this.coyp_Data.Margin = new System.Windows.Forms.Padding(6);
+            this.coyp_Data.Location = new System.Drawing.Point(493, 438);
             this.coyp_Data.Name = "coyp_Data";
-            this.coyp_Data.Size = new System.Drawing.Size(140, 83);
+            this.coyp_Data.Size = new System.Drawing.Size(70, 43);
             this.coyp_Data.TabIndex = 37;
             this.coyp_Data.Text = "Verileri Kopyala";
             this.coyp_Data.UseVisualStyleBackColor = true;
@@ -122,10 +121,9 @@
             // 
             // set_Data_Excel
             // 
-            this.set_Data_Excel.Location = new System.Drawing.Point(1138, 842);
-            this.set_Data_Excel.Margin = new System.Windows.Forms.Padding(6);
+            this.set_Data_Excel.Location = new System.Drawing.Point(569, 438);
             this.set_Data_Excel.Name = "set_Data_Excel";
-            this.set_Data_Excel.Size = new System.Drawing.Size(140, 83);
+            this.set_Data_Excel.Size = new System.Drawing.Size(70, 43);
             this.set_Data_Excel.TabIndex = 36;
             this.set_Data_Excel.Text = "Excel\'e Aktar";
             this.set_Data_Excel.UseVisualStyleBackColor = true;
@@ -133,19 +131,17 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(0, 10);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(6);
+            this.progressBar1.Location = new System.Drawing.Point(0, 5);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1276, 44);
+            this.progressBar1.Size = new System.Drawing.Size(638, 23);
             this.progressBar1.TabIndex = 35;
             // 
             // get_Data
             // 
-            this.get_Data.Location = new System.Drawing.Point(652, 842);
-            this.get_Data.Margin = new System.Windows.Forms.Padding(6);
+            this.get_Data.Location = new System.Drawing.Point(326, 438);
             this.get_Data.Name = "get_Data";
             this.get_Data.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.get_Data.Size = new System.Drawing.Size(204, 117);
+            this.get_Data.Size = new System.Drawing.Size(102, 61);
             this.get_Data.TabIndex = 34;
             this.get_Data.Text = "Bilgileri Çek";
             this.get_Data.UseVisualStyleBackColor = true;
@@ -153,10 +149,10 @@
             // 
             // get_student
             // 
-            this.get_student.Location = new System.Drawing.Point(164, 844);
-            this.get_student.Margin = new System.Windows.Forms.Padding(4);
+            this.get_student.Location = new System.Drawing.Point(82, 439);
+            this.get_student.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.get_student.Name = "get_student";
-            this.get_student.Size = new System.Drawing.Size(150, 117);
+            this.get_student.Size = new System.Drawing.Size(75, 61);
             this.get_student.TabIndex = 33;
             this.get_student.Text = "Öğrenci Elle Ekleme";
             this.get_student.UseVisualStyleBackColor = true;
@@ -164,10 +160,9 @@
             // 
             // get_students_List
             // 
-            this.get_students_List.Location = new System.Drawing.Point(0, 844);
-            this.get_students_List.Margin = new System.Windows.Forms.Padding(6);
+            this.get_students_List.Location = new System.Drawing.Point(0, 439);
             this.get_students_List.Name = "get_students_List";
-            this.get_students_List.Size = new System.Drawing.Size(154, 117);
+            this.get_students_List.Size = new System.Drawing.Size(77, 61);
             this.get_students_List.TabIndex = 31;
             this.get_students_List.Text = "Öğrenci Listesi Yükle";
             this.get_students_List.UseVisualStyleBackColor = true;
@@ -175,10 +170,9 @@
             // 
             // open_Eokul
             // 
-            this.open_Eokul.Location = new System.Drawing.Point(484, 842);
-            this.open_Eokul.Margin = new System.Windows.Forms.Padding(6);
+            this.open_Eokul.Location = new System.Drawing.Point(242, 438);
             this.open_Eokul.Name = "open_Eokul";
-            this.open_Eokul.Size = new System.Drawing.Size(156, 117);
+            this.open_Eokul.Size = new System.Drawing.Size(78, 61);
             this.open_Eokul.TabIndex = 32;
             this.open_Eokul.Text = "e-Okul Aç";
             this.open_Eokul.UseVisualStyleBackColor = true;
@@ -189,11 +183,10 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 62);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 32);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(1278, 775);
+            this.dataGridView1.Size = new System.Drawing.Size(639, 403);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_UserDeletedRow);
@@ -205,11 +198,11 @@
             this.tabPage5.Controls.Add(this.anneListBox);
             this.tabPage5.Controls.Add(this.babaListBox);
             this.tabPage5.Controls.Add(this.ogrenciListBox);
-            this.tabPage5.Location = new System.Drawing.Point(8, 39);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Size = new System.Drawing.Size(1284, 1072);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage5.Size = new System.Drawing.Size(642, 556);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Ayarlar";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -220,11 +213,11 @@
             this.groupBox1.Controls.Add(this.speed_rb_slower);
             this.groupBox1.Controls.Add(this.speed_rb_slow);
             this.groupBox1.Controls.Add(this.speed_rb_normal);
-            this.groupBox1.Location = new System.Drawing.Point(612, 608);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(306, 316);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(282, 244);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(141, 127);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Veri Çekme Hızı";
@@ -232,10 +225,10 @@
             // speed_rb_slower
             // 
             this.speed_rb_slower.AutoSize = true;
-            this.speed_rb_slower.Location = new System.Drawing.Point(12, 102);
-            this.speed_rb_slower.Margin = new System.Windows.Forms.Padding(4);
+            this.speed_rb_slower.Location = new System.Drawing.Point(6, 53);
+            this.speed_rb_slower.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.speed_rb_slower.Name = "speed_rb_slower";
-            this.speed_rb_slower.Size = new System.Drawing.Size(148, 29);
+            this.speed_rb_slower.Size = new System.Drawing.Size(77, 17);
             this.speed_rb_slower.TabIndex = 2;
             this.speed_rb_slower.Text = "Çok Yavaş";
             this.speed_rb_slower.UseVisualStyleBackColor = true;
@@ -244,10 +237,10 @@
             // speed_rb_slow
             // 
             this.speed_rb_slow.AutoSize = true;
-            this.speed_rb_slow.Location = new System.Drawing.Point(12, 67);
-            this.speed_rb_slow.Margin = new System.Windows.Forms.Padding(4);
+            this.speed_rb_slow.Location = new System.Drawing.Point(6, 35);
+            this.speed_rb_slow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.speed_rb_slow.Name = "speed_rb_slow";
-            this.speed_rb_slow.Size = new System.Drawing.Size(104, 29);
+            this.speed_rb_slow.Size = new System.Drawing.Size(55, 17);
             this.speed_rb_slow.TabIndex = 1;
             this.speed_rb_slow.Text = "Yavaş";
             this.speed_rb_slow.UseVisualStyleBackColor = true;
@@ -257,10 +250,10 @@
             // 
             this.speed_rb_normal.AutoSize = true;
             this.speed_rb_normal.Checked = true;
-            this.speed_rb_normal.Location = new System.Drawing.Point(12, 33);
-            this.speed_rb_normal.Margin = new System.Windows.Forms.Padding(4);
+            this.speed_rb_normal.Location = new System.Drawing.Point(6, 17);
+            this.speed_rb_normal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.speed_rb_normal.Name = "speed_rb_normal";
-            this.speed_rb_normal.Size = new System.Drawing.Size(111, 29);
+            this.speed_rb_normal.Size = new System.Drawing.Size(58, 17);
             this.speed_rb_normal.TabIndex = 0;
             this.speed_rb_normal.TabStop = true;
             this.speed_rb_normal.Text = "Normal";
@@ -275,11 +268,9 @@
             this.groupBox2.Controls.Add(this.AIHOrtaOgretim);
             this.groupBox2.Controls.Add(this.OrtaOgretim);
             this.groupBox2.Controls.Add(this.IlkOgretim);
-            this.groupBox2.Location = new System.Drawing.Point(24, 608);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Location = new System.Drawing.Point(12, 316);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox2.Size = new System.Drawing.Size(578, 244);
+            this.groupBox2.Size = new System.Drawing.Size(289, 127);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Okul Türü";
@@ -288,10 +279,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Enabled = false;
-            this.label1.Location = new System.Drawing.Point(44, 117);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(22, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 25);
+            this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 33;
             this.label1.Text = "Lise Türü seçiniz";
             // 
@@ -307,20 +297,19 @@
             "Endüstri Meslek Lisesi",
             "Anadolu İmam Hatip Lisesi",
             "Lise"});
-            this.sub_School.Location = new System.Drawing.Point(224, 100);
-            this.sub_School.Margin = new System.Windows.Forms.Padding(4);
+            this.sub_School.Location = new System.Drawing.Point(112, 52);
+            this.sub_School.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sub_School.Name = "sub_School";
-            this.sub_School.Size = new System.Drawing.Size(340, 33);
+            this.sub_School.Size = new System.Drawing.Size(172, 21);
             this.sub_School.TabIndex = 32;
             this.sub_School.SelectedIndexChanged += new System.EventHandler(this.sub_School_SelectedIndexChanged);
             // 
             // OkulOncesi
             // 
             this.OkulOncesi.AutoSize = true;
-            this.OkulOncesi.Location = new System.Drawing.Point(12, 196);
-            this.OkulOncesi.Margin = new System.Windows.Forms.Padding(6);
+            this.OkulOncesi.Location = new System.Drawing.Point(6, 102);
             this.OkulOncesi.Name = "OkulOncesi";
-            this.OkulOncesi.Size = new System.Drawing.Size(268, 29);
+            this.OkulOncesi.Size = new System.Drawing.Size(136, 17);
             this.OkulOncesi.TabIndex = 31;
             this.OkulOncesi.TabStop = true;
             this.OkulOncesi.Text = "*Okul Öncesi (Deneme)";
@@ -330,10 +319,9 @@
             // AIHOrtaOgretim
             // 
             this.AIHOrtaOgretim.AutoSize = true;
-            this.AIHOrtaOgretim.Location = new System.Drawing.Point(12, 152);
-            this.AIHOrtaOgretim.Margin = new System.Windows.Forms.Padding(6);
+            this.AIHOrtaOgretim.Location = new System.Drawing.Point(6, 79);
             this.AIHOrtaOgretim.Name = "AIHOrtaOgretim";
-            this.AIHOrtaOgretim.Size = new System.Drawing.Size(194, 29);
+            this.AIHOrtaOgretim.Size = new System.Drawing.Size(99, 17);
             this.AIHOrtaOgretim.TabIndex = 30;
             this.AIHOrtaOgretim.TabStop = true;
             this.AIHOrtaOgretim.Text = "AİHL (Alternatif)";
@@ -343,10 +331,9 @@
             // OrtaOgretim
             // 
             this.OrtaOgretim.AutoSize = true;
-            this.OrtaOgretim.Location = new System.Drawing.Point(12, 79);
-            this.OrtaOgretim.Margin = new System.Windows.Forms.Padding(6);
+            this.OrtaOgretim.Location = new System.Drawing.Point(6, 41);
             this.OrtaOgretim.Name = "OrtaOgretim";
-            this.OrtaOgretim.Size = new System.Drawing.Size(83, 29);
+            this.OrtaOgretim.Size = new System.Drawing.Size(44, 17);
             this.OrtaOgretim.TabIndex = 29;
             this.OrtaOgretim.Text = "Lise";
             this.OrtaOgretim.UseVisualStyleBackColor = true;
@@ -356,10 +343,9 @@
             // 
             this.IlkOgretim.AutoSize = true;
             this.IlkOgretim.Checked = true;
-            this.IlkOgretim.Location = new System.Drawing.Point(12, 37);
-            this.IlkOgretim.Margin = new System.Windows.Forms.Padding(6);
+            this.IlkOgretim.Location = new System.Drawing.Point(6, 19);
             this.IlkOgretim.Name = "IlkOgretim";
-            this.IlkOgretim.Size = new System.Drawing.Size(203, 29);
+            this.IlkOgretim.Size = new System.Drawing.Size(107, 17);
             this.IlkOgretim.TabIndex = 28;
             this.IlkOgretim.TabStop = true;
             this.IlkOgretim.Text = "İlkokul / Ortaokul";
@@ -369,38 +355,34 @@
             // anneListBox
             // 
             this.anneListBox.FormattingEnabled = true;
-            this.anneListBox.Location = new System.Drawing.Point(608, 35);
-            this.anneListBox.Margin = new System.Windows.Forms.Padding(6);
+            this.anneListBox.Location = new System.Drawing.Point(304, 18);
             this.anneListBox.Name = "anneListBox";
-            this.anneListBox.Size = new System.Drawing.Size(282, 536);
+            this.anneListBox.Size = new System.Drawing.Size(143, 274);
             this.anneListBox.TabIndex = 7;
             // 
             // babaListBox
             // 
             this.babaListBox.FormattingEnabled = true;
-            this.babaListBox.Location = new System.Drawing.Point(316, 35);
-            this.babaListBox.Margin = new System.Windows.Forms.Padding(6);
+            this.babaListBox.Location = new System.Drawing.Point(158, 18);
             this.babaListBox.Name = "babaListBox";
-            this.babaListBox.Size = new System.Drawing.Size(282, 536);
+            this.babaListBox.Size = new System.Drawing.Size(143, 274);
             this.babaListBox.TabIndex = 6;
             // 
             // ogrenciListBox
             // 
             this.ogrenciListBox.FormattingEnabled = true;
-            this.ogrenciListBox.Location = new System.Drawing.Point(24, 33);
-            this.ogrenciListBox.Margin = new System.Windows.Forms.Padding(6);
+            this.ogrenciListBox.Location = new System.Drawing.Point(12, 17);
             this.ogrenciListBox.Name = "ogrenciListBox";
-            this.ogrenciListBox.Size = new System.Drawing.Size(280, 536);
+            this.ogrenciListBox.Size = new System.Drawing.Size(142, 274);
             this.ogrenciListBox.TabIndex = 5;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 1232);
+            this.ClientSize = new System.Drawing.Size(649, 489);
             this.Controls.Add(this.tabControl2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -198,8 +198,20 @@ namespace atiba
                     {
                         try
                         {
-                            worksheet.Cells[i + 2, j + 1].NumberFormat = "@";
-                            worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                            if (dataGridView1.Rows[i].Cells[j].Value != null)
+                            {
+                                string cellValue = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                                cellValue = cellValue.Replace(Environment.NewLine, " ").Replace("\n", " ");
+                                worksheet.Cells[i + 2, j + 1].NumberFormat = "@";
+                                worksheet.Cells[i + 2, j + 1] = cellValue;
+                            }
+
+
+
+
+
+                            //    worksheet.Cells[i + 2, j + 1].NumberFormat = "@";
+                            //    worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
                         }
                         catch { }
                     }
@@ -488,6 +500,11 @@ namespace atiba
         private void dataGridView1_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
         {
             endingRow = dataGridView1.Rows.Count-1;
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
