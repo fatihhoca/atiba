@@ -499,12 +499,23 @@ namespace atiba
                 }
                 try
                 {
-                    veri = eokul.FindElement(By.Id("dogumTarihi"));
-                    if (School == "OkulOncesi") {        
-                        geciciVeri=veri.FindElement(By.TagName("img")).GetAttribute("outerHTML").ToString();
-                        Result = ReadFormImageName(geciciVeri);
-                    } else
+                    //aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                    //veri = aranan[0].FindElement(By.TagName("img"));
+                    if (School == "OkulOncesi")
                     {
+                        veri = eokul.FindElement(By.Id("dogumTarihi"));
+                        geciciVeri = veri.FindElement(By.TagName("img")).GetAttribute("outerHTML").ToString();
+                        Result = ReadFormImageName(geciciVeri);
+                    }
+                    else if (School == "IlkOgretim" ) {
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[2];
+                        Result=veri.Text;
+
+                    }
+                    else
+                    {
+                        veri = eokul.FindElement(By.Id("dogumTarihi"));
                         geciciVeri = veri.GetAttribute("src");
                         Result = ReadTextFromImage(geciciVeri);
                     }
@@ -532,14 +543,22 @@ namespace atiba
                 try
                 {
 
-                    veri = eokul.FindElement(By.Id("dogumYeri"));
                     if (School == "OkulOncesi")
                     {
+                        veri = eokul.FindElement(By.Id("dogumYeri"));
                         geciciVeri = veri.FindElement(By.TagName("img")).GetAttribute("outerHTML").ToString();
                         Result = ReadFormImageName(geciciVeri);
                     }
+                    else if (School == "IlkOgretim")
+                    {
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[3];
+                        Result = veri.Text;
+
+                    }
                     else
                     {
+                        veri = eokul.FindElement(By.Id("dogumYeri"));
                         geciciVeri = veri.GetAttribute("src");
                         Result = ReadTextFromImage(geciciVeri);
                     }
@@ -570,14 +589,23 @@ namespace atiba
                 try
                 {
  
-                    veri = eokul.FindElement(By.Id("nufusIl"));
+                    
                     if (School == "OkulOncesi")
                     {
+                        veri = eokul.FindElement(By.Id("nufusIl"));
                         geciciVeri = veri.FindElement(By.TagName("img")).GetAttribute("outerHTML").ToString();
                         Result = ReadFormImageName(geciciVeri);
                     }
+                    else if (School == "IlkOgretim")
+                    {
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[4];
+                        Result = veri.Text;
+
+                    }
                     else
                     {
+                        veri = eokul.FindElement(By.Id("nufusIl"));
                         geciciVeri = veri.GetAttribute("src");
                         Result = ReadTextFromImage(geciciVeri);
                     }
@@ -604,17 +632,26 @@ namespace atiba
                 }
                 try
                 {
-                    veri = eokul.FindElement(By.Id("nufusIlce"));
+                    
                     if (School == "OkulOncesi")
                     {
+                        veri = eokul.FindElement(By.Id("nufusIlce"));
                         geciciVeri = veri.FindElement(By.TagName("img")).GetAttribute("outerHTML").ToString();
                         Result = ReadFormImageName(geciciVeri);
                     }
+                    else if (School == "IlkOgretim")
+                    {
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[5];
+                        Result = veri.Text;
+
+                    }
                     else
                     {
+                        veri = eokul.FindElement(By.Id("nufusIlce"));
                         geciciVeri = veri.GetAttribute("src");
                         Result = ReadTextFromImage(geciciVeri);
-                    };
+                    }
                 }
                 catch
                 { Result = "Hata"; }
@@ -637,14 +674,23 @@ namespace atiba
                 }
                 try
                 {
-                    veri = eokul.FindElement(By.Id("ciltNo"));
+                    
                     if (School == "OkulOncesi")
                     {
+                        veri = eokul.FindElement(By.Id("ciltNo"));
                         geciciVeri = veri.FindElement(By.TagName("img")).GetAttribute("outerHTML").ToString();
                         Result = ReadFormImageName(geciciVeri);
                     }
+                    else if (School == "IlkOgretim")
+                    {
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[7];
+                        Result = veri.Text;
+
+                    }
                     else
                     {
+                        veri = eokul.FindElement(By.Id("ciltNo"));
                         geciciVeri = veri.GetAttribute("src");
                         Result = ReadTextFromImage(geciciVeri);
                     }
@@ -673,14 +719,23 @@ namespace atiba
                 {
                     //((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementById('aileSiraNo').setAttribute('style', 'border-radius:0px;border-style: none;height:300px;width:200px;')");
 
-                    veri = eokul.FindElement(By.Id("aileSiraNo"));
+                    
                     if (School == "OkulOncesi")
                     {
+                        veri = eokul.FindElement(By.Id("aileSiraNo"));
                         geciciVeri = veri.FindElement(By.TagName("img")).GetAttribute("outerHTML").ToString();
                         Result = ReadFormImageName(geciciVeri);
                     }
+                    else if (School == "IlkOgretim")
+                    {
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[8];
+                        Result = veri.Text;
+
+                    }
                     else
                     {
+                        veri = eokul.FindElement(By.Id("aileSiraNo"));
                         geciciVeri = veri.GetAttribute("src");
                         Result = ReadTextFromImage(geciciVeri);
                     }
@@ -710,14 +765,24 @@ namespace atiba
                 {
                     //((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementById('siraNo').setAttribute('style', 'border-radius:0px;border-style: none;height:300px;width:200px;')");
 
-                    veri = eokul.FindElement(By.Id("siraNo"));
+                   
                     if (School == "OkulOncesi")
                     {
+                        veri = eokul.FindElement(By.Id("siraNo"));
                         geciciVeri = veri.FindElement(By.TagName("img")).GetAttribute("outerHTML").ToString();
                         Result = ReadFormImageName(geciciVeri);
                     }
+                    else if (School == "IlkOgretim")
+                    {
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[9];
+                        Result = veri.Text;
+
+                    }
                     else
                     {
+                        
+                        veri = eokul.FindElement(By.Id("siraNo"));
                         geciciVeri = veri.GetAttribute("src");
                         Result = ReadTextFromImage(geciciVeri);
                     }
@@ -745,14 +810,23 @@ namespace atiba
                 }
                 try
                 {
-                    veri = eokul.FindElement(By.Id("nufusMahalle"));
+                    
                     if (School == "OkulOncesi")
                     {
+                        veri = eokul.FindElement(By.Id("nufusMahalle"));
                         geciciVeri = veri.FindElement(By.TagName("img")).GetAttribute("outerHTML").ToString();
                         Result = ReadFormImageName(geciciVeri);
                     }
+                    else if (School == "IlkOgretim")
+                    {
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[6];
+                        Result = veri.Text;
+
+                    }
                     else
                     {
+                        veri = eokul.FindElement(By.Id("nufusMahalle"));
                         geciciVeri = veri.GetAttribute("src");
                         Result = ReadTextFromImage(geciciVeri);
                     }
