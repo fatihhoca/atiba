@@ -56,6 +56,7 @@
             this.babaListBox = new System.Windows.Forms.CheckedListBox();
             this.ogrenciListBox = new System.Windows.Forms.CheckedListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.get_clipboard_list = new System.Windows.Forms.Button();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -69,14 +70,16 @@
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(650, 529);
+            this.tabControl2.Size = new System.Drawing.Size(650, 582);
             this.tabControl2.TabIndex = 31;
+            this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.get_clipboard_list);
             this.tabPage4.Controls.Add(this.topmost);
             this.tabPage4.Controls.Add(this.coyp_Data);
             this.tabPage4.Controls.Add(this.set_Data_Excel);
@@ -87,10 +90,10 @@
             this.tabPage4.Controls.Add(this.open_Eokul);
             this.tabPage4.Controls.Add(this.dataGridView1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage4.Size = new System.Drawing.Size(642, 503);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage4.Size = new System.Drawing.Size(642, 556);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Veri Sayfası";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -137,7 +140,7 @@
             // 
             // get_Data
             // 
-            this.get_Data.Location = new System.Drawing.Point(326, 438);
+            this.get_Data.Location = new System.Drawing.Point(352, 439);
             this.get_Data.Name = "get_Data";
             this.get_Data.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.get_Data.Size = new System.Drawing.Size(102, 61);
@@ -148,8 +151,8 @@
             // 
             // get_student
             // 
-            this.get_student.Location = new System.Drawing.Point(82, 439);
-            this.get_student.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.get_student.Location = new System.Drawing.Point(163, 441);
+            this.get_student.Margin = new System.Windows.Forms.Padding(2);
             this.get_student.Name = "get_student";
             this.get_student.Size = new System.Drawing.Size(75, 61);
             this.get_student.TabIndex = 33;
@@ -169,7 +172,7 @@
             // 
             // open_Eokul
             // 
-            this.open_Eokul.Location = new System.Drawing.Point(242, 438);
+            this.open_Eokul.Location = new System.Drawing.Point(268, 439);
             this.open_Eokul.Name = "open_Eokul";
             this.open_Eokul.Size = new System.Drawing.Size(78, 61);
             this.open_Eokul.TabIndex = 32;
@@ -198,10 +201,10 @@
             this.tabPage5.Controls.Add(this.babaListBox);
             this.tabPage5.Controls.Add(this.ogrenciListBox);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage5.Size = new System.Drawing.Size(642, 503);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage5.Size = new System.Drawing.Size(642, 556);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Ayarlar";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -213,9 +216,9 @@
             this.groupBox1.Controls.Add(this.speed_rb_slow);
             this.groupBox1.Controls.Add(this.speed_rb_normal);
             this.groupBox1.Location = new System.Drawing.Point(306, 316);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(141, 127);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
@@ -225,7 +228,7 @@
             // 
             this.speed_rb_slower.AutoSize = true;
             this.speed_rb_slower.Location = new System.Drawing.Point(6, 53);
-            this.speed_rb_slower.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.speed_rb_slower.Margin = new System.Windows.Forms.Padding(2);
             this.speed_rb_slower.Name = "speed_rb_slower";
             this.speed_rb_slower.Size = new System.Drawing.Size(77, 17);
             this.speed_rb_slower.TabIndex = 2;
@@ -237,7 +240,7 @@
             // 
             this.speed_rb_slow.AutoSize = true;
             this.speed_rb_slow.Location = new System.Drawing.Point(6, 35);
-            this.speed_rb_slow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.speed_rb_slow.Margin = new System.Windows.Forms.Padding(2);
             this.speed_rb_slow.Name = "speed_rb_slow";
             this.speed_rb_slow.Size = new System.Drawing.Size(55, 17);
             this.speed_rb_slow.TabIndex = 1;
@@ -250,7 +253,7 @@
             this.speed_rb_normal.AutoSize = true;
             this.speed_rb_normal.Checked = true;
             this.speed_rb_normal.Location = new System.Drawing.Point(6, 17);
-            this.speed_rb_normal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.speed_rb_normal.Margin = new System.Windows.Forms.Padding(2);
             this.speed_rb_normal.Name = "speed_rb_normal";
             this.speed_rb_normal.Size = new System.Drawing.Size(58, 17);
             this.speed_rb_normal.TabIndex = 0;
@@ -297,7 +300,7 @@
             "Anadolu İmam Hatip Lisesi",
             "Lise"});
             this.sub_School.Location = new System.Drawing.Point(112, 52);
-            this.sub_School.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sub_School.Margin = new System.Windows.Forms.Padding(2);
             this.sub_School.Name = "sub_School";
             this.sub_School.Size = new System.Drawing.Size(172, 21);
             this.sub_School.TabIndex = 32;
@@ -375,17 +378,27 @@
             this.ogrenciListBox.Size = new System.Drawing.Size(142, 274);
             this.ogrenciListBox.TabIndex = 5;
             // 
+            // get_clipboard_list
+            // 
+            this.get_clipboard_list.Location = new System.Drawing.Point(83, 441);
+            this.get_clipboard_list.Name = "get_clipboard_list";
+            this.get_clipboard_list.Size = new System.Drawing.Size(75, 59);
+            this.get_clipboard_list.TabIndex = 33;
+            this.get_clipboard_list.Text = "Panodan Öğrenci Ekle";
+            this.get_clipboard_list.UseVisualStyleBackColor = true;
+            this.get_clipboard_list.Click += new System.EventHandler(this.get_clipboard_list_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 530);
+            this.ClientSize = new System.Drawing.Size(649, 528);
             this.Controls.Add(this.tabControl2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Atiba - eOkul Scrapper 3.3";
+            this.Text = "Atiba - eOkul Scrapper 3.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl2.ResumeLayout(false);
@@ -430,6 +443,7 @@
         private System.Windows.Forms.ComboBox sub_School;
         private System.Windows.Forms.CheckBox topmost;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button get_clipboard_list;
     }
 }
 

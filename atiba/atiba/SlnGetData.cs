@@ -12,6 +12,7 @@ using Tesseract;
 
 using Application = System.Windows.Forms.Application;
 using System.Security.Policy;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace atiba
 {
@@ -70,6 +71,15 @@ namespace atiba
                     }
                 }
             }
+        }
+
+        static string ReadFormImageName(string imageUrl)
+        {
+            geciciVeri = geciciVeri.Remove(0, geciciVeri.IndexOf(":") + 7);
+            geciciVeri = geciciVeri.Substring(0, geciciVeri.Length - 2);
+
+
+            return geciciVeri;
         }
         public static void Set_School(string SchoolName)
 
@@ -431,7 +441,8 @@ namespace atiba
 
                 try
                 {
-                    veri = eokul.FindElement(By.XPath("//*[@id='uyruk']"));
+                    aranan = eokul.FindElements(By.ClassName("text-muted"));
+                    veri = aranan[0];
                     Result = veri.Text;
 
                 }
@@ -455,11 +466,13 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
+                 
                 }
 
                 try
                 {
-                    veri = eokul.FindElement(By.XPath("//*[@id='cinsiyet']"));
+                    aranan = eokul.FindElements(By.ClassName("text-muted"));
+                    veri = aranan[1];
                     Result = veri.Text;
 
                 }
@@ -484,14 +497,14 @@ namespace atiba
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
                     
+
                 }
                 try
                 {
-                    veri = eokul.FindElement(By.Id("dogumTarihi"));
-                   
-                    geciciVeri = veri.GetAttribute("src");
-                   
-                    Result = ReadTextFromImage(geciciVeri);
+
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[2];
+                        Result=veri.Text;
 
                 }
                 catch
@@ -512,13 +525,15 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                   
+                    
                 }
                 try
                 {
-                     veri = eokul.FindElement(By.Id("dogumYeri"));
-                     geciciVeri = veri.GetAttribute("src");
-                     Result = ReadTextFromImage(geciciVeri);
+
+
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[3];
+                        Result = veri.Text;
 
 
 
@@ -541,14 +556,15 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    
+
                 }
                 try
                 {
- 
-                    veri = eokul.FindElement(By.Id("nufusIl"));
-                    geciciVeri = veri.GetAttribute("src");
-                    Result = ReadTextFromImage(geciciVeri);
+
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[4];
+                        Result = veri.Text;
+
                 }
                 catch
                 { Result = "Hata"; }
@@ -568,13 +584,15 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    
+      
                 }
                 try
                 {
-                    veri = eokul.FindElement(By.Id("nufusIlce"));
-                    geciciVeri = veri.GetAttribute("src");
-                    Result = ReadTextFromImage(geciciVeri);
+
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[5];
+                        Result = veri.Text;
+
                 }
                 catch
                 { Result = "Hata"; }
@@ -593,13 +611,16 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                   
+      
                 }
                 try
                 {
-                    veri = eokul.FindElement(By.Id("ciltNo"));
-                    geciciVeri = veri.GetAttribute("src");
-                    Result = ReadTextFromImage(geciciVeri);
+                    
+
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[7];
+                        Result = veri.Text;
+
                 }
                 catch
                 { Result = "Hata"; }
@@ -619,15 +640,16 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    
+                   
                 }
                 try
                 {
                     //((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementById('aileSiraNo').setAttribute('style', 'border-radius:0px;border-style: none;height:300px;width:200px;')");
 
-                    veri = eokul.FindElement(By.Id("aileSiraNo"));
-                    geciciVeri = veri.GetAttribute("src");
-                    Result = ReadTextFromImage(geciciVeri);
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[8];
+                        Result = veri.Text;
+
 
                 }
                 catch
@@ -648,15 +670,16 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                  
+
                 }
                 try
                 {
                     //((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementById('siraNo').setAttribute('style', 'border-radius:0px;border-style: none;height:300px;width:200px;')");
 
-                    veri = eokul.FindElement(By.Id("siraNo"));
-                    geciciVeri = veri.GetAttribute("src");
-                    Result = ReadTextFromImage(geciciVeri);
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[9];
+                        Result = veri.Text;
+
                 }
                 catch
                 { Result = "Hata"; }
@@ -681,9 +704,11 @@ namespace atiba
                 }
                 try
                 {
-                    veri = eokul.FindElement(By.Id("nufusMahalle"));
-                    geciciVeri = veri.GetAttribute("src");
-                    Result = ReadTextFromImage(geciciVeri);
+
+                        aranan = eokul.FindElements(By.ClassName("col-sm-4"));
+                        veri = aranan[6];
+                        Result = veri.Text;
+
                 }
                 catch
                 { Result = "Hata"; }
@@ -749,6 +774,37 @@ namespace atiba
 
         }
 
+        public static string Get_Ogr_Surekli_Hast()
+        {
+
+            if (Src)
+            {
+                if (GeneralInfoUrl != eokul.Url)
+                {
+                    eokul.Navigate().GoToUrl(GeneralInfoUrl);
+                    Next_Wait(50);
+                }
+                try
+                {
+
+                    veri = eokul.FindElement(By.Id("ddlDigerSurekliHas"));
+                    veri = veri.FindElements(By.TagName("option"))
+                    .Where(option => option.Selected)
+                    .FirstOrDefault();
+
+
+
+                    Result = veri.Text;
+                }
+                catch
+                { Result = "Hata"; }
+            }
+            else
+            { Result = "Bulunamadı"; }
+
+            return Result;
+
+        }
         public static string Get_Ogr_Tasima()
         {
 
