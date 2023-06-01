@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.get_clipboard_list = new System.Windows.Forms.Button();
             this.topmost = new System.Windows.Forms.CheckBox();
             this.coyp_Data = new System.Windows.Forms.Button();
             this.set_Data_Excel = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.babaListBox = new System.Windows.Forms.CheckedListBox();
             this.ogrenciListBox = new System.Windows.Forms.CheckedListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.get_clipboard_list = new System.Windows.Forms.Button();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -98,6 +98,16 @@
             this.tabPage4.Text = "Veri Sayfası";
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // get_clipboard_list
+            // 
+            this.get_clipboard_list.Location = new System.Drawing.Point(83, 441);
+            this.get_clipboard_list.Name = "get_clipboard_list";
+            this.get_clipboard_list.Size = new System.Drawing.Size(75, 59);
+            this.get_clipboard_list.TabIndex = 33;
+            this.get_clipboard_list.Text = "Panodan Öğrenci Ekle";
+            this.get_clipboard_list.UseVisualStyleBackColor = true;
+            this.get_clipboard_list.Click += new System.EventHandler(this.get_clipboard_list_Click);
             // 
             // topmost
             // 
@@ -378,16 +388,6 @@
             this.ogrenciListBox.Size = new System.Drawing.Size(142, 274);
             this.ogrenciListBox.TabIndex = 5;
             // 
-            // get_clipboard_list
-            // 
-            this.get_clipboard_list.Location = new System.Drawing.Point(83, 441);
-            this.get_clipboard_list.Name = "get_clipboard_list";
-            this.get_clipboard_list.Size = new System.Drawing.Size(75, 59);
-            this.get_clipboard_list.TabIndex = 33;
-            this.get_clipboard_list.Text = "Panodan Öğrenci Ekle";
-            this.get_clipboard_list.UseVisualStyleBackColor = true;
-            this.get_clipboard_list.Click += new System.EventHandler(this.get_clipboard_list_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,7 +398,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Atiba - eOkul Scrapper 3.2";
+            this.Text = "Atiba - eOkul Scrapper 3.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl2.ResumeLayout(false);
