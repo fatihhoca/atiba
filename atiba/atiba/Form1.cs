@@ -506,5 +506,21 @@ namespace atiba
         {
 
         }
+
+        private void get_clipboard_list_Click(object sender, EventArgs e)
+        {
+            string veri = Clipboard.GetText();
+       
+                string[] hücreler = veri.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+                // DataGridView kontrolüne veriyi aktar
+                AddColumn("Ogr_No");
+                foreach (string hücre in hücreler)
+                {
+                    dataGridView1.Rows.Add(hücre);
+                }
+           
+            //dataGridView1.Rows.Add(veri);
+        }
     }
 }
