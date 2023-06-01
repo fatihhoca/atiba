@@ -136,13 +136,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Selenium.Support">
-      <Version>4.9.0</Version>
+      <Version>4.9.1</Version>
     </PackageReference>
     <PackageReference Include="Selenium.WebDriver">
-      <Version>4.9.0</Version>
+      <Version>4.9.1</Version>
     </PackageReference>
     <PackageReference Include="Selenium.WebDriver.ChromeDriver">
-      <Version>112.0.5615.4900</Version>
+      <Version>114.0.5735.9000</Version>
     </PackageReference>
     <PackageReference Include="Tesseract">
       <Version>5.2.0</Version>
