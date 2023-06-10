@@ -522,5 +522,42 @@ namespace atiba
            
             //dataGridView1.Rows.Add(veri);
         }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void temelBox_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isChecked = temelBox.Checked;
+
+            for (int i = 0; i < ogrenciListBox.Items.Count; i++)
+            {
+                ogrenciListBox.SetItemChecked(i, isChecked);
+            }
+        }
+
+        private void babaBox_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isChecked = babaBox.Checked;
+
+            for (int i = 0; i < babaListBox.Items.Count; i++)
+            {
+                babaListBox.SetItemChecked(i, isChecked);
+            }
+
+        }
+
+        private void anneBox_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isChecked = anneBox.Checked;
+
+            for (int i = 0; i < anneListBox.Items.Count; i++)
+            {
+                anneListBox.SetItemChecked(i, isChecked);
+            }
+
+        }
     }
 }

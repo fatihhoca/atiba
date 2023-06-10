@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.get_clipboard_list = new System.Windows.Forms.Button();
             this.topmost = new System.Windows.Forms.CheckBox();
             this.coyp_Data = new System.Windows.Forms.Button();
             this.set_Data_Excel = new System.Windows.Forms.Button();
@@ -41,6 +42,12 @@
             this.open_Eokul = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.anneBox = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.babaBox = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.temelBox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.speed_rb_slower = new System.Windows.Forms.RadioButton();
             this.speed_rb_slow = new System.Windows.Forms.RadioButton();
@@ -56,11 +63,13 @@
             this.babaListBox = new System.Windows.Forms.CheckedListBox();
             this.ogrenciListBox = new System.Windows.Forms.CheckedListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.get_clipboard_list = new System.Windows.Forms.Button();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage5.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +82,7 @@
             this.tabControl2.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(650, 582);
+            this.tabControl2.Size = new System.Drawing.Size(650, 536);
             this.tabControl2.TabIndex = 31;
             this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
             // 
@@ -93,11 +102,21 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage4.Size = new System.Drawing.Size(642, 556);
+            this.tabPage4.Size = new System.Drawing.Size(642, 510);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Veri Sayfası";
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // get_clipboard_list
+            // 
+            this.get_clipboard_list.Location = new System.Drawing.Point(83, 441);
+            this.get_clipboard_list.Name = "get_clipboard_list";
+            this.get_clipboard_list.Size = new System.Drawing.Size(75, 59);
+            this.get_clipboard_list.TabIndex = 33;
+            this.get_clipboard_list.Text = "Panodan Öğrenci Ekle";
+            this.get_clipboard_list.UseVisualStyleBackColor = true;
+            this.get_clipboard_list.Click += new System.EventHandler(this.get_clipboard_list_Click);
             // 
             // topmost
             // 
@@ -195,6 +214,9 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.groupBox5);
+            this.tabPage5.Controls.Add(this.groupBox4);
+            this.tabPage5.Controls.Add(this.groupBox3);
             this.tabPage5.Controls.Add(this.groupBox1);
             this.tabPage5.Controls.Add(this.groupBox2);
             this.tabPage5.Controls.Add(this.anneListBox);
@@ -204,18 +226,82 @@
             this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage5.Size = new System.Drawing.Size(642, 556);
+            this.tabPage5.Size = new System.Drawing.Size(642, 510);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Ayarlar";
             this.tabPage5.UseVisualStyleBackColor = true;
             this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.anneBox);
+            this.groupBox5.Location = new System.Drawing.Point(304, 10);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(141, 42);
+            this.groupBox5.TabIndex = 35;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Anne Bilgileri";
+            // 
+            // anneBox
+            // 
+            this.anneBox.AutoSize = true;
+            this.anneBox.Location = new System.Drawing.Point(6, 19);
+            this.anneBox.Name = "anneBox";
+            this.anneBox.Size = new System.Drawing.Size(53, 17);
+            this.anneBox.TabIndex = 33;
+            this.anneBox.Text = "Hepsi";
+            this.anneBox.UseVisualStyleBackColor = true;
+            this.anneBox.CheckedChanged += new System.EventHandler(this.anneBox_CheckedChanged);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.babaBox);
+            this.groupBox4.Location = new System.Drawing.Point(158, 10);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(141, 42);
+            this.groupBox4.TabIndex = 34;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Baba Bilgileri";
+            // 
+            // babaBox
+            // 
+            this.babaBox.AutoSize = true;
+            this.babaBox.Location = new System.Drawing.Point(6, 19);
+            this.babaBox.Name = "babaBox";
+            this.babaBox.Size = new System.Drawing.Size(53, 17);
+            this.babaBox.TabIndex = 33;
+            this.babaBox.Text = "Hepsi";
+            this.babaBox.UseVisualStyleBackColor = true;
+            this.babaBox.CheckedChanged += new System.EventHandler(this.babaBox_CheckedChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.temelBox);
+            this.groupBox3.Location = new System.Drawing.Point(12, 10);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(141, 42);
+            this.groupBox3.TabIndex = 33;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Temel Bilgiler";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // temelBox
+            // 
+            this.temelBox.AutoSize = true;
+            this.temelBox.Location = new System.Drawing.Point(6, 19);
+            this.temelBox.Name = "temelBox";
+            this.temelBox.Size = new System.Drawing.Size(53, 17);
+            this.temelBox.TabIndex = 33;
+            this.temelBox.Text = "Hepsi";
+            this.temelBox.UseVisualStyleBackColor = true;
+            this.temelBox.CheckedChanged += new System.EventHandler(this.temelBox_CheckedChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.speed_rb_slower);
             this.groupBox1.Controls.Add(this.speed_rb_slow);
             this.groupBox1.Controls.Add(this.speed_rb_normal);
-            this.groupBox1.Location = new System.Drawing.Point(306, 316);
+            this.groupBox1.Location = new System.Drawing.Point(306, 351);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -270,7 +356,7 @@
             this.groupBox2.Controls.Add(this.AIHOrtaOgretim);
             this.groupBox2.Controls.Add(this.OrtaOgretim);
             this.groupBox2.Controls.Add(this.IlkOgretim);
-            this.groupBox2.Location = new System.Drawing.Point(12, 316);
+            this.groupBox2.Location = new System.Drawing.Point(12, 351);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(289, 127);
             this.groupBox2.TabIndex = 30;
@@ -357,7 +443,7 @@
             // anneListBox
             // 
             this.anneListBox.FormattingEnabled = true;
-            this.anneListBox.Location = new System.Drawing.Point(304, 18);
+            this.anneListBox.Location = new System.Drawing.Point(304, 53);
             this.anneListBox.Name = "anneListBox";
             this.anneListBox.Size = new System.Drawing.Size(143, 274);
             this.anneListBox.TabIndex = 7;
@@ -365,7 +451,7 @@
             // babaListBox
             // 
             this.babaListBox.FormattingEnabled = true;
-            this.babaListBox.Location = new System.Drawing.Point(158, 18);
+            this.babaListBox.Location = new System.Drawing.Point(158, 53);
             this.babaListBox.Name = "babaListBox";
             this.babaListBox.Size = new System.Drawing.Size(143, 274);
             this.babaListBox.TabIndex = 6;
@@ -373,26 +459,16 @@
             // ogrenciListBox
             // 
             this.ogrenciListBox.FormattingEnabled = true;
-            this.ogrenciListBox.Location = new System.Drawing.Point(12, 17);
+            this.ogrenciListBox.Location = new System.Drawing.Point(12, 52);
             this.ogrenciListBox.Name = "ogrenciListBox";
             this.ogrenciListBox.Size = new System.Drawing.Size(142, 274);
             this.ogrenciListBox.TabIndex = 5;
-            // 
-            // get_clipboard_list
-            // 
-            this.get_clipboard_list.Location = new System.Drawing.Point(83, 441);
-            this.get_clipboard_list.Name = "get_clipboard_list";
-            this.get_clipboard_list.Size = new System.Drawing.Size(75, 59);
-            this.get_clipboard_list.TabIndex = 33;
-            this.get_clipboard_list.Text = "Panodan Öğrenci Ekle";
-            this.get_clipboard_list.UseVisualStyleBackColor = true;
-            this.get_clipboard_list.Click += new System.EventHandler(this.get_clipboard_list_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 528);
+            this.ClientSize = new System.Drawing.Size(649, 543);
             this.Controls.Add(this.tabControl2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -406,6 +482,12 @@
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage5.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -444,6 +526,12 @@
         private System.Windows.Forms.CheckBox topmost;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button get_clipboard_list;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox temelBox;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.CheckBox anneBox;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.CheckBox babaBox;
     }
 }
 
