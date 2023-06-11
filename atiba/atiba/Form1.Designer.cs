@@ -447,6 +447,7 @@
             this.anneListBox.Name = "anneListBox";
             this.anneListBox.Size = new System.Drawing.Size(143, 274);
             this.anneListBox.TabIndex = 7;
+            this.anneListBox.SelectedIndexChanged += new System.EventHandler(this.checkListBox_SelectedIndexChanged);
             // 
             // babaListBox
             // 
@@ -455,6 +456,7 @@
             this.babaListBox.Name = "babaListBox";
             this.babaListBox.Size = new System.Drawing.Size(143, 274);
             this.babaListBox.TabIndex = 6;
+            this.babaListBox.SelectedIndexChanged += new System.EventHandler(this.checkListBox_SelectedIndexChanged);
             // 
             // ogrenciListBox
             // 
@@ -463,6 +465,7 @@
             this.ogrenciListBox.Name = "ogrenciListBox";
             this.ogrenciListBox.Size = new System.Drawing.Size(142, 274);
             this.ogrenciListBox.TabIndex = 5;
+            this.ogrenciListBox.SelectedIndexChanged += new System.EventHandler(this.checkListBox_SelectedIndexChanged);
             // 
             // Form1
             // 

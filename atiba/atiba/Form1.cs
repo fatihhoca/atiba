@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -27,6 +28,7 @@ namespace atiba
             ogrenciListBox.Items.AddRange(Ogr_list_Row);
             babaListBox.Items.AddRange(Baba_list_Row);
             anneListBox.Items.AddRange(Anne_list_Row);
+ 
 
             try
             {
@@ -42,6 +44,7 @@ namespace atiba
             SlnGetData.Set_School(IniIslemleri.VeriOku("radioButton", "Okul"));
 
         }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
 
@@ -559,5 +562,22 @@ namespace atiba
             }
 
         }
+
+     
+        private void checkListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckedListBox listBox = (CheckedListBox)sender;
+            int clickedIndex = listBox.SelectedIndex;
+
+            if (clickedIndex >= 0)
+            {
+                bool isChecked = listBox.GetItemChecked(clickedIndex);
+                listBox.SetItemChecked(clickedIndex, !isChecked);
+            }
+            listBox.ClearSelected();
+
+        }
+
+
     }
 }
