@@ -255,8 +255,33 @@ namespace atiba
                 if (InfoUrl != eokul.Url) { eokul.Navigate().GoToUrl(InfoUrl); }
                 try
                 {
+
                     veri = eokul.FindElement(By.Id("txtSoyadi"));
-                    Result = veri.GetAttribute("value").ToString(); ;
+                    Result = veri.GetAttribute("value").ToString(); 
+                }
+                catch
+                { Result = "Hata"; }
+            }
+            else
+            { Result = "Bulunamadı"; }
+
+            return Result;
+
+        }
+        public static string Get_Ogr_Adi_Soyadi()
+        {
+
+            if (Src)
+            {
+                if (InfoUrl != eokul.Url) { eokul.Navigate().GoToUrl(InfoUrl); }
+                try
+                {
+                    veri = eokul.FindElement(By.Id("txtAdi"));
+                    geciciVeri = veri.GetAttribute("value").ToString();
+                    veri = eokul.FindElement(By.Id("txtSoyadi"));
+                    geciciVeri = geciciVeri+" "+veri.GetAttribute("value").ToString();
+
+                    Result = geciciVeri;
                 }
                 catch
                 { Result = "Hata"; }

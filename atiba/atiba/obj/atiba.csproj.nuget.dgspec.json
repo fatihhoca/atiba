@@ -40,15 +40,15 @@
           "dependencies": {
             "Selenium.Support": {
               "target": "Package",
-              "version": "[4.9.0, )"
+              "version": "[4.10.0, )"
             },
             "Selenium.WebDriver": {
               "target": "Package",
-              "version": "[4.9.0, )"
+              "version": "[4.10.0, )"
             },
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
-              "version": "[112.0.5615.4900, )"
+              "version": "[114.0.5735.9000, )"
             },
             "Tesseract": {
               "target": "Package",
