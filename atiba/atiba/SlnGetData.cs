@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -491,7 +492,7 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                 
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
 
                 try
@@ -521,8 +522,8 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    
 
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -550,7 +551,7 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -581,7 +582,7 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -609,7 +610,7 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-      
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -636,7 +637,7 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-      
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -665,7 +666,7 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                   
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -695,7 +696,7 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -725,7 +726,7 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(PopulationInfoUrl);
                     Next_Wait(50);
-                    
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -927,17 +928,17 @@ namespace atiba
                 if (MomUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(MomUrl);
-                    Next_Wait(50);
-                  
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
                     aranan = eokul.FindElements(By.ClassName("col-sm-4"));
                     veri = aranan[1];
-                    geciciVeri = veri.Text;
+                    geciciVeri = veri.Text.ToString();
                     aranan = eokul.FindElements(By.ClassName("col-sm-4"));
                     veri = aranan[3];
-                    geciciVeri = geciciVeri+" "+veri.Text;
+                    geciciVeri = geciciVeri+" "+veri.Text.ToString();
                     Result = geciciVeri;
 
                 }
@@ -957,13 +958,13 @@ namespace atiba
                 if (MomUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(MomUrl);
-                    Next_Wait(50);
-                   
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
                     aranan = eokul.FindElements(By.TagName("h4"));
-                    geciciVeri  = aranan[1].Text;
+                    geciciVeri  = aranan[1].Text.ToString();
                     Result= geciciVeri;
                 }
                 catch
@@ -981,14 +982,14 @@ namespace atiba
                 if (MomUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(MomUrl);
-                    Next_Wait(50);
-                   
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
                     aranan= eokul.FindElements(By.Id("this.veliBilgileri[0].secretID"));
                     veri = aranan[1];
-                    geciciVeri=veri.GetAttribute("value");
+                    geciciVeri=veri.GetAttribute("value").ToString();
                     Result = geciciVeri;
                 }
                 catch
@@ -1006,13 +1007,14 @@ namespace atiba
                 if (MomUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(MomUrl);
-                    Next_Wait(50);
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
 
                     veri=eokul.FindElement(By.ClassName("sagOlu"));
-                    geciciVeri = veri.Text;
+                    geciciVeri = veri.Text.ToString();
                     Result = geciciVeri;
                 }
                 catch
@@ -1030,7 +1032,8 @@ namespace atiba
                 if (MomUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(MomUrl);
-                    Next_Wait(50);
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
 
                 }
                 try
@@ -1047,6 +1050,8 @@ namespace atiba
             return Result;
         }
 
+
+
         public static string Get_Anne_Mezuniyet()
         {
             if (Src)
@@ -1054,13 +1059,13 @@ namespace atiba
                 if (MomUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(MomUrl);
-                    Next_Wait(50);
-                 
+                    Next_Wait(1000);
+
                 }
 
-                    EduStatusId = "ogrenimDurumu";
+                EduStatusId = "ogrenimDurumu";
 
-              
+
 
                 bool hataVar = false;
                 do
@@ -1078,7 +1083,7 @@ namespace atiba
                         hataVar = true;
                         eokul.Navigate().Refresh();
                         Next_Wait(500);
-                        if (School != "OkulOncesi") Open_Eyes(1);
+
                     }
 
                 } while (hataVar == true);
@@ -1088,7 +1093,6 @@ namespace atiba
             return Result;
         }
 
-
         public static string Get_Anne_Mslk()
         {
             if (Src)
@@ -1096,11 +1100,11 @@ namespace atiba
                 if (MomUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(MomUrl);
-                    Next_Wait(50);
+                    Next_Wait(1000);
 
                 }
- 
-                    JobId = "cmbMeslek";
+
+                JobId = "cmbMeslek";
 
 
                 bool hataVar = false;
@@ -1109,7 +1113,7 @@ namespace atiba
 
                     try
                     {
-                        Next_Wait(200);
+                        
                         SelectElement se = new SelectElement(eokul.FindElement(By.Id(JobId)));
                         Result = se.SelectedOption.Text.ToString();
                         hataVar = false;
@@ -1120,7 +1124,7 @@ namespace atiba
                         hataVar = true;
                         eokul.Navigate().Refresh();
                         Next_Wait(500);
-                        
+
                     }
 
                 } while (hataVar == true);
@@ -1140,8 +1144,8 @@ namespace atiba
                 if (DadUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(DadUrl);
-                    Next_Wait(50);
-              
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -1170,8 +1174,8 @@ namespace atiba
                 if (DadUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(DadUrl);
-                    Next_Wait(50);
-                   
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -1195,8 +1199,8 @@ namespace atiba
                 if (DadUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(DadUrl);
-                    Next_Wait(50);
-                    
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
 
                 try
@@ -1222,8 +1226,8 @@ namespace atiba
                 if (DadUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(DadUrl);
-                    Next_Wait(50);
-                
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -1246,8 +1250,8 @@ namespace atiba
                 if (DadUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(DadUrl);
-                    Next_Wait(50);
-                  
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
@@ -1270,33 +1274,27 @@ namespace atiba
                 if (DadUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(DadUrl);
-                    Next_Wait(50);
-                   
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
- 
-                    EduStatusId = "ogrenimDurumu";
-
-
-                bool hataVar = false;
-                do
+                try
                 {
-                    try
-                    {
-                        Next_Wait(200);
-                        SelectElement se = new SelectElement(eokul.FindElement(By.Id(EduStatusId)));
-                        Result = se.SelectedOption.Text.ToString();
-                        hataVar = false;
-                    }
-                    catch
-                    {
-                        Result = "Hata";
-                        hataVar = true;
-                        eokul.Navigate().Refresh();
-                        Next_Wait(500);
-                       
-                    }
+                    EduStatusId = "ogrenimDurumu";
+                    WebDriverWait wait = new WebDriverWait(eokul, TimeSpan.FromSeconds(600));
+                    wait.Until(eokul => ((IJavaScriptExecutor)eokul).ExecuteScript("return document.readyState").Equals("complete"));
+                    SelectElement se = new SelectElement(eokul.FindElement(By.Id(EduStatusId)));
 
-                } while (hataVar == true);
+                    Result = se.SelectedOption.Text;
+
+
+
+
+
+
+
+                }
+                catch
+                { Result = "Hata"; }
             }
             else
             { Result = "Bulunamadı"; }
@@ -1312,34 +1310,26 @@ namespace atiba
                 if (DadUrl != eokul.Url)
                 {
                     eokul.Navigate().GoToUrl(DadUrl);
-                    Next_Wait(500);
-                   
+                    Next_Wait(1000);
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
-
+                try
+                {
                     JobId = "cmbMeslek";
 
+                    SelectElement se = new SelectElement(eokul.FindElement(By.Id(JobId)));
 
-                bool hataVar = false;
-                do
-                {
+                    Result = se.SelectedOption.Text;
 
-                    try
-                    {
-                        Next_Wait(200);
-                        SelectElement se = new SelectElement(eokul.FindElement(By.Id(JobId)));
-                        Result = se.SelectedOption.Text.ToString();
-                        hataVar = false;
-                    }
-                    catch
-                    {
-                        Result = "Hata";
-                        hataVar = true;
-                        eokul.Navigate().Refresh();
-                        Next_Wait(500);
-                        
-                    }
 
-                } while (hataVar == true);
+
+
+
+
+
+                }
+                catch
+                { Result = "Hata"; }
             }
             else
             { Result = "Bulunamadı"; }
@@ -1436,10 +1426,15 @@ namespace atiba
 
 
             DateTime start = DateTime.Now;
-            while (Convert.ToInt32((DateTime.Now - start).TotalMilliseconds) < saniye * Speed)
+            while (Convert.ToInt32((DateTime.Now - start).TotalMilliseconds) < saniye * Speed*3)
             {
 
             }
+
+
+
+
+
         }
 
 
