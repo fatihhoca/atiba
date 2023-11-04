@@ -963,9 +963,24 @@ namespace atiba
                 }
                 try
                 {
-                    aranan = eokul.FindElements(By.TagName("h4"));
-                    geciciVeri  = aranan[1].Text.ToString();
+                    aranan = eokul.FindElements(By.CssSelector("input[type='text'][maxlength='11'].form-control.form-control-lg"));
+                    if (aranan.Count > 0)
+                    {
+                        Result= aranan[0].GetAttribute("value").ToString();
+                    }
+                    else {
+                        aranan = eokul.FindElements(By.TagName("h4"));
+                        geciciVeri  = aranan[1].Text.ToString();
                     Result= geciciVeri;
+
+                    }
+
+
+
+
+
+                      
+
                 }
                 catch
                 { Result = "Hata"; }
@@ -1175,13 +1190,22 @@ namespace atiba
                 {
                     eokul.Navigate().GoToUrl(DadUrl);
                     Next_Wait(1000);
-                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassName('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
+                    ((IJavaScriptExecutor)eokul).ExecuteScript("document.getElementsByClassNFame('dropdown drp-user')[0].setAttribute('style', 'visibility: hidden;')");
                 }
                 try
                 {
-                    aranan = eokul.FindElements(By.TagName("h4"));
-                    geciciVeri = aranan[1].Text;
-                    Result = geciciVeri;
+                    aranan = eokul.FindElements(By.Id("yeniBabaTc"));
+                    if (aranan.Count>0)
+                    {
+                        Result = aranan[0].GetAttribute("value").ToString();
+                    }
+                    else
+                    {
+                        aranan = eokul.FindElements(By.TagName("h4"));
+                        geciciVeri = aranan[1].Text.ToString();
+                        Result = geciciVeri;
+
+                    }
 
                 }
                 catch
