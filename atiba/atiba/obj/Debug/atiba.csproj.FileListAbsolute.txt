@@ -47,7 +47,6 @@ C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\bin\Debug\WebDriver.Su
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\bin\Debug\WebDriver.dll
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\bin\Debug\Tesseract.dll
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.csproj.AssemblyReference.cache
-C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.csproj.SuggestedBindingRedirects.cache
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.csproj.ResolveComReference.cache
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.Form1.resources
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.Properties.Resources.resources
@@ -56,3 +55,5 @@ C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.csproj
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.csproj.CopyComplete
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.exe
 C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\obj\Debug\atiba.pdb
+C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\bin\Debug\Newtonsoft.Json.dll
+C:\Users\egiti\OneDrive\Belgeler\GitHub\atiba\atiba\atiba\bin\Debug\System.Drawing.Common.dll

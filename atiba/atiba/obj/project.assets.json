@@ -2,40 +2,81 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.8": {
-      "Selenium.Support/4.10.0": {
+      "Newtonsoft.Json/13.0.3": {
         "type": "package",
-        "dependencies": {
-          "Selenium.WebDriver": "4.10.0"
-        },
-        "frameworkAssemblies": [
-          "System.Drawing"
-        ],
         "compile": {
-          "lib/net48/WebDriver.Support.dll": {}
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net48/WebDriver.Support.dll": {}
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       },
-      "Selenium.WebDriver/4.10.0": {
+      "Selenium.Support/4.15.0": {
         "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.15.0"
+        },
         "frameworkAssemblies": [
           "System.Drawing"
         ],
         "compile": {
-          "lib/net48/WebDriver.dll": {}
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net48/WebDriver.dll": {}
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Selenium.WebDriver/4.15.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Drawing.Common": "7.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/114.0.5735.9000": {
+      "Selenium.WebDriver.ChromeDriver/119.0.6045.10500": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
+        }
+      },
+      "System.Drawing.Common/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net462/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net462/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net462/_._": {}
         }
       },
       "Tesseract/5.2.0": {
@@ -55,40 +96,175 @@
       }
     },
     ".NETFramework,Version=v4.8/win": {
-      "Selenium.Support/4.10.0": {
+      "Newtonsoft.Json/13.0.3": {
         "type": "package",
-        "dependencies": {
-          "Selenium.WebDriver": "4.10.0"
-        },
-        "frameworkAssemblies": [
-          "System.Drawing"
-        ],
         "compile": {
-          "lib/net48/WebDriver.Support.dll": {}
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net48/WebDriver.Support.dll": {}
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       },
-      "Selenium.WebDriver/4.10.0": {
+      "Selenium.Support/4.15.0": {
         "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.15.0"
+        },
         "frameworkAssemblies": [
           "System.Drawing"
         ],
         "compile": {
-          "lib/net48/WebDriver.dll": {}
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net48/WebDriver.dll": {}
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Selenium.WebDriver/4.15.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Drawing.Common": "7.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/114.0.5735.9000": {
+      "Selenium.WebDriver.ChromeDriver/119.0.6045.10500": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
+        }
+      },
+      "System.Drawing.Common/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net462/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net462/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net462/_._": {}
+        }
+      },
+      "Tesseract/5.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net48/Tesseract.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Tesseract.dll": {}
+        },
+        "build": {
+          "build/Tesseract.targets": {}
+        }
+      },
+      "Tesseract-OCR/1.0.4": {
+        "type": "package"
+      }
+    },
+    ".NETFramework,Version=v4.8/win-arm64": {
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Selenium.Support/4.15.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.15.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Selenium.WebDriver/4.15.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Drawing.Common": "7.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Selenium.WebDriver.targets": {}
+        }
+      },
+      "Selenium.WebDriver.ChromeDriver/119.0.6045.10500": {
+        "type": "package",
+        "build": {
+          "build/Selenium.WebDriver.ChromeDriver.targets": {}
+        }
+      },
+      "System.Drawing.Common/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net462/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net462/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net462/_._": {}
         }
       },
       "Tesseract/5.2.0": {
@@ -108,40 +284,81 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x64": {
-      "Selenium.Support/4.10.0": {
+      "Newtonsoft.Json/13.0.3": {
         "type": "package",
-        "dependencies": {
-          "Selenium.WebDriver": "4.10.0"
-        },
-        "frameworkAssemblies": [
-          "System.Drawing"
-        ],
         "compile": {
-          "lib/net48/WebDriver.Support.dll": {}
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net48/WebDriver.Support.dll": {}
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       },
-      "Selenium.WebDriver/4.10.0": {
+      "Selenium.Support/4.15.0": {
         "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.15.0"
+        },
         "frameworkAssemblies": [
           "System.Drawing"
         ],
         "compile": {
-          "lib/net48/WebDriver.dll": {}
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net48/WebDriver.dll": {}
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Selenium.WebDriver/4.15.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Drawing.Common": "7.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/114.0.5735.9000": {
+      "Selenium.WebDriver.ChromeDriver/119.0.6045.10500": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
+        }
+      },
+      "System.Drawing.Common/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net462/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net462/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net462/_._": {}
         }
       },
       "Tesseract/5.2.0": {
@@ -161,40 +378,81 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x86": {
-      "Selenium.Support/4.10.0": {
+      "Newtonsoft.Json/13.0.3": {
         "type": "package",
-        "dependencies": {
-          "Selenium.WebDriver": "4.10.0"
-        },
-        "frameworkAssemblies": [
-          "System.Drawing"
-        ],
         "compile": {
-          "lib/net48/WebDriver.Support.dll": {}
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net48/WebDriver.Support.dll": {}
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       },
-      "Selenium.WebDriver/4.10.0": {
+      "Selenium.Support/4.15.0": {
         "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.15.0"
+        },
         "frameworkAssemblies": [
           "System.Drawing"
         ],
         "compile": {
-          "lib/net48/WebDriver.dll": {}
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net48/WebDriver.dll": {}
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Selenium.WebDriver/4.15.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Drawing.Common": "7.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/114.0.5735.9000": {
+      "Selenium.WebDriver.ChromeDriver/119.0.6045.10500": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
+        }
+      },
+      "System.Drawing.Common/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net462/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net462/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net462/_._": {}
         }
       },
       "Tesseract/5.2.0": {
@@ -215,68 +473,128 @@
     }
   },
   "libraries": {
-    "Selenium.Support/4.10.0": {
-      "sha512": "S/7nH+SMiCaut5C6kmMVxq4mCcmvwboPvPqdpx2/Dfwi2O9bFQb+psJC4ZcpvPMg7FCnrC1i6uZW6rthjSo1TQ==",
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
-      "path": "selenium.support/4.10.0",
+      "path": "newtonsoft.json/13.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "images/icon.png",
-        "lib/net45/WebDriver.Support.dll",
-        "lib/net46/WebDriver.Support.dll",
-        "lib/net47/WebDriver.Support.dll",
-        "lib/net48/WebDriver.Support.dll",
-        "lib/net5.0/WebDriver.Support.dll",
-        "lib/net6.0/WebDriver.Support.dll",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "Selenium.Support/4.15.0": {
+      "sha512": "zqkSQYMS2JcAd+AKavADPoe/RyYjiklc/TRms/nzDH9Wo/OpYOqE7h9D8ggwXr4auErNvbAIqEGqIkAWElTkpg==",
+      "type": "package",
+      "path": "selenium.support/4.15.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
         "lib/netstandard2.0/WebDriver.Support.dll",
-        "lib/netstandard2.1/WebDriver.Support.dll",
-        "selenium.support.4.10.0.nupkg.sha512",
+        "lib/netstandard2.0/WebDriver.Support.xml",
+        "selenium.support.4.15.0.nupkg.sha512",
         "selenium.support.nuspec"
       ]
     },
-    "Selenium.WebDriver/4.10.0": {
-      "sha512": "MvgUaxeLqLOtRnNS+kHzqfOhLO+7ZEukhQMuS7ksQQPA2tGNXWhrRN3PTkTGuKhuodd9JkoZ4eCKVEQF6xPdmA==",
+    "Selenium.WebDriver/4.15.0": {
+      "sha512": "/uMlgsPdsmAAwOADxA4lzz777Xgbhm/SjmvizBpiRDyZtnAxDZ0uON5bpTN+De9F81xB/1z/S8jKN1P7ebYssw==",
       "type": "package",
-      "path": "selenium.webdriver/4.10.0",
+      "path": "selenium.webdriver/4.15.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "README.md",
         "build/Selenium.WebDriver.targets",
         "buildTransitive/Selenium.WebDriver.targets",
-        "images/icon.png",
-        "lib/net45/WebDriver.dll",
-        "lib/net46/WebDriver.dll",
-        "lib/net47/WebDriver.dll",
-        "lib/net48/WebDriver.dll",
-        "lib/net5.0/WebDriver.dll",
-        "lib/net6.0/WebDriver.dll",
+        "icon.png",
         "lib/netstandard2.0/WebDriver.dll",
-        "lib/netstandard2.1/WebDriver.dll",
+        "lib/netstandard2.0/WebDriver.xml",
         "manager/linux/selenium-manager",
         "manager/macos/selenium-manager",
         "manager/windows/selenium-manager.exe",
-        "selenium.webdriver.4.10.0.nupkg.sha512",
+        "selenium.webdriver.4.15.0.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.ChromeDriver/114.0.5735.9000": {
-      "sha512": "BgBGrbMiyhq+wZjWfKE0t5A+TVlY5kbUj8BcxPSMjuGOW2CinaMNZq567ZjxDNDvnqJBKmx2mPa5Hkjolt28Lg==",
+    "Selenium.WebDriver.ChromeDriver/119.0.6045.10500": {
+      "sha512": "HwYe60H6KFQJLUx9A8QLJiLoRkXbHnHrw46uKilue3BRxDPX6DAa5W8jWUEy9rAFOn7alKBcyWBWUJDDGeB70Q==",
       "type": "package",
-      "path": "selenium.webdriver.chromedriver/114.0.5735.9000",
+      "path": "selenium.webdriver.chromedriver/119.0.6045.10500",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
         "build/DefinePropertiesChromeDriver.targets",
         "build/Selenium.WebDriver.ChromeDriver.targets",
+        "driver/linux64/LICENSE.chromedriver",
         "driver/linux64/chromedriver",
+        "driver/mac64/LICENSE.chromedriver",
         "driver/mac64/chromedriver",
+        "driver/mac64arm/LICENSE.chromedriver",
         "driver/mac64arm/chromedriver",
+        "driver/win32/LICENSE.chromedriver",
         "driver/win32/chromedriver.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.chromedriver.114.0.5735.9000.nupkg.sha512",
+        "selenium.webdriver.chromedriver.119.0.6045.10500.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
+      ]
+    },
+    "System.Drawing.Common/7.0.0": {
+      "sha512": "KIX+oBU38pxkKPxvLcLfIkOV5Ien8ReN78wro7OF5/erwcmortzeFx+iBswlh2Vz6gVne0khocQudGwaO1Ey6A==",
+      "type": "package",
+      "path": "system.drawing.common/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Drawing.Common.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Drawing.Common.targets",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net462/System.Drawing.Common.dll",
+        "lib/net462/System.Drawing.Common.xml",
+        "lib/net6.0/System.Drawing.Common.dll",
+        "lib/net6.0/System.Drawing.Common.xml",
+        "lib/net7.0/System.Drawing.Common.dll",
+        "lib/net7.0/System.Drawing.Common.xml",
+        "lib/netstandard2.0/System.Drawing.Common.dll",
+        "lib/netstandard2.0/System.Drawing.Common.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "runtimes/win/lib/net6.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/net6.0/System.Drawing.Common.xml",
+        "runtimes/win/lib/net7.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/net7.0/System.Drawing.Common.xml",
+        "system.drawing.common.7.0.0.nupkg.sha512",
+        "system.drawing.common.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "Tesseract/5.2.0": {
@@ -367,9 +685,11 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
-      "Selenium.Support >= 4.10.0",
-      "Selenium.WebDriver >= 4.10.0",
-      "Selenium.WebDriver.ChromeDriver >= 114.0.5735.9000",
+      "Newtonsoft.Json >= 13.0.3",
+      "Selenium.Support >= 4.15.0",
+      "Selenium.WebDriver >= 4.15.0",
+      "Selenium.WebDriver.ChromeDriver >= 119.0.6045.10500",
+      "System.Drawing.Common >= 7.0.0",
       "Tesseract >= 5.2.0",
       "Tesseract-OCR >= 1.0.4"
     ]
@@ -412,17 +732,25 @@
     "frameworks": {
       "net48": {
         "dependencies": {
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.3, )"
+          },
           "Selenium.Support": {
             "target": "Package",
-            "version": "[4.10.0, )"
+            "version": "[4.15.0, )"
           },
           "Selenium.WebDriver": {
             "target": "Package",
-            "version": "[4.10.0, )"
+            "version": "[4.15.0, )"
           },
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
-            "version": "[114.0.5735.9000, )"
+            "version": "[119.0.6045.10500, )"
+          },
+          "System.Drawing.Common": {
+            "target": "Package",
+            "version": "[7.0.0, )"
           },
           "Tesseract": {
             "target": "Package",
@@ -437,6 +765,9 @@
     },
     "runtimes": {
       "win": {
+        "#import": []
+      },
+      "win-arm64": {
         "#import": []
       },
       "win-x64": {

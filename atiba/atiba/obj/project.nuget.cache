@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "+NnSEwCauR7zUwqmmoyJWYzG1itFXA2gDotpbITIbUBQBHJwMgaMJzUGgcHxFW7AVYTmWBEf3UnTjsu6YB2WjQ==",
+  "dgSpecHash": "gP1FXnFpL6tY4j3uCm7Su5q0wvA7nZgAFpdKwULWNDMqZiDKZSeMzghZ39ZzYyzmuSzdGdfZSXjR8shP4oBnDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\egiti\\OneDrive\\Belgeler\\GitHub\\atiba\\atiba\\atiba\\atiba.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\egiti\\.nuget\\packages\\selenium.support\\4.10.0\\selenium.support.4.10.0.nupkg.sha512",
-    "C:\\Users\\egiti\\.nuget\\packages\\selenium.webdriver\\4.10.0\\selenium.webdriver.4.10.0.nupkg.sha512",
-    "C:\\Users\\egiti\\.nuget\\packages\\selenium.webdriver.chromedriver\\114.0.5735.9000\\selenium.webdriver.chromedriver.114.0.5735.9000.nupkg.sha512",
+    "C:\\Users\\egiti\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\egiti\\.nuget\\packages\\selenium.support\\4.15.0\\selenium.support.4.15.0.nupkg.sha512",
+    "C:\\Users\\egiti\\.nuget\\packages\\selenium.webdriver\\4.15.0\\selenium.webdriver.4.15.0.nupkg.sha512",
+    "C:\\Users\\egiti\\.nuget\\packages\\selenium.webdriver.chromedriver\\119.0.6045.10500\\selenium.webdriver.chromedriver.119.0.6045.10500.nupkg.sha512",
+    "C:\\Users\\egiti\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
     "C:\\Users\\egiti\\.nuget\\packages\\tesseract\\5.2.0\\tesseract.5.2.0.nupkg.sha512",
     "C:\\Users\\egiti\\.nuget\\packages\\tesseract-ocr\\1.0.4\\tesseract-ocr.1.0.4.nupkg.sha512"
   ],
