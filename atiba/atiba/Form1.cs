@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 
+
 namespace atiba
 {
     public partial class Form1 : Form
@@ -179,7 +180,7 @@ namespace atiba
         private void set_Data_Excel_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Veri büyüklüğüne göre Excel'e aktarım zaman alabilir lütfen Bitti uyarısı gelene kadar başka işlem yapmayınız.", "Excel'e Aktarım", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            try
+            
             {
                 Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
                 Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
@@ -220,7 +221,7 @@ namespace atiba
                 MessageBox.Show("Excel'e aktarım hatasız bir şekilde bitti. Tamam tuşuna basarak Excel dosyasına erişebilirsiniz.", "Excel'e Aktarım Bitti", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 app.Visible = true;
             }
-            catch
+            
             {
                 MessageBox.Show("Excel'e aktarım sırasında hata oluştu. Eğer sorun yaşamaya devam ederseniz verileri kopyalayıp Excel'e yapıştırabilirsiniz.", "Veri Aktarım Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -357,6 +358,7 @@ namespace atiba
 
         private void get_Data_Click(object sender, EventArgs e)
         {
+            satir = 0;
             if (SlnGetData.eokul == null)
             {
                 MessageBox.Show("Eokul için Chrome Tarayıcısı açılmamış\nEokulu yandaki butonu kullanarak açın.", "Her şeyin Sırası var", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -521,6 +523,33 @@ namespace atiba
                 }
            
             //dataGridView1.Rows.Add(veri);
+        }
+
+        private void ogrenciCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ogrenciCheckBox.Checked == true) ogrenciCheckBox.Text = "Tümünü Kaldır"; else ogrenciCheckBox.Text = "Tümünü Seç";
+            for (int i = 0; i < ogrenciListBox.Items.Count; i++)
+            {
+                ogrenciListBox.SetItemChecked(i, ogrenciCheckBox.Checked);
+            }
+        }
+
+        private void babaCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (babaCheckBox.Checked == true) babaCheckBox.Text = "Tümünü Kaldır"; else babaCheckBox.Text = "Tümünü Seç";
+            for (int i = 0; i < babaListBox.Items.Count; i++)
+            {
+                babaListBox.SetItemChecked(i, babaCheckBox.Checked);
+            }
+        }
+
+        private void anneCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (anneCheckBox.Checked == true) anneCheckBox.Text = "Tümünü Kaldır"; else anneCheckBox.Text = "Tümünü Seç";
+            for (int i = 0; i < anneListBox.Items.Count; i++)
+            {
+                anneListBox.SetItemChecked(i, anneCheckBox.Checked);
+            }
         }
     }
 }

@@ -57,6 +57,9 @@
             this.babaListBox = new System.Windows.Forms.CheckedListBox();
             this.ogrenciListBox = new System.Windows.Forms.CheckedListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.ogrenciCheckBox = new System.Windows.Forms.CheckBox();
+            this.babaCheckBox = new System.Windows.Forms.CheckBox();
+            this.anneCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -205,6 +208,9 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.anneCheckBox);
+            this.tabPage5.Controls.Add(this.babaCheckBox);
+            this.tabPage5.Controls.Add(this.ogrenciCheckBox);
             this.tabPage5.Controls.Add(this.groupBox1);
             this.tabPage5.Controls.Add(this.groupBox2);
             this.tabPage5.Controls.Add(this.anneListBox);
@@ -225,7 +231,7 @@
             this.groupBox1.Controls.Add(this.speed_rb_slower);
             this.groupBox1.Controls.Add(this.speed_rb_slow);
             this.groupBox1.Controls.Add(this.speed_rb_normal);
-            this.groupBox1.Location = new System.Drawing.Point(306, 316);
+            this.groupBox1.Location = new System.Drawing.Point(306, 323);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -280,7 +286,7 @@
             this.groupBox2.Controls.Add(this.AIHOrtaOgretim);
             this.groupBox2.Controls.Add(this.OrtaOgretim);
             this.groupBox2.Controls.Add(this.IlkOgretim);
-            this.groupBox2.Location = new System.Drawing.Point(12, 316);
+            this.groupBox2.Location = new System.Drawing.Point(12, 323);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(289, 127);
             this.groupBox2.TabIndex = 30;
@@ -367,7 +373,7 @@
             // anneListBox
             // 
             this.anneListBox.FormattingEnabled = true;
-            this.anneListBox.Location = new System.Drawing.Point(304, 18);
+            this.anneListBox.Location = new System.Drawing.Point(304, 25);
             this.anneListBox.Name = "anneListBox";
             this.anneListBox.Size = new System.Drawing.Size(143, 274);
             this.anneListBox.TabIndex = 7;
@@ -375,7 +381,7 @@
             // babaListBox
             // 
             this.babaListBox.FormattingEnabled = true;
-            this.babaListBox.Location = new System.Drawing.Point(158, 18);
+            this.babaListBox.Location = new System.Drawing.Point(158, 25);
             this.babaListBox.Name = "babaListBox";
             this.babaListBox.Size = new System.Drawing.Size(143, 274);
             this.babaListBox.TabIndex = 6;
@@ -383,10 +389,43 @@
             // ogrenciListBox
             // 
             this.ogrenciListBox.FormattingEnabled = true;
-            this.ogrenciListBox.Location = new System.Drawing.Point(12, 17);
+            this.ogrenciListBox.Location = new System.Drawing.Point(12, 24);
             this.ogrenciListBox.Name = "ogrenciListBox";
             this.ogrenciListBox.Size = new System.Drawing.Size(142, 274);
             this.ogrenciListBox.TabIndex = 5;
+            // 
+            // ogrenciCheckBox
+            // 
+            this.ogrenciCheckBox.AutoSize = true;
+            this.ogrenciCheckBox.Location = new System.Drawing.Point(15, 5);
+            this.ogrenciCheckBox.Name = "ogrenciCheckBox";
+            this.ogrenciCheckBox.Size = new System.Drawing.Size(87, 17);
+            this.ogrenciCheckBox.TabIndex = 32;
+            this.ogrenciCheckBox.Text = "Tümünü Seç";
+            this.ogrenciCheckBox.UseVisualStyleBackColor = true;
+            this.ogrenciCheckBox.CheckedChanged += new System.EventHandler(this.ogrenciCheckBox_CheckedChanged);
+            // 
+            // babaCheckBox
+            // 
+            this.babaCheckBox.AutoSize = true;
+            this.babaCheckBox.Location = new System.Drawing.Point(161, 5);
+            this.babaCheckBox.Name = "babaCheckBox";
+            this.babaCheckBox.Size = new System.Drawing.Size(87, 17);
+            this.babaCheckBox.TabIndex = 33;
+            this.babaCheckBox.Text = "Tümünü Seç";
+            this.babaCheckBox.UseVisualStyleBackColor = true;
+            this.babaCheckBox.CheckedChanged += new System.EventHandler(this.babaCheckBox_CheckedChanged);
+            // 
+            // anneCheckBox
+            // 
+            this.anneCheckBox.AutoSize = true;
+            this.anneCheckBox.Location = new System.Drawing.Point(307, 5);
+            this.anneCheckBox.Name = "anneCheckBox";
+            this.anneCheckBox.Size = new System.Drawing.Size(87, 17);
+            this.anneCheckBox.TabIndex = 34;
+            this.anneCheckBox.Text = "Tümünü Seç";
+            this.anneCheckBox.UseVisualStyleBackColor = true;
+            this.anneCheckBox.CheckedChanged += new System.EventHandler(this.anneCheckBox_CheckedChanged);
             // 
             // Form1
             // 
@@ -398,7 +437,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Atiba - eOkul Scrapper 3.4";
+            this.Text = "Atiba - eOkul Scrapper 4.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl2.ResumeLayout(false);
@@ -406,6 +445,7 @@
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -444,6 +484,9 @@
         private System.Windows.Forms.CheckBox topmost;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button get_clipboard_list;
+        private System.Windows.Forms.CheckBox anneCheckBox;
+        private System.Windows.Forms.CheckBox babaCheckBox;
+        private System.Windows.Forms.CheckBox ogrenciCheckBox;
     }
 }
 
